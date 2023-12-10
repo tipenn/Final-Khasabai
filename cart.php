@@ -113,7 +113,6 @@ $result = $conn->query($sql);
         }
         .delete_cart:hover{
             color:red;
-            
 
         }
     </style>
