@@ -242,8 +242,7 @@ if (!empty($searchQuery)) {
 .skincare_category {
     display: none;
 }
-.category
- {
+.category{
     background-color: pink;
     border-radius: 10px;
     width: 100%;
@@ -259,7 +258,6 @@ if (!empty($searchQuery)) {
     border:2px solid #cccccc;
     font-size: 25px; 
     width:77%
-
 }
 .head {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Adjusted shadow color and opacity */
@@ -414,11 +412,11 @@ if (!empty($searchQuery)) {
     
 <div class="wrap" >
     <div class="all head" style="display: inline-block;  cursor: pointer; margin: 0;  padding: 0 5px 3px 0;" onclick="toggleContent('all')">All</div>
-    <div class="beauty-sets head" style="display: inline-block;  cursor: pointer; margin: 0;  padding: 0 5px 3px 0;" onclick="toggleContent('all')">Beauty Sets</div>
-    <div class="soap-scrub head" style="display: inline-block;  cursor: pointer; margin: 0;  padding: 0 5px 3px 0;" onclick="toggleContent('all')">Body Soup and Scrub</div>
-    <div class="face-body head" style="display: inline-block;  cursor: pointer; margin: 0;  padding: 0 5px 3px 0;" onclick="toggleContent('all')">Face and Body Lotion</div>
-    <div class="cosmetics head" style="display: inline-block;  cursor: pointer; margin: 0;  padding: 0 5px 3px 0;" onclick="toggleContent('all')">Cosmetics</div>
-    <div class="skincare head" style="display: inline-block;  cursor: pointer; margin: 0;  padding: 0 5px 3px 0;" onclick="toggleContent('all')">Facial Skincare</div>
+    <div class="beauty-sets head" style="display: inline-block;  cursor: pointer; margin: 0;  padding: 0 5px 3px 0;" onclick="toggleContent('beauty_set_')">Beauty Sets</div>
+    <div class="soap-scrub head" style="display: inline-block;  cursor: pointer; margin: 0;  padding: 0 5px 3px 0;" onclick="toggleContent('body_soap_')">Body Soup and Scrub</div>
+    <div class="face-body head" style="display: inline-block;  cursor: pointer; margin: 0;  padding: 0 5px 3px 0;" onclick="toggleContent('lotion_')">Face and Body Lotion</div>
+    <div class="cosmetics head" style="display: inline-block;  cursor: pointer; margin: 0;  padding: 0 5px 3px 0;" onclick="toggleContent('cosmetics_')">Cosmetics</div>
+    <div class="skincare head" style="display: inline-block;  cursor: pointer; margin: 0;  padding: 0 5px 3px 0;" onclick="toggleContent('skincare_')">Facial Skincare</div>
 </div>  
 
 
@@ -453,7 +451,7 @@ if (!empty($searchQuery)) {
 
 
 
-<div id="beauty_set_category" class="category beauty_set_category">
+<div id="beauty_set_category" class="category beauty_set_category" >
             <div class="scrollable-section">
                 <div class="content" style="width:100%;">
                     <div class="row">
@@ -501,7 +499,7 @@ if (!empty($searchQuery)) {
 
 
 
-<div id="lotion_category" class="category lotion_category">
+<div id="lotion_category" class="category lotion_category" >
             <div class="scrollable-section">
                 <div class="content" style="width:100%;">
                     <div class="row">
@@ -524,8 +522,7 @@ if (!empty($searchQuery)) {
 </div>
 
 
-
-<div id="cosmetics_category" class="category cosmetics_category">
+<div id="cosmetics_category" class="category cosmetics_category" >
             <div class="scrollable-section">
                 <div class="content" style="width:100%;">
                     <div class="row">
@@ -593,10 +590,9 @@ if (!empty($searchQuery)) {
     </div>
 </footer>
     <script>
-        const buttons = document.querySelectorAll("[data-carousel-button]")
-
-buttons.forEach(button => {
-  button.addEventListener("click", () => {
+const buttons = document.querySelectorAll("[data-carousel-button]")
+    buttons.forEach(button => {
+    button.addEventListener("click", () => {
     const offset = button.dataset.carouselButton === "next" ? 1 : -1
     const slides = button
       .closest("[data-carousel]")
@@ -617,6 +613,7 @@ function toggleContent(element) {
     document.getElementById('beauty_set_category').style.display = 'none';
     document.getElementById('body_soap_category').style.display = 'none';
     document.getElementById('lotion_category').style.display = 'none';
+    document.getElementById('cosmetics_category').style.display = 'none';
     document.getElementById('skincare_category').style.display = 'none';
 
     document.getElementById(element + 'category').style.display = 'block';
