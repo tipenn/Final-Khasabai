@@ -112,12 +112,9 @@ $result = $conn->query($sql);
             background-color: #C9BBAE;
         }
         .delete_cart:hover{
-            color:red;
-
+            color:red;     
         }
     </style>
-
-
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Cart</title>

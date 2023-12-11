@@ -139,11 +139,7 @@ if (isset($_POST['submit_btn'])) {
         footer a:hover{
             color: black;
         }
-        .error{
-            background-color: black;
-            color:white;
-            display:none;
-        }
+       
     </style>
 
 
