@@ -149,7 +149,8 @@ if (!empty($searchQuery)) {
         .scrollable-section {
             height: 600px; /* Adjust the height as needed */
             overflow-y: auto;
-            border: 1px solid #ddd; /* Optional: Add a border for better visibility */
+            border-radius: 30px;
+
         }
         
         button{
@@ -243,27 +244,29 @@ if (!empty($searchQuery)) {
     display: none;
 }
 .category{
-    background-color: pink;
-    border-radius: 10px;
+    background-color: rgba(255, 192, 203, 0.5);
     width: 100%;
     box-shadow: 0 50px 50px #757676;
     border:2px solid #cccccc;
+    border-radius: 30px;
+
 }
 
 
 .wrap{
     margin:0px;
-    background-color: pink;
+    background-color: rgba(255, 192, 203, 0.5);
     box-shadow: 0 50px 50px #757676;
     border:2px solid #cccccc;
     font-size: 25px; 
-    width:77%
+    width:79%;
+    border-radius: 30px;
+    padding:0px 10px 3px 10px;
 }
 .head {
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Adjusted shadow color and opacity */
     transform: translateY(0); /* Baseline transform */
-    transition: box-shadow 0.5s, transform 0.5s; /* Combined transitions */
-    padding: 10px;
+    transition: box-shadow 0.5s, transform 0.5s;
+    padding: 3px 3px 3px 3px;
 }
 
 .head:hover {
@@ -411,12 +414,12 @@ if (!empty($searchQuery)) {
 <div class="container">
     
 <div class="wrap" >
-    <div class="all head" style="display: inline-block;  cursor: pointer; margin: 0;  padding: 0 5px 3px 0;" onclick="toggleContent('all')">All</div>
-    <div class="beauty-sets head" style="display: inline-block;  cursor: pointer; margin: 0;  padding: 0 5px 3px 0;" onclick="toggleContent('beauty_set_')">Beauty Sets</div>
-    <div class="soap-scrub head" style="display: inline-block;  cursor: pointer; margin: 0;  padding: 0 5px 3px 0;" onclick="toggleContent('body_soap_')">Body Soup and Scrub</div>
-    <div class="face-body head" style="display: inline-block;  cursor: pointer; margin: 0;  padding: 0 5px 3px 0;" onclick="toggleContent('lotion_')">Face and Body Lotion</div>
-    <div class="cosmetics head" style="display: inline-block;  cursor: pointer; margin: 0;  padding: 0 5px 3px 0;" onclick="toggleContent('cosmetics_')">Cosmetics</div>
-    <div class="skincare head" style="display: inline-block;  cursor: pointer; margin: 0;  padding: 0 5px 3px 0;" onclick="toggleContent('skincare_')">Facial Skincare</div>
+    <div class="all head" style="display: inline-block;  cursor: pointer; margin: 0;"   onclick="toggleContent('all')">All</div>
+    <div class="beauty-sets head" style="display: inline-block;  cursor: pointer; margin: 0;"   onclick="toggleContent('beauty_set_')">Beauty Sets</div>
+    <div class="soap-scrub head" style="display: inline-block;  cursor: pointer; margin: 0;"   onclick="toggleContent('body_soap_')">Body Soup and Scrub</div>
+    <div class="face-body head" style="display: inline-block;  cursor: pointer; margin: 0;" onclick="toggleContent('lotion_')">Face and Body Lotion</div>
+    <div class="cosmetics head" style="display: inline-block;  cursor: pointer; margin: 0;" onclick="toggleContent('cosmetics_')">Cosmetics</div>
+    <div class="skincare head" style="display: inline-block;  cursor: pointer; margin: 0; " onclick="toggleContent('skincare_')">Facial Skincare</div>
 </div>  
 
 
