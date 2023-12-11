@@ -32,8 +32,6 @@ $mail->Subject="Password Reset";
 $mail->Body="<p>Dear user, </p> Your current password is <h2>" . $currentPassword . "</h2><br><h3> Upon logging in, please remember to change your password for added security. </h3>
 <br><br>
 ";
-
-
 $mail->send();
 
 }

@@ -6,9 +6,22 @@ session_start();
 $sql="SELECT * FROM products;";
 $result=$conn->query($sql);
 
-//cleanser
-$sequel="SELECT * FROM products where category ='Cleanser'";
-$output=$conn->query($sequel);
+
+$beauty="SELECT * FROM products where category = 'Beauty Sets'";
+$output=$conn->query($beauty);
+
+$soap_scrub="SELECT * FROM products where category ='Body Soap and Scrub'";
+$outcome=$conn->query($soap_scrub);
+
+$lotion="SELECT * FROM products where category ='Face and Body Lotion'";
+$end=$conn->query($lotion);
+
+$cosmetics="SELECT * FROM products where category ='Cosmetics'";
+$last=$conn->query($cosmetics);
+
+$skincare="SELECT * FROM products where category ='Facial Skin Care'";
+$follow=$conn->query($skincare);
+
 
 
 if (isset($_POST['order'])) {
@@ -134,7 +147,9 @@ if (!empty($searchQuery)) {
             width:170px;
         }
         .scrollable-section {
-            height: 700px; /* Adjust the height as needed */
+            height: 600px; /* Adjust the height as needed */
+            overflow-y: auto;
+            border: 1px solid #ddd; /* Optional: Add a border for better visibility */
         }
         
         button{
@@ -220,16 +235,20 @@ if (!empty($searchQuery)) {
   right: 1rem;
 }
 
-.cleansercategory {
+.lotion_category, 
+.beauty_set_category, 
+.body_soap_category, 
+.cosmetics_category, 
+.skincare_category {
     display: none;
 }
-.category {
+.category
+ {
     background-color: pink;
     border-radius: 10px;
     width: 100%;
     box-shadow: 0 50px 50px #757676;
     border:2px solid #cccccc;
-
 }
 
 
@@ -238,7 +257,8 @@ if (!empty($searchQuery)) {
     background-color: pink;
     box-shadow: 0 50px 50px #757676;
     border:2px solid #cccccc;
-
+    font-size: 25px; 
+    width:77%
 
 }
 .head {
@@ -392,14 +412,19 @@ if (!empty($searchQuery)) {
 
 <div class="container">
     
-<div class="wrap" style="font-size: 25px; width:150px">
+<div class="wrap" >
     <div class="all head" style="display: inline-block;  cursor: pointer; margin: 0;  padding: 0 5px 3px 0;" onclick="toggleContent('all')">All</div>
-    <div class="cleanser head" style="display: inline-block; cursor: pointer; margin: 0; padding: 0 5px 3px 0;" onclick="toggleContent('cleanser')">Cleanser</div>
+    <div class="beauty-sets head" style="display: inline-block;  cursor: pointer; margin: 0;  padding: 0 5px 3px 0;" onclick="toggleContent('all')">Beauty Sets</div>
+    <div class="soap-scrub head" style="display: inline-block;  cursor: pointer; margin: 0;  padding: 0 5px 3px 0;" onclick="toggleContent('all')">Body Soup and Scrub</div>
+    <div class="face-body head" style="display: inline-block;  cursor: pointer; margin: 0;  padding: 0 5px 3px 0;" onclick="toggleContent('all')">Face and Body Lotion</div>
+    <div class="cosmetics head" style="display: inline-block;  cursor: pointer; margin: 0;  padding: 0 5px 3px 0;" onclick="toggleContent('all')">Cosmetics</div>
+    <div class="skincare head" style="display: inline-block;  cursor: pointer; margin: 0;  padding: 0 5px 3px 0;" onclick="toggleContent('all')">Facial Skincare</div>
 </div>  
 
 
 <div id="allcategory" class="category allcategory" >
-  
+<div class="row">
+            <div class="col">
             <div class="scrollable-section" >
                 <div class="content" >
                     <div class="row">
@@ -422,20 +447,24 @@ if (!empty($searchQuery)) {
                 
         </div>
     </div>
+            </div>
+</div>
 </div>
 
-<div id="cleansercategory" class="category cleansercategory">
+
+
+<div id="beauty_set_category" class="category beauty_set_category">
             <div class="scrollable-section">
                 <div class="content" style="width:100%;">
                     <div class="row">
                         <?php
-                        while ($cleanserrow = $output->fetch_assoc()) {?>
+                        while ($beauty_sets_row = $output->fetch_assoc()) {?>
                             <div class="col">
                                 <div class="custom-container">
-                                    <a href="product.php?product_id=<?php echo $cleanserrow['item_code']; ?>" style="text-decoration: none; color: inherit;">
-                                    <img src="assets/<?php echo $cleanserrow["item_image"] ?>">
-                                    <p class="text-lead"><?php echo $cleanserrow["item_name"] . ' ' . $cleanserrow["item_description"] ?></p><br>
-                                    <p class="text-lead">₱<?php echo $cleanserrow["retail_price"] ?></p>
+                                    <a href="product.php?product_id=<?php echo $beauty_sets_row['item_code']; ?>" style="text-decoration: none; color: inherit;">
+                                    <img src="assets/<?php echo $beauty_sets_row["item_image"] ?>">
+                                    <p class="text-lead"><?php echo $beauty_sets_row["item_name"] . ' ' . $beauty_sets_row["item_description"] ?></p><br>
+                                    <p class="text-lead">₱<?php echo $beauty_sets_row["retail_price"] ?></p>
                                     </a>
                                 </div>
                             </div>
@@ -445,6 +474,102 @@ if (!empty($searchQuery)) {
                 </div>
             </div>
 </div>
+
+
+
+<div id="body_soap_category" class="category body_soap_category">
+            <div class="scrollable-section">
+                <div class="content" style="width:100%;">
+                    <div class="row">
+                        <?php
+                        while ($body_soap_row = $outcome->fetch_assoc()) {?>
+                            <div class="col">
+                                <div class="custom-container">
+                                    <a href="product.php?product_id=<?php echo $body_soap_row['item_code']; ?>" style="text-decoration: none; color: inherit;">
+                                    <img src="assets/<?php echo $body_soap_row["item_image"] ?>">
+                                    <p class="text-lead"><?php echo $body_soap_row["item_name"] . ' ' . $body_soap_row["item_description"] ?></p><br>
+                                    <p class="text-lead">₱<?php echo $body_soap_row["retail_price"] ?></p>
+                                    </a>
+                                </div>
+                            </div>
+                        <?php
+                        } ?>
+                    </div>
+                </div>
+            </div>
+</div>
+
+
+
+<div id="lotion_category" class="category lotion_category">
+            <div class="scrollable-section">
+                <div class="content" style="width:100%;">
+                    <div class="row">
+                        <?php
+                        while ($lotion_row = $end->fetch_assoc()) {?>
+                            <div class="col">
+                                <div class="custom-container">
+                                    <a href="product.php?product_id=<?php echo $lotion_row['item_code']; ?>" style="text-decoration: none; color: inherit;">
+                                    <img src="assets/<?php echo $lotion_row["item_image"] ?>">
+                                    <p class="text-lead"><?php echo $lotion_row["item_name"] . ' ' . $lotion_row["item_description"] ?></p><br>
+                                    <p class="text-lead">₱<?php echo $lotion_row["retail_price"] ?></p>
+                                    </a>
+                                </div>
+                            </div>
+                        <?php
+                        } ?>
+                    </div>
+                </div>
+            </div>
+</div>
+
+
+
+<div id="cosmetics_category" class="category cosmetics_category">
+            <div class="scrollable-section">
+                <div class="content" style="width:100%;">
+                    <div class="row">
+                        <?php
+                        while ($cosmetics_row = $last->fetch_assoc()) {?>
+                            <div class="col">
+                                <div class="custom-container">
+                                    <a href="product.php?product_id=<?php echo $cosmetics_row['item_code']; ?>" style="text-decoration: none; color: inherit;">
+                                    <img src="assets/<?php echo $cosmetics_row["item_image"] ?>">
+                                    <p class="text-lead"><?php echo $cosmetics_row["item_name"] . ' ' . $cosmetics_row["item_description"] ?></p><br>
+                                    <p class="text-lead">₱<?php echo $cosmetics_row["retail_price"] ?></p>
+                                    </a>
+                                </div>
+                            </div>
+                        <?php
+                        } ?>
+                    </div>
+                </div>
+            </div>
+</div>
+
+
+<div id="skincare_category" class="category skincare_category_category">
+            <div class="scrollable-section">
+                <div class="content" style="width:100%;">
+                    <div class="row">
+                        <?php
+                        while ($skincare_row = $follow->fetch_assoc()) {?>
+                            <div class="col">
+                                <div class="custom-container">
+                                    <a href="product.php?product_id=<?php echo $skincare_row['item_code']; ?>" style="text-decoration: none; color: inherit;">
+                                    <img src="assets/<?php echo $skincare_row["item_image"] ?>">
+                                    <p class="text-lead"><?php echo $skincare_row["item_name"] . ' ' . $skincare_row["item_description"] ?></p><br>
+                                    <p class="text-lead">₱<?php echo $skincare_row["retail_price"] ?></p>
+                                    </a>
+                                </div>
+                            </div>
+                        <?php
+                        } ?>
+                    </div>
+                </div>
+            </div>
+</div>
+
 </div>
             
 
@@ -487,12 +612,15 @@ buttons.forEach(button => {
   })
 })
 
-  function toggleContent(element) {
+function toggleContent(element) {
     document.getElementById('allcategory').style.display = 'none';
-    document.getElementById('cleansercategory').style.display = 'none';
+    document.getElementById('beauty_set_category').style.display = 'none';
+    document.getElementById('body_soap_category').style.display = 'none';
+    document.getElementById('lotion_category').style.display = 'none';
+    document.getElementById('skincare_category').style.display = 'none';
 
     document.getElementById(element + 'category').style.display = 'block';
-  }
+}
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

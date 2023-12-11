@@ -9,6 +9,7 @@ if (isset($_POST['insert'])) {
     $itemImage = $_POST['item_image'];
     $itemQuantity = $_POST['stocks'];
     $itemPrice = $_POST['price'];
+    $category = $_POST['category'];
 
         $query = "INSERT INTO products VALUES('', '$itemName', '$itemDescription','$category', '$itemImage', '$itemQuantity', '$itemPrice')";
         mysqli_query($conn, $query);
@@ -131,6 +132,17 @@ if (isset($_POST['insert'])) {
         li{
             padding-right:15px; 
         }
+        .option,option{
+            background-color: #a79585; 
+            border-color: #C9BBAE;
+            border-bottom: 2px solid black;
+            color:black;
+            height: 50px;
+            width: 220px;
+            font-size: 20px;
+            font-weight: 400;
+            border-radius: 15px;
+        }
     </style>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
@@ -220,13 +232,19 @@ if (isset($_POST['insert'])) {
                     <h1 class="text-center" style="color:#453321;">Add Product</h1>
                     <hr>
                     <input type="text"  class="form-control" name="item_name" placeholder="Item Name" required><br><br>
-                    <input type="text"  class="form-control" name="item_description" placeholder="Item Description" required><br><br>
+                    <input type="text"  class="form-control" name="item_description" placeholder="Item Description"><br><br>
                     <input type="file"  class="form-control" name="item_image" placeholder="Item Image" required><br><br>
                     <input type="number"  class="form-control" name="stocks" placeholder="Quantity" required><br><br>
                     <input type="number" class="form-control" name="price" placeholder="₱00.00" required><br><br>
-                    <h3 style="font-style: italic;">Category</h3>
-                    <input type="radio" name="category"  value="Cleanser"required>Cleanser<br><br>
-                    <input type="radio" name="category"  value="Moisturizer"required>Moisturizer<br><br>
+                    <label for="category"><h3 style="font-style: italic;">Category: </h3></label>
+                    <select id="category" class="option" name="category">
+                    <option name="category" value="Beauty Sets">Beauty Sets</option>
+                    <option name="category" value="Body Soap and Scrub">Body Soap and Scrub</option>
+                    <option  name="category" value="Cosmetics">Cosmetics</option>
+                    <option  name="category" value="Face and Body Lotion">Face and Body Lotion</option>
+                    <option  name="category" value="Facial Skin Care">Facial Skin Care</option>
+                    </select>
+                    <br> <br>
                     <button type="submit" class="insert" name="insert">Add Product</button><br><br>
                 </form>
                 </center>
@@ -236,7 +254,7 @@ if (isset($_POST['insert'])) {
     </div>
 
     
-<br>
+<br> <br>
 <footer class="container-fluid">
     
     <div class="row">

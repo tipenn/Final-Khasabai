@@ -118,7 +118,7 @@ $result = $conn->query($sql);
        
         .custom-container {
             width: 175px;
-            height: 255px;
+            height: 300px;
             background-color: #FFFFFF;
             border-radius: 20px;
             border: 1px solid black; /* Add the border style 'solid' */
