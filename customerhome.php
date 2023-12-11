@@ -548,7 +548,7 @@ if (!empty($searchQuery)) {
 </div>
 
 
-<div id="skincare_category" class="category skincare_category_category">
+<div id="skincare_category" class="category skincare_category">
             <div class="scrollable-section">
                 <div class="content" style="width:100%;">
                     <div class="row">
