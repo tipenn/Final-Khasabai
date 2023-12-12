@@ -87,7 +87,7 @@ $output=$conn->query($sequence);
             color:#7F4F24;               
         }
         .card{
-            background-color: #E8E1DA;
+            background-color: rgba(232, 225, 218, 0.5);
             margin-top: -1.5em;
         }
         a:hover{

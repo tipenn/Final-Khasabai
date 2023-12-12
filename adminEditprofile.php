@@ -224,59 +224,64 @@ session_start();
 <div class="container">
      <br><br><br> 
 <!-- !!!!!!!!!! -->
-     <form action="" method="POST">
-        <input type="hidden" class="form-control" name="id" value="<?php echo $_SESSION['id'] ?>">
-        <h7> Email Address</h7>
-        <input type="text" class="form-control" name="email" value="<?php echo isset($_SESSION['email']) ? $_SESSION['email'] : ''; ?>"><br>
-        <h7> First Name</h7>
-        <input type="text" class="form-control" name="firstname" value="<?php echo isset($_SESSION['firstName']) ? $_SESSION['firstName'] : ''; ?>"><br>
-        <h7> Last Name</h7>
-        <input type="text" class="form-control" name="lastname" value="<?php echo isset($_SESSION['lastName']) ? $_SESSION['lastName'] : ''; ?>"><br>
-        <h7>Address</h7>
-        <input type="text" class="form-control" name="address" value="<?php echo isset($_SESSION['address']) ? $_SESSION['address'] : ''; ?>"><br>
-        <h7>Phone Number </h7>
-        <input type="text" class="form-control" name="contact" value="<?php echo isset($_SESSION['phoneNumber']) ? $_SESSION['phoneNumber'] : ''; ?>"><br>
-        <h7>Password </h7>
-        <?php
-            $string = $_SESSION['password'];
-            $length = strlen($string);
-            $pass = str_repeat('*', $length);
-        ?>
-        <input type="password" class="form-control" name="password" value="<?php echo isset($_SESSION['password'])?>" placeholder="<?php echo $pass ?>"><br>
-        <div class="text-center">
-            <button type="submit" class="update" name="update" style="background-color:#835328; border-radius: 2em; width: 150px; height:40px;" >Update Profile</button><br><br>
-    </form>
+<form action="" method="POST">
+<div id="message" class="alert alert-success" style="display: none;"></div>
+
+    <input type="hidden" class="form-control" name="id" value="<?php echo $_SESSION['id'] ?>">
+    <h7>Email Address</h7>
+    <input type="text" class="form-control" name="email" value="<?php echo $_SESSION['email'] ?>"><br>
+    <h7>First Name</h7>
+    <input type="text" class="form-control" name="firstname" value="<?php echo $_SESSION['firstName'] ?>"><br>
+    <h7>Last Name</h7>
+    <input type="text" class="form-control" name="lastname" value="<?php echo $_SESSION['lastName'] ?>"><br>
+    <h7>Address</h7>
+    <input type="text" class="form-control" name="address" value="<?php echo $_SESSION['address'] ?>"><br>
+    <h7>Phone Number</h7>
+    <input type="text" class="form-control" name="contact" value="<?php echo $_SESSION['phoneNumber'] ?>"><br>
+    <h7>Password</h7>
+    <input type="password" class="form-control" name="password" value="<?php echo $_SESSION['password']?>"><br>
+    <div class="text-center">
+        <button type="submit" class="update" name="update" style="background-color: #835328; border-radius: 2em; width: 150px; height:40px;">Update Profile</button><br><br>
+    </div>
+</form>
                 </center>
                 <?php
-                    if (isset($_POST['update'])) {
-                        $id = $_POST['id'];
-                        $email = $_POST['email'];
-                        $lastname = $_POST['lastname'];
-                        $firstname = $_POST['firstname'];
-                        $address = $_POST['address'];
-                        $contact = $_POST['contact'];
-                        $password = $_POST['password'];
+if (isset($_POST['update'])) {
+    $id = $_POST['id'];
+    $email = $_POST['email'];
+    $lastname = $_POST['lastname'];
+    $firstname = $_POST['firstname'];
+    $address = $_POST['address'];
+    $contact = $_POST['contact'];
+    $password = $_POST['password'];
 
-                        $query = "UPDATE users SET 
-                                    firstName = '$firstname',
-                                    lastName = '$lastname',
-                                    email = '$email',
-                                    phoneNumber = '$contact',
-                                    address = '$address',
-                                    password = '$password'
-                                    WHERE id = '$id'";
+    // Use prepared statements to prevent SQL injection
+    $query = "UPDATE users SET 
+                firstName = ?,
+                lastName = ?,
+                email = ?,
+                phoneNumber = ?,
+                address = ?,
+                password = ?
+                WHERE id = ?";
 
-                    $result=mysqli_query($conn, $query);
+    $stmt = mysqli_prepare($conn, $query);
+    mysqli_stmt_bind_param($stmt, "ssssssi", $firstname, $lastname, $email, $contact, $address, $password, $id);
+    $result = mysqli_stmt_execute($stmt);
 
-                        if ($result) {
-                            echo "User updated successfully!";
-                        } else {
-                            echo "Error updating user: " . mysqli_error($conn);
-                        }
-                    }
-
-                     
-        ?>     
+    if ($result) {
+        $message= "Profile updated successfully! Please reload the page to view the changes.";
+        
+        $_SESSION['email'] = $email;
+        $_SESSION['firstName'] = $firstname;
+        $_SESSION['lastName'] = $lastname;
+        $_SESSION['address'] = $address;
+        $_SESSION['phoneNumber'] = $contact;
+} else {
+echo "Error updating user: " . mysqli_error($conn);
+}
+}
+?>     
                 </div>
             </div>
         </div>
@@ -305,5 +310,13 @@ session_start();
         </div>
     </div>
 </footer>
+<script>
+    var message = "<?php echo isset($message) ? $message : ''; ?>";
+if (message.trim() !== "") {
+    var messageDiv = document.getElementById('message');
+    messageDiv.innerText = message;
+    messageDiv.style.display = 'block';
+}
+</script>
  </body>
 </html>
