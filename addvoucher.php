@@ -327,7 +327,7 @@ if (isset($_POST['insert'])) {
                 <br>
                 <div id="message" class="alert alert-success" style="display: none;"></div>
                 <input type="text" name="voucher_code" class="form-control" placeholder="Voucher Code"><br>
-                <input type="number" name="percent" class="form-control" placeholder="00.00 - 1.00"><br>
+                <input type="number" name="percent" class="form-control" placeholder="1 - 100%"><br>
                 <input type="date" class="form-control" name="expiration_date"><br>
                 <label for="type"><h3 style="font-style: italic;">Type: </h3></label>
                 <select id="type" class="option " name="type" placeholder="Type">
