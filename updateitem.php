@@ -213,19 +213,34 @@ session_start();
     $itemQuantity = isset($_GET['stocks']) ? urldecode($_GET['stocks']) : '';
     $itemPrice = isset($_GET['retail_price']) ? urldecode($_GET['retail_price']) : '';
     ?>
+<div id="message" class="alert alert-success" style="display: none;"></div>
+<script>
+        var message = "<?php echo isset($message) ? $message : ''; ?>";
+
+if (message.trim() !== "") {
+    var messageDiv = document.getElementById('message');
+    messageDiv.innerText = message;
+    messageDiv.style.display = 'block';
+}
+</script>
+
     <input type="hidden" class="form-control" name="item_code" value="<?php echo $itemCode; ?>" required><br><br>
     <h6> Item Name</h6>
     <input type="text" class="form-control" name="item_name" value="<?php echo $itemName; ?>" required><br><br>
     <h6> Item Description</h6>
     <input type="text" class="form-control" name="item_description" value="<?php echo $itemDescription; ?>" required><br><br>
-    <h6> Item Image</h6>
-    <p>Due to security reasons, you need to reupload your image </p>
-    <input type="file" class="form-control" name="item_image" value="<?php echo $itemImage; ?>"><br><br>
+    
     <h6> Item Stock</h6>
     <input type="number" class="form-control" name="item_stock" value="<?php echo $itemQuantity; ?>" required><br><br>
     <h6> Item Price</h6>
     <input type="number" class="form-control" name="price" value="<?php echo $itemPrice; ?>" required><br><br>
     <button type="submit" class="insert" name="change_item">Confirm</button><br><br>
+</form>
+<form method="post" enctype="multipart/form-data">
+<h6> Item Image</h6>
+    <p>Due to security reasons, you need to reupload your image </p>
+    <input type="file" class="form-control" name="item_image" value="<?php echo $itemImage; ?>"><br><br>
+    <button type="submit" name="upload">hah</button>
 </form>
 </center>
 
@@ -233,36 +248,44 @@ session_start();
 if (isset($_POST['change_item'])) {
     $itemUpdateName = empty($_POST['item_name']) ? $itemName : $_POST['item_name'];
     $itemUpdateDescription = empty($_POST['item_description']) ? $itemDescription : $_POST['item_description'];
-    $itemUpdateImage = $_FILES['item_image']['name'];
     $itemQuantity = empty($_POST['item_stock']) ? $itemQuantity : $_POST['item_stock'];
     $itemUpdatePrice = empty($_POST['price']) ? $itemPrice : $_POST['price'];
 
     $query = "UPDATE products SET 
                 item_name = '$itemUpdateName',
                 item_description = '$itemUpdateDescription',
-                item_image = '$itemUpdateImage',
                 stocks = '$itemQuantity',
                 retail_price = '$itemUpdatePrice'
                 WHERE item_code = $itemCode";
 
     $result = mysqli_query($conn, $query);
+    $message="Item successfully change!";
 
     if ($result) {
-        echo "<script>alert('Update Successfully')</script>";
-        header("Location: adminpage.php");
+        echo "<script>alert('Item successfully added !!');</script>";
         exit();
     } else {
         echo "Error updating record: " . mysqli_error($conn);
     }
 }
+if (isset($_POST['upload'])) {
+    $itemUpdateImage = $_FILES['item_image']['name'];
+        $upload = "UPDATE products SET         item_image = '$itemUpdateImage' WHERE item_code = $itemCode";
+        $output = mysqli_query($conn, $upload);
+        if ($output) {
+            $message="Item successfully change!";
+        }else {
+            echo "Error updating record: " . mysqli_error($conn);
+        }
+
+}
 ?>
+
                 </div>
             </div>
         </div>
     </div>
-<?php
 
-?>
 <footer class="container-fluid">
     
     <div class="row">

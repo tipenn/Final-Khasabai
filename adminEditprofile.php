@@ -292,7 +292,7 @@ if ($result) {
     <form method="post" >
         <label for="profilePicture" style="display: block; cursor: pointer;">Upload Profile Picture</label>
         <input type="file" id="profilePicture" name="profilePicture" style="display: none;">
-        <input type="submit" value="submut" name="upload">
+        <input type="submit" value="submit" name="upload">
     </form>
 </div>
 </div>
