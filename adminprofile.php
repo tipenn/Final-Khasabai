@@ -78,11 +78,7 @@ session_start()
         
         .container{
             background-color: transparent;
-            width: 540px; 
-            height: 400px;
-            padding-top: 2em;
-            border-radius:1em;
-
+            width: 400px; 
         }
         .back{
             width: 40px;
@@ -101,21 +97,6 @@ session_start()
         h1, h2, h3, p {
             font-family: 'Prata', serif;
             padding-top: 0;
-        }
-        table{
-            background-color:#EFE8E3; 
-            width: 500px; 
-            padding-bottom: 5px;
-            box-shadow: -2px -2px 2px grey;
-        }
-        tr{
-            height:50px;
-            text-align:left; 
-            color:black;
-            
-        }
-        td{
-            padding-left:10px; 
         }
         a {
 			text-decoration: none;
@@ -244,15 +225,14 @@ if ($result) {
         // Check if the 'profile' column is not null and not empty
         if ($row['profile'] !== null && $row['profile'] !== '') {
             // Profile has data
-            ?> <center><img src="assets/<?php echo $row['profile']; ?>"  alt="Profile Picture" style="height: 200px; width:200px; border-radius:100%;">  </center>
+            ?><img src="assets/<?php echo $row['profile']; ?>"  alt="Profile Picture" style="height: 150px; width:150px; border-radius:100%;">
 
             <?php
         } else {
             // Profile is null or empty
             ?> 
-           
             <img src="https://scontent.fmnl30-1.fna.fbcdn.net/v/t1.15752-9/370213952_364363432641642_6964461321948811988_n.png?_nc_cat=106&ccb=1-7&_nc_sid=8cd0a2&_nc_eui2=AeGOw_wN8RWHce7Vnf11dNCOWYdjE5LcbEdZh2MTktxsR4y4pW7ksvReZ5fwCIo-Ck8m83qwlV1VbwuNx-pycUy_&_nc_ohc=HPCyVBGTPtoAX8yvlPJ&_nc_ht=scontent.fmnl30-1.fna&oh=03_AdTMFWsfcjqPlj4KwNF3eIgp_ZuHg380NSrvKMfZFIVhLg&oe=6582A2B8" width="10%"; height="10%">
-          
+
             <?php
         }
     } else {
@@ -263,49 +243,48 @@ if ($result) {
     // Query execution failed
     echo "Error executing the query: " . $conn->error;
 }
-?>    
-
-<div class="text-right" style="margin-right: 26em; float: right; ">
+?>    <div class="text-right" style="margin-right: 30em; float: right; ">
     <button type="button" class="btn btn-outline-secondary btn-lg" onclick="myFunction()"> <i class="fa-solid fa-pencil" style="color: #453321;"></i></button>
     </button> 
     </div>
     </div>
+    <br>
     
 <div class="container">
-    <table align="center" >
-    <tr>     
-     <td scope ="col"> <b> Email: </b>  <?php echo $_SESSION['email'] ?> </td>
+    <table style="background-color: #A19284; width: 400px; margin-right: 35em;" align="center" >
+    <tr style= "height:50px;  text-align:left; color:black; ">     
+     <td scope ="col" style="padding-left:10px;"> <b> Email: </b>  <?php echo $_SESSION['email'] ?> </td>
      
     </tr>
     </table>
         <br>
-        <table align="center">
-    <tr>     
-     <td scope ="col" > <b> Name: </b>   <?php echo $_SESSION['firstName'] ?> <?php echo $_SESSION['lastName'] ?></td>
+        <table style="background-color: #A19284; width: 400px; margin-right: 35em;" align="center">
+    <tr style= "height:50px;  text-align:left; color:black; ">     
+     <td scope ="col" style="padding-left:10px; " > <b> Name: </b>   <?php echo $_SESSION['firstName'] ?> <?php echo $_SESSION['lastName'] ?></td>
     </tr>
     </table>
         <br>
-    <table  align="center">
-    <tr >     
-     <td scope ="col"> <b> Address: </b>  <?php echo $_SESSION['address'] ?>  </td>
+    <table style="background-color: #A19284; width: 400px; padding-bottom: 5px;" align="center">
+    <tr style= "height:50px; text-align:left; color:black;">     
+     <td scope ="col" style="padding-left:10px;"> <b> Address: </b>  <?php echo $_SESSION['address'] ?>  </td>
     </tr>
     </table>
         <br>
-    <table align="center">
-    <tr>     
-     <td scope ="col"> <b> Contact: </b>  <?php echo $_SESSION['phoneNumber'] ?>  </td>
+    <table style="background-color: #A19284; width: 400px; padding-bottom: 5px;" align="center">
+    <tr style= "height:50px;  text-align: left; color:black;">     
+     <td scope ="col" style="padding-left:10px;"> <b> Contact: </b>  <?php echo $_SESSION['phoneNumber'] ?>  </td>
     </tr>
     </table>
         <br>
         <!-- asterisk- private -->
-        <table align="center">
-    <tr>     
+        <table style="background-color: #A19284; width: 400px; padding-bottom: 5px;" align="center">
+    <tr style= "height:50px;  text-align:left; color:black;">     
     <?php
     $string = $_SESSION['password'];
     $length = strlen($string);
     $pass = str_repeat('*', $length);
 ?>
-     <td scope ="col"> <b> Password: </b>  <?php echo $pass ?>  </td>     
+     <td scope ="col" style="padding-left:10px;"> <b> Password: </b>  <?php echo $pass ?>  </td>     
     </tr>
   </table>
 </body>

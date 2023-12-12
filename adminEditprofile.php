@@ -111,9 +111,8 @@ echo "Error updating user: " . mysqli_error($conn);
             width: 10px;
         }
         .container{
-            background-color:#F6F2EF;
+            background-color: #E8E1DA;
             width: 700px;
-            height: 670px;
             margin-bottom: 5em; 
         }
         .back{
@@ -136,8 +135,6 @@ echo "Error updating user: " . mysqli_error($conn);
         }
         h5, h7 {
             margin-left: 8px;
-            font-weight: bold;
-            font-family: roboto;
         }
         a {
 			text-decoration: none;
@@ -250,13 +247,12 @@ echo "Error updating user: " . mysqli_error($conn);
     </nav>
         </div>
 <!-- content -->
-<div class="text-start">
-<h4 style="color:#453321; float: left;">
+<h4 style="color:#453321;  padding-right: 3em; float: left;">
                     <a href="adminprofile.php">
-                        <button type="button" class="back" style="margin-left: 1em;">
+                        <button type="button" class="back" style="margin-left: 1em; margin-right: 10px;">
                             <i class="fa-solid fa-arrow-left" style="color: white;"></i></button></a> </h4>
-    </div>
-<div class="text-center" style="margin-top: 2em; margin-right: 5em;">
+<div class="text-center" style="margin-top: 5em; ">
+
 <?php
 $sql = "SELECT * FROM users WHERE id = '$_SESSION[id]'";
 $result = $conn->query($sql);
@@ -270,7 +266,7 @@ if ($result) {
         // Check if the 'profile' column is not null and not empty
         if ($row['profile'] !== null && $row['profile'] !== '') {
             // Profile has data
-            ?><img src="assets/<?php echo $row['profile']; ?>"  alt="Profile Picture" style="height: 200px; width:200px; border-radius:100%;">
+            ?><img src="assets/<?php echo $row['profile']; ?>"  alt="Profile Picture" style="height: 150px; width:150px; border-radius:100%;">
 
             <?php
         } else {
