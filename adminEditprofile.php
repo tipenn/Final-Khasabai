@@ -2,6 +2,41 @@
 include 'function.php';
 session_start();
 
+if (isset($_POST['update'])) {
+    $id = $_POST['id'];
+    $email = $_POST['email'];
+    $lastname = $_POST['lastname'];
+    $firstname = $_POST['firstname'];
+    $address = $_POST['address'];
+    $contact = $_POST['contact'];
+    $password = $_POST['password'];
+
+    // Use prepared statements to prevent SQL injection
+    $query = "UPDATE users SET 
+                firstName = ?,
+                lastName = ?,
+                email = ?,
+                phoneNumber = ?,
+                address = ?,
+                password = ?
+                WHERE id = ?";
+
+    $stmt = mysqli_prepare($conn, $query);
+    mysqli_stmt_bind_param($stmt, "ssssssi", $firstname, $lastname, $email, $contact, $address, $password, $id);
+    $result = mysqli_stmt_execute($stmt);
+
+    if ($result) {
+        $message= "Profile updated successfully! Please reload the page to view the changes.";
+        
+        $_SESSION['email'] = $email;
+        $_SESSION['firstName'] = $firstname;
+        $_SESSION['lastName'] = $lastname;
+        $_SESSION['address'] = $address;
+        $_SESSION['phoneNumber'] = $contact;
+} else {
+echo "Error updating user: " . mysqli_error($conn);
+}
+}
 ?>
 
 <!DOCTYPE html>
@@ -217,12 +252,58 @@ session_start();
                         <button type="button" class="back" style="margin-left: 1em; margin-right: 10px;">
                             <i class="fa-solid fa-arrow-left" style="color: white;"></i></button></a> </h4>
 <div class="text-center" style="margin-top: 5em; ">
-    <img src="https://scontent.fmnl30-1.fna.fbcdn.net/v/t1.15752-9/370213952_364363432641642_6964461321948811988_n.png?_nc_cat=106&ccb=1-7&_nc_sid=8cd0a2&_nc_eui2=AeGOw_wN8RWHce7Vnf11dNCOWYdjE5LcbEdZh2MTktxsR4y4pW7ksvReZ5fwCIo-Ck8m83qwlV1VbwuNx-pycUy_&_nc_ohc=HPCyVBGTPtoAX8yvlPJ&_nc_ht=scontent.fmnl30-1.fna&oh=03_AdTMFWsfcjqPlj4KwNF3eIgp_ZuHg380NSrvKMfZFIVhLg&oe=6582A2B8" width="10%"; height="10%">
-    </div>
-    <div class="text-center" style=" cursor: pointer;"> Upload Profile Picture </div>
-<br>
+
+<?php
+$sql = "SELECT * FROM users WHERE id = '$_SESSION[id]'";
+$result = $conn->query($sql);
+
+if ($result) {
+    // Check if the result set is not empty
+    if ($result->num_rows > 0) {
+        // Fetch the data here
+        $row = $result->fetch_assoc();
+
+        // Check if the 'profile' column is not null and not empty
+        if ($row['profile'] !== null && $row['profile'] !== '') {
+            // Profile has data
+            ?><img src="assets/<?php echo $row['profile']; ?>"  alt="Profile Picture" style="height: 150px; width:150px; border-radius:100%;">
+
+            <?php
+        } else {
+            // Profile is null or empty
+            ?> 
+            <img src="https://scontent.fmnl30-1.fna.fbcdn.net/v/t1.15752-9/370213952_364363432641642_6964461321948811988_n.png?_nc_cat=106&ccb=1-7&_nc_sid=8cd0a2&_nc_eui2=AeGOw_wN8RWHce7Vnf11dNCOWYdjE5LcbEdZh2MTktxsR4y4pW7ksvReZ5fwCIo-Ck8m83qwlV1VbwuNx-pycUy_&_nc_ohc=HPCyVBGTPtoAX8yvlPJ&_nc_ht=scontent.fmnl30-1.fna&oh=03_AdTMFWsfcjqPlj4KwNF3eIgp_ZuHg380NSrvKMfZFIVhLg&oe=6582A2B8" width="10%"; height="10%">
+
+            <?php
+        }
+    } else {
+        // No matching user found
+        echo "User not found.";
+    }
+} else {
+    // Query execution failed
+    echo "Error executing the query: " . $conn->error;
+}
+?>
 </div>
-   
+
+
+    <div class="text-center" style="cursor: pointer;">
+    <form method="post" >
+        <label for="profilePicture" style="display: block; cursor: pointer;">Upload Profile Picture</label>
+        <input type="file" id="profilePicture" name="profilePicture" style="display: none;">
+        <input type="submit" value="submut" name="upload">
+    </form>
+</div>
+</div>
+<?php
+if(isset($_POST['upload'])){
+    $profile=$_POST['profilePicture'];
+    $upload="UPDATE users SET profile ='$profile' WHERE id= '$_SESSION[id]'";
+    mysqli_query($conn, $upload);
+    echo "<script>alert('Item successfully added !!');</script>";
+}
+?>
     </div>
 <div class="container">
      <br><br><br> 
@@ -248,43 +329,7 @@ session_start();
     </div>
 </form>
                 </center>
-                <?php
-if (isset($_POST['update'])) {
-    $id = $_POST['id'];
-    $email = $_POST['email'];
-    $lastname = $_POST['lastname'];
-    $firstname = $_POST['firstname'];
-    $address = $_POST['address'];
-    $contact = $_POST['contact'];
-    $password = $_POST['password'];
-
-    // Use prepared statements to prevent SQL injection
-    $query = "UPDATE users SET 
-                firstName = ?,
-                lastName = ?,
-                email = ?,
-                phoneNumber = ?,
-                address = ?,
-                password = ?
-                WHERE id = ?";
-
-    $stmt = mysqli_prepare($conn, $query);
-    mysqli_stmt_bind_param($stmt, "ssssssi", $firstname, $lastname, $email, $contact, $address, $password, $id);
-    $result = mysqli_stmt_execute($stmt);
-
-    if ($result) {
-        $message= "Profile updated successfully! Please reload the page to view the changes.";
-        
-        $_SESSION['email'] = $email;
-        $_SESSION['firstName'] = $firstname;
-        $_SESSION['lastName'] = $lastname;
-        $_SESSION['address'] = $address;
-        $_SESSION['phoneNumber'] = $contact;
-} else {
-echo "Error updating user: " . mysqli_error($conn);
-}
-}
-?>     
+                
                 </div>
             </div>
         </div>

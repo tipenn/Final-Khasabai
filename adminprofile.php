@@ -212,9 +212,38 @@ session_start()
 <!-- header profile -->
 <!-- content -->
 <div class="text-center" style="margin-top: 2em; ">
-    <img src="https://scontent.fmnl30-1.fna.fbcdn.net/v/t1.15752-9/370213952_364363432641642_6964461321948811988_n.png?_nc_cat=106&ccb=1-7&_nc_sid=8cd0a2&_nc_eui2=AeGOw_wN8RWHce7Vnf11dNCOWYdjE5LcbEdZh2MTktxsR4y4pW7ksvReZ5fwCIo-Ck8m83qwlV1VbwuNx-pycUy_&_nc_ohc=HPCyVBGTPtoAX8yvlPJ&_nc_ht=scontent.fmnl30-1.fna&oh=03_AdTMFWsfcjqPlj4KwNF3eIgp_ZuHg380NSrvKMfZFIVhLg&oe=6582A2B8" width="10%"; height="10%">
-    </div><a href="#"><div class="text-center"> Upload Profile Picture</a> </div>
-    <div class="text-right" style="margin-right: 30em; float: right; ">
+<?php
+$sql = "SELECT * FROM users WHERE id = '$_SESSION[id]'";
+$result = $conn->query($sql);
+
+if ($result) {
+    // Check if the result set is not empty
+    if ($result->num_rows > 0) {
+        // Fetch the data here
+        $row = $result->fetch_assoc();
+
+        // Check if the 'profile' column is not null and not empty
+        if ($row['profile'] !== null && $row['profile'] !== '') {
+            // Profile has data
+            ?><img src="assets/<?php echo $row['profile']; ?>"  alt="Profile Picture" style="height: 150px; width:150px; border-radius:100%;">
+
+            <?php
+        } else {
+            // Profile is null or empty
+            ?> 
+            <img src="https://scontent.fmnl30-1.fna.fbcdn.net/v/t1.15752-9/370213952_364363432641642_6964461321948811988_n.png?_nc_cat=106&ccb=1-7&_nc_sid=8cd0a2&_nc_eui2=AeGOw_wN8RWHce7Vnf11dNCOWYdjE5LcbEdZh2MTktxsR4y4pW7ksvReZ5fwCIo-Ck8m83qwlV1VbwuNx-pycUy_&_nc_ohc=HPCyVBGTPtoAX8yvlPJ&_nc_ht=scontent.fmnl30-1.fna&oh=03_AdTMFWsfcjqPlj4KwNF3eIgp_ZuHg380NSrvKMfZFIVhLg&oe=6582A2B8" width="10%"; height="10%">
+
+            <?php
+        }
+    } else {
+        // No matching user found
+        echo "User not found.";
+    }
+} else {
+    // Query execution failed
+    echo "Error executing the query: " . $conn->error;
+}
+?>    <div class="text-right" style="margin-right: 30em; float: right; ">
     <button type="button" class="btn btn-outline-secondary btn-lg" onclick="myFunction()"> <i class="fa-solid fa-pencil" style="color: #453321;"></i></button>
     </button> 
     </div>
