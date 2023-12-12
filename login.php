@@ -176,7 +176,7 @@ if (isset($_POST['submit_btn'])) {
            </ul>
        </div>
    </div>
-  
+        
     <!-- upper right side (nav bar) -->
     <div style="display: flex; align-items: right;">
            <br>

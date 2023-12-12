@@ -4,16 +4,15 @@ session_start();
 
 
 if (isset($_POST['insert'])) {
-    $itemName = $_POST['item_name'];
-    $itemDescription = $_POST['item_description'];
-    $itemImage = $_POST['item_image'];
-    $itemQuantity = $_POST['stocks'];
-    $itemPrice = $_POST['price'];
-    $category = $_POST['category'];
+    $voucher_code=$_POST['voucher_code'];
+    $percent=$_POST['percent'];
+    $expiration_date=$_POST['expiration_date'];
+    $type=$_POST['type'];
 
-        $query = "INSERT INTO products VALUES('', '$itemName', '$itemDescription','$category', '$itemImage', '$itemQuantity', '$itemPrice')";
+        $query = "INSERT INTO voucher (`voucher_code`, `percent`, `type`, `expiration_date`) VALUES('$voucher_code','$percent', '$type', '$expiration_date')";
         mysqli_query($conn, $query);
-        echo "<script>alert('Item successfully added !!');</script>";
+
+       $message="Voucher successfully added!!!";
     } 
 
     
@@ -133,26 +132,28 @@ if (isset($_POST['insert'])) {
             border-radius: 20px;
             color: white;
         }
-        
+        .insert{
+            width: 60%;
+
+            font-size: 30px;
+            margin-top: 15px;
+            background-color:#F6F2EF;
+            border-radius: 20px;
+         
+
+        }
+        .insert:hover{
+            background-color:#A5A5A5;;
+            border-radius: 20px;
+            color: white;
+        }
         .form-control{
             width: 500px;
             background-color: #e8dfda; 
             border-color: #C9BBAE;
             border-bottom: 2px solid black;
         }
-        .insert{
-            width: 90%;
-            font-size: 30px;
-            margin-top: 15px;
-            background-color: #EAD7BB;
-            border-radius: 20px;
-            border-color: #113946;
-        }
-        .insert:hover{
-            background-color: #BCA37F ;
-            border-radius: 20px;
-            font-weight: bold;
-        }
+        
         .content{
             padding: 20px;
             border: solid grey;
@@ -172,7 +173,7 @@ if (isset($_POST['insert'])) {
             border-bottom: 2px solid black;
             color:black;
             height: 50px;
-            width: 220px;
+            width: 300px;
             font-size: 20px;
             font-weight: 400;
             border-radius: 15px;
@@ -206,20 +207,6 @@ if (isset($_POST['insert'])) {
             color:#3e2723;
             font-weight: bold;
 
-        }
-        .insert{
-            width: 60%;
-            font-size: 30px;
-            margin-top: 15px;
-            background-color:#F6F2EF;
-            border-radius: 20px;
-         
-
-        }
-        .insert:hover{
-            background-color:#A5A5A5;;
-            border-radius: 20px;
-            color: white;
         }
     </style>
 
@@ -328,27 +315,29 @@ if (isset($_POST['insert'])) {
                 <form action="" method="POST">
                 <div class="container">
                 <div class="row">
-                    <div class="header col-6 text-center" style="font-weight:bold;  border-bottom:5px solid #3e2723">
-                        <a href="" disable><span style="color: #3e2723;">Add Product</span></a>
+                    <div class="header col-6 text-center" >
+                        <a href="add.php" >Add Product</a>
                     </div>
-                    <div class="header col-6 text-center">
-                        <a  href="addvoucher.php">Add Voucher</a>
+                    <div class="header col-6 text-center" style="font-weight:bold;  border-bottom:5px solid #3e2723">
+                        <a  href="addvoucher.php" disable><span style="color: #3e2723;">Add Voucher</span></a>
                     </div>
                 </div>      
-                </div>                    <hr>
-                    <input type="text"  class="form-control" name="item_name" placeholder="Item Name" required><br><br>
-                    <input type="text"  class="form-control" name="item_description" placeholder="Item Description"><br><br>
-                    <input type="file"  class="form-control" name="item_image" placeholder="Item Image" required><br><br>
-                    <input type="number"  class="form-control" name="stocks" placeholder="Quantity" required><br><br>
-                    <input type="number" class="form-control" name="price" placeholder="₱00.00" required><br><br>
-                    <label for="category"><h3 style="font-style: italic;">Category: </h3></label>
-                    <select id="category" class="option " name="category">
-                    <option name="category" value="Beauty Sets">Beauty Sets</option>
-                    <option name="category" value="Body Soap and Scrub">Body Soap and Scrub</option>
-                    <option  name="category" value="Cosmetics">Cosmetics</option>
-                    <option  name="category" value="Face and Body Lotion">Face and Body Lotion</option>
-                    <option  name="category" value="Facial Skin Care">Facial Skin Care</option>
-                    </select>
+                </div>                    
+                <hr>
+                <br>
+                <div id="message" class="alert alert-success" style="display: none;"></div>
+                <input type="text" name="voucher_code" class="form-control" placeholder="Voucher Code"><br>
+                <input type="number" name="percent" class="form-control" placeholder="00.00 - 1.00"><br>
+                <input type="date" class="form-control" name="expiration_date"><br>
+                <label for="type"><h3 style="font-style: italic;">Type: </h3></label>
+                <select id="type" class="option " name="type" placeholder="Type">
+                    <option name="type" value="Reduce to the item product">Reduce to the item product</option>
+                    <option name="type" value="Reduce to the shipping fee">Reduce to the shipping fee</option>
+                    <option name="type" value="Reduce to the total fee">Reduce to the total fee</option>
+                </select>
+
+
+
                     <br> <br>
                     <button type="submit" class="insert" name="insert">Add Product</button><br><br>
                 </form>
@@ -384,6 +373,12 @@ if (isset($_POST['insert'])) {
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.18.0/font/bootstrap-icons.css" rel="stylesheet">
-
+<script>
+    if ('<?php echo $message; ?>'.trim() !== "") {
+    var messageDiv = document.getElementById('message');
+    messageDiv.innerText = '<?php echo $message; ?>';
+    messageDiv.style.display = 'block';
+}
+</script>
 </body>
 </html>
