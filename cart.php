@@ -205,20 +205,20 @@ $result = $conn->query($sql);
                     <input type="hidden" name="item_code" value="<?php echo $row['id']; ?>">
 
                     <!-- Select button -->
-                    <button type="submit" name="check_out<?php echo $row["id"]; ?>" class="delete_item">
+                    <button type="submit" name="check_out<?php echo $row["id"]; ?>" class="check_out">
                         <i class="fas fa-check">SELECT</i>
                     </button>
 
                     <!-- Delete button -->
                     <p style="float: right;">
-                        <button type="submit" name="delete_cart" class="delete_cart">
+                        <button type="submit" class="delete_cart"  name="delete_cart" >
                             <i class="fa-solid fa-x delete_cart"></i>
                         </button>
                     </p>
                 </form>
                 <?php if (isset($_POST['check_out' . $row["id"]])) {
                     $id = $row['id'];
-                    $query="SELECT * FROM order_customer where id='$id'";
+                    $query="SELECT * FROM order_customer where id= '$id' ";
                     $output = $conn->query($query);
                     
                 }
@@ -228,9 +228,15 @@ $result = $conn->query($sql);
                     // Use prepared statement to delete the item
                     $query = "DELETE FROM order_customer WHERE id = ?";
                     $stmt = $conn->prepare($query);
-                    $stmt->bind_param('i', $itemCode); 
+                    $stmt->bind_param('i', $itemCode);
                     $stmt->execute();
                     $stmt->close();
+
+                    ?><script>
+                        window.location.href='cart.php';
+                    </script>
+                        
+                    <?php
                 }
                 ?>
                 </div>
@@ -338,6 +344,8 @@ if ($output === null) { ?>
             </a>
         </div>
     </div>
+
+    
     
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>

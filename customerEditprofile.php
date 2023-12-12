@@ -269,7 +269,7 @@ if ($result) {
     <form method="post" >
         <label for="profilePicture" style="display: block; cursor: pointer;">Upload Profile Picture</label>
         <input type="file" id="profilePicture" name="profilePicture" style="display: none;">
-        <input type="submit" value="submut" name="upload">
+        <input type="submit" value="Submit" name="upload">
     </form>
 </div>
 </div>
@@ -278,14 +278,14 @@ if(isset($_POST['upload'])){
     $profile=$_POST['profilePicture'];
     $upload="UPDATE users SET profile ='$profile' WHERE id= '$_SESSION[id]'";
     mysqli_query($conn, $upload);
-    echo "<script>alert('Item successfully added !!');</script>";
+    echo "<script>window.location.href='customerEditprofile.php';</script>";
 }
 ?>
     </div>
 <div class="container">
      <br><br><br> 
 <!-- !!!!!!!!!! -->
-<form action="" method="POST">
+<form action="" method="POST" onsubmit>
 <div id="message" class="alert alert-success" style="display: none;"></div>
 
     <input type="hidden" class="form-control" name="id" value="<?php echo $_SESSION['id'] ?>">
@@ -337,11 +337,13 @@ if(isset($_POST['upload'])){
 </footer>
 <script>
     var message = "<?php echo isset($message) ? $message : ''; ?>";
+    
 if (message.trim() !== "") {
     var messageDiv = document.getElementById('message');
     messageDiv.innerText = message;
     messageDiv.style.display = 'block';
 }
+
 </script>
  </body>
 </html>
