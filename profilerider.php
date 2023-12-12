@@ -89,7 +89,7 @@ session_start()
 <div style="display: flex; align-items: right;">
     <div class="collapse navbar-collapse justify-content-end" id="navbarNav" >
         <ul class="navbar-nav ml-auto ">
-        <a href="profile.php" class="nav-link">
+        <a href="profilerider.php" class="nav-link">
         <li class="nav-item text-center active" >
             <i class="fas fa-user fa"></i>
                 Profile

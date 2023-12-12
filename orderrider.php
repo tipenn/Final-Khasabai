@@ -221,84 +221,100 @@ if(isset($_POST['done_pickup'])){
             background-color: #E8E1DA;
 
         }
+        button {
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.1s, color 0.1s; /* Add transition for smooth effect */
+}
+
+button:hover {
+    background-color: #453321; /* Change to your desired hover background color */
+    color: black; /* Change to your desired hover text color */
+}
+.prata-text {
+            font-family: 'Prata', serif;
+            text-align: center;
+            font-size: 24px; /* Adjust font size as needed */
+            color: #453321; /* Set the color to match your design */
+        }
+        .prata-font {
+    font-family: 'Prata', serif;
+    color: #453321; /* Set the color to match your design */
+}
+
+.prata-font span {
+    font-size: 20px; /* Adjust the size of the check sign */
+    margin-left: 5px; /* Add some spacing between the text and the check sign */
+}
+
     </style>
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Khasabai</title>
+<meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>profile</title>
+    <link rel="icon" type="image/x-icon" href="https://scontent.xx.fbcdn.net/v/t1.15752-9/369627246_289801410057308_7488894476029786008_n.png?_nc_cat=103&ccb=1-7&_nc_sid=510075&_nc_eui2=AeHREZSn9SSNmamdnSsRCcVxI9F0L_pc2Fgj0XQv-lzYWNfYyCBB0reg-zh1OLoO1jlcXtuHY_x2uQ3r8lBI6mYY&_nc_ohc=qWkxmDrrYZkAX9n5wr3&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AdTlJoLVkthf50CQvYCphnSimKF4flckWwAbIeWb2MQAig&oe=657E214B">
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
 </head>
-  <body class="bg-image" style="background-image: url('https://drive.google.com/uc?id=1VdMQTbNwy9vY_nWoi4Zmi67F8QM1QeTu'); background-size: cover;">
-  
-    <!-- navbar -->
-    <nav class="navbar navbar-expand-sm">
-   
-    <div class="bar">
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a href="profilerider.php" class="nav-link ">
-                        Profile
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="rider.php" class="nav-link active">
-                        Home
-                    </a>
-                </li>
-                <li class="nav-item active">
-                    <a href="orderhistoryrider.php" class="nav-link ">
-                        Order
-                    </a>
-                </li>
-                <li class="nav-item active">
-                    <a href="logout.php" class="nav-link ">
-                        Log out
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </div>
-   
-     <!-- upper right side (nav bar) -->
-     <div style="display: flex; align-items: right;">
-            <br>
-            <hr style= "margin-top: 10px; margin-left: 15px; width: 850px; background:#4F3B33; height: 2px;"> </hr>
-        </div>
-        <br>
-        <div class="collapse navbar-collapse" id="navbarNav">
-        <div class="navbar-nav ml-auto">
+    <div class="navigation"  style="margin-bottom:-7px;">
+    <nav class="navbar navbar-expand-sm" style="margin-bottom: 0px;">
         <div style="display: flex; align-items: center;">
-            <div>
-                <p style="margin: 0;  font-size: 18px; color:#5B4E2C ; font-family: Raleway; text-align: right;">KHASABAI</p>
-                <p style="margin: 0;  font-size: 18px; color:#5B4E2C ; font-family: Raleway; text-align: right;">BEAUTY PRODUCTS</p>
-            </div>
-                
-            <div style="margin-left: 10px;  padding-right:10px; padding-top: 6px;">
+            <div style="margin-right: 10px; margin-left: 2em; padding-left:10px; padding-top: 6px;">
                 <img src="https://scontent.xx.fbcdn.net/v/t1.15752-9/369627246_289801410057308_7488894476029786008_n.png?_nc_cat=103&ccb=1-7&_nc_sid=510075&_nc_eui2=AeHREZSn9SSNmamdnSsRCcVxI9F0L_pc2Fgj0XQv-lzYWNfYyCBB0reg-zh1OLoO1jlcXtuHY_x2uQ3r8lBI6mYY&_nc_ohc=qWkxmDrrYZkAX9n5wr3&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AdTlJoLVkthf50CQvYCphnSimKF4flckWwAbIeWb2MQAig&oe=657E214B" alt="Logo" width="70" height="70">
             </div>
-        </div>
-    </nav>
-    </div>
-
-<!-- second navbar (search btn)-->
-<nav class="navbar navbar-expand-sm">
-    <div class="collapse navbar-collapse" id="navbarNav">
-        <div class="search">
-            <div class="input-group">
-                <input type="text" class="form-control" placeholder="Search">
-                <div class="input-group-append">
-                <button class="btn btn-secondary" type="button" style="background-color: transparent; border-color: #453321; border-left: none; border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-bottom-left-radius: 0; border-top-left-radius: 0;">
-                <span class="btn-label"><i class="fa-solid fa-magnifying-glass" style="color: #5a4939; "></i></span></button>
-                </button>
+            <div>
+                <p style="margin: 0;  font-size: 18px; color:#5B4E2C ; font-family: Raleway; text-align: left;">KHASABAI</p>
+                <p style="margin: 0;  font-size: 18px; color:#5B4E2C ; font-family: Raleway; text-align: left;">BEAUTY PRODUCTS</p>
             </div>
-        </div>
+                <br>
+                <hr style= "margin-top: 10px; margin-left: 15px; margin-right: 2em; width: 700px; background:#4F3B33; height: 2px;"> </hr>           
+                <br>
     </div>
-            
- </nav>
+    <button type="button" data-toggle="collapse" data-target="#navbarNav" class="navbar-toggler" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon "></span>
+    </button>
+
+<div class="bar">
+<div style="display: flex; align-items: right;">
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav" >
+        <ul class="navbar-nav ml-auto ">
+        <a href="profilerider.php" class="nav-link">
+        <li class="nav-item text-center active" >
+            <i class="fas fa-user fa"></i>
+                Profile
+        </li>
+        </a>
+        <a href="rider.php" class="nav-link">
+         <li class="nav-item text-center" >
+            <i class="fas fa-home"></i>
+                Home
+         </li>
+        </a>
+        <a href="orderhistoryrider.php" class="nav-link">
+         <li class="nav-item text-center" >
+            <i class="fas fa-chart-line"></i>
+                Order
+         </li>
+        </a>
+        <a href="logout.php" class="nav-link">
+         <li class="nav-item text-center" >
+            <i class="fas fa-sign-out-alt"></i>
+                Log out
+         </li>
+        </a>
+        </ul>
+    </div>
+</nav>
+       <br>
+       <br>
        
  <h1> Order </h1>
-   <div class="container">
+ <div class="container">
     <div class="row">
+        <br>
     <?php if ($result->num_rows > 0) {
                     while ($row = $result->fetch_assoc()) { 
                         $email_customer = $row['email']; // Make sure to define $row appropriately
@@ -316,7 +332,7 @@ if(isset($_POST['done_pickup'])){
                        
                         <div class="col">
                         
-                            <div class="left">
+                        <div class="left prata-text">
                                 <?php echo $row['firstName']?> <?php echo $row['lastName']?><br>
                                 <?php echo $row['address']?><br>
                                 <?php echo $row['phoneNumber']?>
@@ -339,7 +355,7 @@ if(isset($_POST['done_pickup'])){
                         </div>
                         
                         <div class="col">
-                            <div class="right">
+                            <div class="right prata-text">
                                 <div class="row">
                                     <div class="col">
                                     Quantity: <?php echo $row['quantity']?>
@@ -350,7 +366,8 @@ if(isset($_POST['done_pickup'])){
                                     </div>
                                 </div>
                             </div>
-                            <form method="POST">
+                            <br>
+                            <form method="POST" style="text-align: center;">
     <input type="hidden" name="order_id" value="<?php echo $order_id ?>">
     <button type="submit" name="done_pickup" id="done_pickup_btn" onclick="return disableDonePickup()">Done Pick up</button>
     <button type="submit" name="delivered" id="delivered_btn" onclick="return disableDelivered()">Delivered</button>
@@ -368,7 +385,7 @@ if(isset($_POST['done_pickup'])){
         $sequence = "UPDATE order_customer SET status='Delivered', date_arrival = NOW() WHERE id = $order_id";
     
         if ($conn->query($sequence) === TRUE) {
-            echo "Order marked as Delivered";
+            echo '<p class="prata-font" style="text-align: center;">Order marked as Delivered <span>&#10003;</span></p>';
         } else {
             echo "Error updating status: " . $conn->error;
         }
@@ -401,7 +418,7 @@ if(isset($_POST['done_pickup'])){
     </div>
    </div>
    <?php
-   if(isset($_POST['done_pickup'])){
+   if (isset($_POST['done_pickup'])) {
     // Assuming $order_id and $kha are already defined
 
     // Update status
@@ -417,13 +434,12 @@ if(isset($_POST['done_pickup'])){
     if ($conn->query($kha_sql) === TRUE) {
         // kha updated successfully
 
-        // Echo the message after both updates
-        echo "Deliver the package to the said location"; 
+        // Echo the styled message after both updates
+        echo '<p class="prata-font" style="text-align: center;">Deliver the package to the said location <span>&#10003;</span></p>';
         ?> <script>
         function disableDonePickup() {
             // Disable the "Done Pick up" button
             document.getElementById('done_pickup_btn').disabled = true;
-    
     
             return true; // Allow the form submission to proceed
         }

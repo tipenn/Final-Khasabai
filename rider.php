@@ -211,113 +211,102 @@ $result = $conn->query($sql);
         background-color: #E8E1DA;
         color:black;
        }
+       .custom-heading {
+    font-family: "Prata", sans-serif;
+    /* Add any other styling properties as needed */
+}
     </style>
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Khasabai</title>
+<meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>profile</title>
+    <link rel="icon" type="image/x-icon" href="https://scontent.xx.fbcdn.net/v/t1.15752-9/369627246_289801410057308_7488894476029786008_n.png?_nc_cat=103&ccb=1-7&_nc_sid=510075&_nc_eui2=AeHREZSn9SSNmamdnSsRCcVxI9F0L_pc2Fgj0XQv-lzYWNfYyCBB0reg-zh1OLoO1jlcXtuHY_x2uQ3r8lBI6mYY&_nc_ohc=qWkxmDrrYZkAX9n5wr3&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AdTlJoLVkthf50CQvYCphnSimKF4flckWwAbIeWb2MQAig&oe=657E214B">
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
 </head>
-  <body class="bg-image" style="background-image: url('https://drive.google.com/uc?id=1VdMQTbNwy9vY_nWoi4Zmi67F8QM1QeTu'); background-size: cover;">
-  
-    <!-- navbar -->
-    <nav class="navbar navbar-expand-sm">
-   
-    <div class="bar">
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a href="profilerider.php" class="nav-link ">
-                        Profile
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="rider.php" class="nav-link active">
-                        Home
-                    </a>
-                </li>
-                <li class="nav-item active">
-                    <a href="orderhistoryrider.php" class="nav-link ">
-                        Order
-                    </a>
-                </li>
-                <li class="nav-item active">
-                    <a href="logout.php" class="nav-link ">
-                        Log out
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </div>
-   
-     <!-- upper right side (nav bar) -->
-     <div style="display: flex; align-items: right;">
-            <br>
-            <hr style= "margin-top: 10px; margin-left: 15px; width: 850px; background:#4F3B33; height: 2px;"> </hr>
-        </div>
-        <br>
-        <div class="collapse navbar-collapse" id="navbarNav">
-        <div class="navbar-nav ml-auto">
+    <div class="navigation"  style="margin-bottom:-7px;">
+    <nav class="navbar navbar-expand-sm" style="margin-bottom: 0px;">
         <div style="display: flex; align-items: center;">
-            <div>
-                <p style="margin: 0;  font-size: 18px; color:#5B4E2C ; font-family: Raleway; text-align: right;">KHASABAI</p>
-                <p style="margin: 0;  font-size: 18px; color:#5B4E2C ; font-family: Raleway; text-align: right;">BEAUTY PRODUCTS</p>
-            </div>
-                
-            <div style="margin-left: 10px;  padding-right:10px; padding-top: 6px;">
+            <div style="margin-right: 10px; margin-left: 2em; padding-left:10px; padding-top: 6px;">
                 <img src="https://scontent.xx.fbcdn.net/v/t1.15752-9/369627246_289801410057308_7488894476029786008_n.png?_nc_cat=103&ccb=1-7&_nc_sid=510075&_nc_eui2=AeHREZSn9SSNmamdnSsRCcVxI9F0L_pc2Fgj0XQv-lzYWNfYyCBB0reg-zh1OLoO1jlcXtuHY_x2uQ3r8lBI6mYY&_nc_ohc=qWkxmDrrYZkAX9n5wr3&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AdTlJoLVkthf50CQvYCphnSimKF4flckWwAbIeWb2MQAig&oe=657E214B" alt="Logo" width="70" height="70">
             </div>
-        </div>
-    </nav>
-    </div>
-
-<!-- second navbar (search btn)-->
-<nav class="navbar navbar-expand-sm">
-    <div class="collapse navbar-collapse" id="navbarNav">
-        <div class="search">
-            <div class="input-group">
-                <input type="text" class="form-control" placeholder="Search">
-                <div class="input-group-append">
-                <button class="btn btn-secondary" type="button" style="background-color: transparent; border-color: #453321; border-left: none; border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-bottom-left-radius: 0; border-top-left-radius: 0;">
-                <span class="btn-label"><i class="fa-solid fa-magnifying-glass" style="color: #5a4939; "></i></span></button>
-                </button>
+            <div>
+                <p style="margin: 0;  font-size: 18px; color:#5B4E2C ; font-family: Raleway; text-align: left;">KHASABAI</p>
+                <p style="margin: 0;  font-size: 18px; color:#5B4E2C ; font-family: Raleway; text-align: left;">BEAUTY PRODUCTS</p>
             </div>
-        </div>
+                <br>
+                <hr style= "margin-top: 10px; margin-left: 15px; margin-right: 2em; width: 700px; background:#4F3B33; height: 2px;"> </hr>           
+                <br>
     </div>
-            
- </nav>
-       
+    <button type="button" data-toggle="collapse" data-target="#navbarNav" class="navbar-toggler" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon "></span>
+    </button>
+
+<div class="bar">
+<div style="display: flex; align-items: right;">
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav" >
+        <ul class="navbar-nav ml-auto ">
+        <a href="profilerider.php" class="nav-link">
+        <li class="nav-item text-center active" >
+            <i class="fas fa-user fa"></i>
+                Profile
+        </li>
+        </a>
+        <a href="rider.php" class="nav-link">
+         <li class="nav-item text-center" >
+            <i class="fas fa-home"></i>
+                Home
+         </li>
+        </a>
+        <a href="orderhistoryrider.php" class="nav-link">
+         <li class="nav-item text-center" >
+            <i class="fas fa-chart-line"></i>
+                Order
+         </li>
+        </a>
+        <a href="logout.php" class="nav-link">
+         <li class="nav-item text-center" >
+            <i class="fas fa-sign-out-alt"></i>
+                Log out
+         </li>
+        </a>
+        </ul>
+    </div>
+</nav>
+       <br>
+       <br>
  <h1> RIDER HOMEPAGE </h1>
     
     
  <div class="container">
 <div class="row justify-content-center">
 <?php if ($result->num_rows > 0) {
-                    while ($row = $result->fetch_assoc()) { 
-                        ?>
-            <div class="col-5">
-            <h4><?php echo $row['id'] . $row['lastName'];?></h4>
+    while ($row = $result->fetch_assoc()) { 
+?>
+        <div class="col-5"> 
+            <br>
+            <h4 class="custom-heading"><?php echo $row['id'] . ' ' . $row['lastName'];?></h4>
 
-                <h4><?php echo $row['firstName'] . $row['lastName'];?></h4>
-                <h6><?php echo $row['email'] ?></h6>
-                <h6><?php echo $row['address'] ?></h6>
-                <h7><?php echo $row['phoneNumber'] ?></h7>
-                <p class="text-lead text-center">
+            <h2 class="text-center custom-heading"><?php echo $row['firstName'] . ' ' . $row['lastName'];?></h2>
+            <h5 class="text-center custom-heading"><?php echo $row['email'] ?></h5>
+            <h5 class="text-center custom-heading"><?php echo $row['address'] ?></h5>
+            <h5 class="text-center custom-heading"><?php echo $row['phoneNumber'] ?></h5>
+            <p class="text-lead text-center">
                 Sub Total: ₱<?php echo $row['total_price'] ?><br>
-                Shipping Fee: <?php echo $row['shipping_fee'] ?>
-                
-                    <br>
-                </p>
-                <h5>TOTAL: ₱<?php echo $row['total_price'] ?></h5>
-                <form method="POST" action="orderrider.php" id="packForm">
+                Shipping Fee: <?php echo $row['shipping_fee'] ?><br>
+            </p>
+            <h5 class="custom-heading">TOTAL: ₱<?php echo $row['total_price'] ?></h5>
+            <form method="POST" action="orderrider.php" id="packForm">
                 <input type="hidden" name="order_id" value="<?php echo $row['id']; ?>">
                 <center>
                     <button type="submit" name="pack" class="pack">
-                    <i class="fas fa-shipping-fast">Ship</i> 
+                        <i class="fas fa-shipping-fast">Ship</i> 
                     </button>
                 </center>
             </form>
         </div>
-        <?php 
+<?php 
     }
 }
 $conn->close();
@@ -326,6 +315,9 @@ $conn->close();
 
         </div>
     </div>
+    <br>
+    <br>
+    <br>
 <!-- footer -->
 <footer class="container-fluid">
     <div class="row">
