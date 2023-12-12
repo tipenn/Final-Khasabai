@@ -13,7 +13,7 @@ if (isset($_POST['insert'])) {
 
         $query = "INSERT INTO products VALUES('', '$itemName', '$itemDescription','$category', '$itemImage', '$itemQuantity', '$itemPrice')";
         mysqli_query($conn, $query);
-        echo "<script>alert('Item successfully added !!');</script>";
+        $message="Item added successfully";
     } 
 
     
@@ -336,6 +336,8 @@ if (isset($_POST['insert'])) {
                     </div>
                 </div>      
                 </div>                    <hr>
+                <div id="message" class="alert alert-success" style="display: none;"></div>
+
                     <input type="text"  class="form-control" name="item_name" placeholder="Item Name" required><br><br>
                     <input type="text"  class="form-control" name="item_description" placeholder="Item Description"><br><br>
                     <input type="file"  class="form-control" name="item_image" placeholder="Item Image" required><br><br>
@@ -384,6 +386,12 @@ if (isset($_POST['insert'])) {
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.18.0/font/bootstrap-icons.css" rel="stylesheet">
-
+<script>
+    if ('<?php echo $message; ?>'.trim() !== "") {
+    var messageDiv = document.getElementById('message');
+    messageDiv.innerText = '<?php echo $message; ?>';
+    messageDiv.style.display = 'block';
+}
+</script>
 </body>
 </html>
