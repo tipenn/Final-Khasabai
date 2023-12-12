@@ -130,6 +130,10 @@ $output=$conn->query($sequence);
             border-radius: 10px;
             width: 10px;
         }
+        .scroll{
+            overflow-y: scroll;
+            max-height: 50em;
+        }
         
     </style>
 
@@ -233,7 +237,7 @@ $output=$conn->query($sequence);
             
 </div>
 <br>
-<div class="card card-body">
+<div class="card card-body scroll">
             <div class="row">
                 <div class="col-2">
                     <h5><b>Customer</b></h5>
@@ -267,6 +271,8 @@ $output=$conn->query($sequence);
                 </div>
             </div>
             <div class="row" style="font-size:15px">
+            
+
             <?php 
             while ($row = $output->fetch_assoc()) { 
                 ?>

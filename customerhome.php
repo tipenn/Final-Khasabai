@@ -92,6 +92,7 @@ if (!empty($searchQuery)) {
             background-color: #FAFAF3; /* Add this line */
             font-family: Raleway;
             background-color: rgba(250, 250, 243, 0.4); /* Light yellow with 90% opacity */
+            position:relative;
 
         }
         li{
@@ -290,7 +291,7 @@ if (!empty($searchQuery)) {
 </head>
 
 <body class="bg-image" style="background-image: url('assets/bgcustomer.jpg'); background-size: cover;">
-<nav class="navbar navbar-expand-sm">
+<nav class="navbar navbar-expand-sm" >
         <div style="display: flex; align-items: center;">
             <div style="margin-right: 10px; margin-left: 2em; padding-left:10px; padding-top: 6px;">
                 <img src="https://scontent.xx.fbcdn.net/v/t1.15752-9/369627246_289801410057308_7488894476029786008_n.png?_nc_cat=103&ccb=1-7&_nc_sid=510075&_nc_eui2=AeHREZSn9SSNmamdnSsRCcVxI9F0L_pc2Fgj0XQv-lzYWNfYyCBB0reg-zh1OLoO1jlcXtuHY_x2uQ3r8lBI6mYY&_nc_ohc=qWkxmDrrYZkAX9n5wr3&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AdTlJoLVkthf50CQvYCphnSimKF4flckWwAbIeWb2MQAig&oe=657E214B" alt="Logo" width="70" height="70">
@@ -365,10 +366,7 @@ if (!empty($searchQuery)) {
     }
     ?>
 </ul>
-<div class="indicator">
-    <h1 style="font-style: raleway; color:brown; font-style:italic;">Buy this shit</h1>
-    <p style="color:brown;">Good shit to promise</p>
-</div>
+
     </div>
 </section>
 
@@ -393,7 +391,14 @@ if (!empty($searchQuery)) {
     // Set interval to show the next slide every 1000 milliseconds (1 second)
     setInterval(showNextSlide, 5000); // Change the interval time according to your preference
 </script>
-</center>
+
+<div style="position: relative; margin: 20em 0px 10em 0px">
+  <img src="assets/cover.jpg" style="width: 100%; max-width: 100%; opacity: 0.7; border-radius: 10px;">
+  <p style="font-family: Raleway; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-style: italic;color: white; font-size: 28px; font-weight: bold; text-align: center;">
+  <span style="font-size: 32px;">Unveil Your Radiance with Khasabai:</span> <br>Elevate Your Beauty Rituals with Exquisite Beauty Products Crafted for Timeless Elegance.
+</p></div></center>
+
+
 <center>
 <div class="search">
         <form method="GET" action="" class="search">
