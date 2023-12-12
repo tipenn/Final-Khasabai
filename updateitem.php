@@ -238,7 +238,6 @@ if (message.trim() !== "") {
 </form>
 <form method="post" enctype="multipart/form-data">
 <h6> Item Image</h6>
-    <p>Due to security reasons, you need to reupload your image </p>
     <input type="file" class="form-control" name="item_image" value="<?php echo $itemImage; ?>"><br><br>
     <button type="submit" name="upload">hah</button>
 </form>
