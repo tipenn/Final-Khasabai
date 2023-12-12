@@ -11,7 +11,7 @@ if (isset($_POST['signup'])) {
     $typeUser = $_POST['typeUser'];
 
     if ($_POST['password'] === $_POST['confirmPassword']) {
-        $query = "INSERT INTO users VALUES('', '$firstName', '$lastName','$email', '$phoneNumber', '$address', '$password', '$typeUser')";
+        $query = "INSERT INTO users VALUES('', '$firstName', '$lastName','$email','', '$phoneNumber', '$address', '$password', '$typeUser')";
         mysqli_query($conn, $query);
         header("Location:login.php");
         echo "<script>alert('Account successfully created!!');</script>";
