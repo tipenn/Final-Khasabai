@@ -148,7 +148,7 @@ $result = $conn->query($sql);
         }
         .custom-container {
             width: 175px;
-            height: 255px;
+            height: 305px;
             background-color: #FFFFFF;
             border-radius: 20px;
             border: 1px solid black; /* Add the border style 'solid' */
@@ -315,7 +315,7 @@ $result = $conn->query($sql);
                 <div class="custom-container">
                     <img src="assets/<?php echo $row["item_image"] ?>">
                     <p class="text-lead"><?php echo $row["item_name"] . ' ' . $row["item_description"] ?></p>
-                    <p class="text-lead">₱<?php echo $row["retail_price"] ?></p>
+                    <br><br><p class="text-lead">₱<?php echo $row["retail_price"] ?></p>
                 </div>
             </div>
     <?php }} ?>

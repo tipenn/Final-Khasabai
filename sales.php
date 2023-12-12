@@ -266,7 +266,7 @@ $output=$conn->query($sequence);
                     <h5><b>Total Fee</b></h5>
                 </div>
             </div>
-            <div class="row">
+            <div class="row" style="font-size:15px">
             <?php 
             while ($row = $output->fetch_assoc()) { 
                 ?>
