@@ -31,6 +31,7 @@ $result = $conn->query($sql);
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Admin Page</title>
     <link rel="icon" type="image/x-icon" href="https://scontent.xx.fbcdn.net/v/t1.15752-9/369627246_289801410057308_7488894476029786008_n.png?_nc_cat=103&ccb=1-7&_nc_sid=510075&_nc_eui2=AeHREZSn9SSNmamdnSsRCcVxI9F0L_pc2Fgj0XQv-lzYWNfYyCBB0reg-zh1OLoO1jlcXtuHY_x2uQ3r8lBI6mYY&_nc_ohc=qWkxmDrrYZkAX9n5wr3&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AdTlJoLVkthf50CQvYCphnSimKF4flckWwAbIeWb2MQAig&oe=657E214B">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
@@ -44,8 +45,6 @@ $result = $conn->query($sql);
             background-repeat: no-repeat;
             background-attachment: fixed; /* Optional, for a fixed background */
         }
-        
-        
             .navbar a {
                 transition: color 0.5s ease; /* Initial transition property for non-hover state */
             }
@@ -53,7 +52,7 @@ $result = $conn->query($sql);
             .navbar a:hover {
                 font-weight: bold;
                 transition: color 0.5s ease 1s; /* Transition with a 1-second delay */
-                background: linear-gradient(to bottom, transparent 0%, transparent 80%, #83776c 80%, #83776c 100%, white);
+                background: linear-gradient(to bottom, transparent 0%, transparent 90%, #83776c 90%, #83776c 100%, white);
             }
 
             .navbar {
@@ -61,64 +60,95 @@ $result = $conn->query($sql);
                 padding-left: 15px;
                 margin: 0px;         
                 background-color: rgba(250, 250, 243, 0.4); /* Light yellow with 90% opacity */
-
-            }            
+        }
+        .bar{
+            text-align: center;
+            padding: 2px;
+            margin-top: 2em;
+            margin-left: 15em;
+            margin-right: 0px; 
+            
+        }
+        .bar li{	
+            padding-left: 10px;
+            font-size: 17px;
+            font-family: Roboto;
+            color: #5B4E2C;
+        }
+        a {
+			text-decoration: none;
+			color: #453321;
+        }
+        a:hover{
+			color: #5B4E2C;
+        }
         footer{
             background-color: #A19284;
-            color:white;
+            color: white;
+            bottom: 0;
+            left:0;
+            width:100%;    
         }
         footer a{
             color:#453321;
         }
         footer a:hover{
-            color:black;
+            color: black;
         }
         .addition{
-            width: 90%;
-            font-size: 30px;
+            width: 60%;
+            font-size: 25px;
+            padding: 5px;
             margin-top: 15px;
-            background-color: #EAD7BB;
+            margin-left: 2em;
+            background-color:#F6F2EF;
             border-radius: 20px;
-            border-color: #113946;
+            color: #2F3E46;
+            font-family: Poppins,sans-serif;
+        
         }
         .addition:hover{
-            background-color: #BCA37F;
+            background-color:#A5A5A5;;
             border-radius: 20px;
-            font-weight: bold;
+            color: white;
         }
         .updation{
-            width: 90%;
-            font-size: 30px;
+            width: 60%;
+            font-size: 25px;
+            padding: 5px;
             margin-top: 15px;
-            background-color: #EAD7BB;
+            margin-left: 2em;
+            background-color:#F6F2EF;
             border-radius: 20px;
-            border-color: #113946;
-
+            color: #2F3E46;
+            font-family: Poppins,sans-serif;
         }
         .updation:hover{
-            background-color: #BCA37F;
+            background-color:#A5A5A5;;
             border-radius: 20px;
-            font-weight: bold;
+            color: white;
 
         }
         .deletion{
-            width: 90%;
-            font-size: 30px;
+            width: 60%;
+            font-size: 25px;
+            padding: 5px;
             margin-top: 15px;
-            background-color: #EAD7BB;
+            margin-left: 2em;
+            background-color:#F6F2EF;
             border-radius: 20px;
-            border-color: #113946;
-
+            color: #2F3E46;
+            font-family: Poppins,sans-serif;
         }
         .deletion:hover{
-            background-color: #BCA37F;
+            background-color:#A5A5A5;;
             border-radius: 20px;
-            font-weight: bold;
+            color: white;
+    
         }
-       
         .custom-container {
             width: 175px;
-            height: 300px;
+            height: 255px;
             background-color: #FFFFFF;
             border-radius: 20px;
             border: 1px solid black; /* Add the border style 'solid' */
@@ -126,10 +156,12 @@ $result = $conn->query($sql);
             padding: 5px;
         }
         .container p{
-            font-size: 10px;
+            font-size: 13px;
             padding-left: 10px;
+            font-family: roboto;
             text-align: center;
             font-weight: bold;
+            height:30px;
         }
         .container img{
             border-radius: 20px;
@@ -138,16 +170,17 @@ $result = $conn->query($sql);
             width:170px;
         }
         .scrollable-section {
-            height: 600px; /* Adjust the height as needed */
+            float: right;
+            margin-left: -5em;
+            margin-top: -2em;
+            height: 600px;
             overflow-y: auto;
-            border: 1px solid #ddd; /* Optional: Add a border for better visibility */
+            padding: 1em;/* Optional: Add a border for better visibility */
         }
         
         h1, h2, h3, p {
             font-family: 'Prata', serif;
-        }
-        li{
-            padding-right:15px; 
+
         }
         .search .form-control {
         text-align: center;
@@ -157,8 +190,8 @@ $result = $conn->query($sql);
         width: 10px;
         }
         .search{
-            height: 100px; 
-            width: 400px;
+            width: 240px;
+           margin-left: 7em;
         
         }
         .search .form-control {
@@ -168,10 +201,7 @@ $result = $conn->query($sql);
             border-radius: 10px;
             width: 10px;
         }
-        .bg-image {
-            background-image: url('assets/gb.png');
-            background-size: cover;
-        }
+        
     </style>
 
 
@@ -183,7 +213,8 @@ $result = $conn->query($sql);
     <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
     <script src='main.js'></script>
 </head>
-<body class="bg-image">
+<body class="bg-image" style="background-image: url('https://scontent.xx.fbcdn.net/v/t1.15752-9/406461146_2801070146700533_8926185643662779815_n.png?_nc_cat=100&ccb=1-7&_nc_sid=510075&_nc_eui2=AeE8EUJuE9vK-u7uoH-hFuqfJMSbbB90MD4kxJtsH3QwPj3y99yjqTLFVw1tcQu7VzqIrKIJGB53LEwFWPJUYd4L&_nc_ohc=zgX-7eBLWyMAX8SX_Ve&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AdQYjVh5cxqmCd-fmKx76irFbBM6szywFFaknbFQjeBJ1A&oe=659E2DAE'); background-size: cover;">
+
 <div class="navigation">
     <nav class="navbar navbar-expand-sm">
         <div style="display: flex; align-items: center;">
@@ -191,8 +222,8 @@ $result = $conn->query($sql);
                 <img src="https://scontent.xx.fbcdn.net/v/t1.15752-9/369627246_289801410057308_7488894476029786008_n.png?_nc_cat=103&ccb=1-7&_nc_sid=510075&_nc_eui2=AeHREZSn9SSNmamdnSsRCcVxI9F0L_pc2Fgj0XQv-lzYWNfYyCBB0reg-zh1OLoO1jlcXtuHY_x2uQ3r8lBI6mYY&_nc_ohc=qWkxmDrrYZkAX9n5wr3&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AdTlJoLVkthf50CQvYCphnSimKF4flckWwAbIeWb2MQAig&oe=657E214B" alt="Logo" width="70" height="70">
             </div>
             <div>
-                <p style="margin: 0;  font-size: 18px; color:#5B4E2C ; font-family: Raleway; text-align: left;">KHASABAI</p>
-                <p style="margin: 0;  font-size: 18px; color:#5B4E2C ; font-family: Raleway; text-align: left;">BEAUTY PRODUCTS</p>
+                <p style="margin: 0;  font-size: 18px; color:#5B4E2C ; font-family: Raleway;font-weight: bold; text-align: left;">KHASABAI</p>
+                <p style="margin: 0;  font-size: 18px; color:#5B4E2C ; font-family: Raleway;font-weight: bold;  text-align: left;">BEAUTY PRODUCTS</p>
             </div>
                 <br>
                 <br>
@@ -203,51 +234,46 @@ $result = $conn->query($sql);
         <span class="navbar-toggler-icon "></span>
     </button>
         
-    <div class="collapse navbar-collapse justify-content-end" id="navbarNav" >
-        <ul class="navbar-nav ml-auto ">
-        
-        <a href="profileadmin.php" class="nav-link">
+    <div class="collapse navbar-collapse justify-content" id="navbarNav" >
+    <div class="bar">
+        <ul class="navbar-nav ">
+        <a href="adminprofile.php" class="nav-link">
         <li class="nav-item text-center" >
-            <i class="fas fa-user fa"></i>
+           
                 Profile
         </li>
         </a>
         <a href="adminpage.php" class="nav-link">
          <li class="nav-item text-center active" >
-            <i class="fas fa-home"></i>
+       
                 Home
          </li>
         </a>
         <a href="sales.php" class="nav-link">
          <li class="nav-item text-center" >
-            <i class="fas fa-chart-line"></i>
+           
                 Sales
          </li>
         </a>
         <a href="inventory.php" class="nav-link">
          <li class="nav-item text-center">
-            <i class="fas fa-box"></i>
+        
                 Inventory
          </li>
         </a>
         <a href="adminorder.php" class="nav-link">
          <li class="nav-item text-center" >
-            <i class="fas fa-shopping-cart"></i>
+            
                 Order
          </li>
         </a>
         <a href="logout.php" class="nav-link">
          <li class="nav-item text-center" >
-            <i class="fas fa-sign-out-alt"></i>
+            
                 Log out
-         </li>
+        </li>
         </a>
-        </ul>
-    </div>
-</nav>
-</div>
-<br>
-<center>
+   
 <div class="search">
         <form method="GET" action="" class="search">
             <div class="input-group">
@@ -262,10 +288,10 @@ $result = $conn->query($sql);
             </div>
         </form>
     </div>
-</center>
-
+</div>
+    </nav>
+        </div>
 <!--body-->
-
 
 <br>
     <div class="container">
@@ -282,7 +308,6 @@ $result = $conn->query($sql);
             <div class="col">
                 <div class="scrollable-section">
                     <div class="content">
-                        
                     <div class="row">
     <?php if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) { ?>
@@ -307,25 +332,25 @@ $result = $conn->query($sql);
 
     
 
-<footer class="container-fluid">
-    
+    <footer class="container-fluid">
     <div class="row">
         <div class="col-6 text-left">
-            <p class="text-lead" style="font-size: 15px; padding-top:20px;">2023©Khasabai | Privacy Policy</p>
+            <p class="text-lead" style="font-size: 15px; padding-top:20px;">2023©Khasabai | <a href="" style="color: white;"> Privacy Policy</a></p>
         </div>
         <div class="col-md-6 text-end sm-3" style="padding-top:20px;">
             <a href="mailto:your-email@example.com" class="d-inline">
-                <i class="far fa-envelope" style="margin-right: 10px;"></i>
+                <i class="far fa-envelope" style="margin: 5px;"></i>
             </a>
             <a href="https://www.facebook.com/kylesumabat13" target="_blank" class="d-inline">
-                <i class="fab fa-facebook" style="margin-right: 20px;"></i>
+                <i class="fab fa-facebook" style="margin: 5px;"></i>
             </a>
             <a href="https://instagram.com/kharyllesumabat?igshid=NzZlODBkYWE4Ng==" target="_blank" class="d-inline">
-                <i class="fab fa-instagram" style="margin-right: 30px;"></i>
+                <i class="fab fa-instagram" style="margin: 5px;"></i>
             </a>
         </div>
     </div>
 </footer>
+
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
