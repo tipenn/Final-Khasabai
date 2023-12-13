@@ -94,6 +94,20 @@ session_start()
             background-color: #A19284;
             color: black;
         }
+        table{
+            background-color:#F6F2EF; 
+            width: 400px; 
+            margin-right: 35em;
+            box-shadow: -2px -2px 2px grey;
+        }
+        tr{
+            height:50px;  
+            text-align:left; 
+            color:black;
+        }
+        td{
+            padding-left:10px;
+        }
         h1, h2, h3, p {
             font-family: 'Prata', serif;
             padding-top: 0;
@@ -209,9 +223,10 @@ session_start()
     </nav>
         </div>
 
-<!-- header profile -->
+
 <!-- content -->
 <div class="text-center" style="margin-top: 2em; ">
+<center>
 <?php
 $sql = "SELECT * FROM users WHERE id = '$_SESSION[id]'";
 $result = $conn->query($sql);
@@ -225,7 +240,7 @@ if ($result) {
         // Check if the 'profile' column is not null and not empty
         if ($row['profile'] !== null && $row['profile'] !== '') {
             // Profile has data
-            ?><img src="assets/<?php echo $row['profile']; ?>"  alt="Profile Picture" style="height: 150px; width:150px; border-radius:100%;">
+            ?><img src="assets/<?php echo $row['profile']; ?>"  alt="Profile Picture" style="height: 170px; width:170px; border-radius:100%;">
 
             <?php
         } else {
@@ -243,7 +258,9 @@ if ($result) {
     // Query execution failed
     echo "Error executing the query: " . $conn->error;
 }
-?>    <div class="text-right" style="margin-right: 30em; float: right; ">
+?>   
+</center>
+    <div class="text-right" style="margin-right: 30em; float: right; ">
     <button type="button" class="btn btn-outline-secondary btn-lg" onclick="myFunction()"> <i class="fa-solid fa-pencil" style="color: #453321;"></i></button>
     </button> 
     </div>
@@ -251,42 +268,47 @@ if ($result) {
     <br>
     
 <div class="container">
-    <table style="background-color: #A19284; width: 400px; margin-right: 35em;" align="center" >
-    <tr style= "height:50px;  text-align:left; color:black; ">     
-     <td scope ="col" style="padding-left:10px;"> <b> Email: </b>  <?php echo $_SESSION['email'] ?> </td>
+    <table align="center" >
+    <tr >     
+     <td scope ="col"> <b> Email: </b>  <?php echo $_SESSION['email'] ?> </td>
      
     </tr>
     </table>
         <br>
-        <table style="background-color: #A19284; width: 400px; margin-right: 35em;" align="center">
-    <tr style= "height:50px;  text-align:left; color:black; ">     
-     <td scope ="col" style="padding-left:10px; " > <b> Name: </b>   <?php echo $_SESSION['firstName'] ?> <?php echo $_SESSION['lastName'] ?></td>
+    
+        <table align="center">
+    <tr >     
+     <td scope ="col" > <b> Name: </b>   <?php echo $_SESSION['firstName'] ?> <?php echo $_SESSION['lastName'] ?></td>
     </tr>
     </table>
         <br>
-    <table style="background-color: #A19284; width: 400px; padding-bottom: 5px;" align="center">
-    <tr style= "height:50px; text-align:left; color:black;">     
-     <td scope ="col" style="padding-left:10px;"> <b> Address: </b>  <?php echo $_SESSION['address'] ?>  </td>
+
+    <table>
+    <tr>     
+     <td scope ="col"> <b> Address: </b>  <?php echo $_SESSION['address'] ?>  </td>
     </tr>
     </table>
         <br>
-    <table style="background-color: #A19284; width: 400px; padding-bottom: 5px;" align="center">
-    <tr style= "height:50px;  text-align: left; color:black;">     
-     <td scope ="col" style="padding-left:10px;"> <b> Contact: </b>  <?php echo $_SESSION['phoneNumber'] ?>  </td>
+
+    <table align="center">
+    <tr >     
+     <td scope ="col"> <b> Contact: </b>  <?php echo $_SESSION['phoneNumber'] ?>  </td>
     </tr>
     </table>
         <br>
+
         <!-- asterisk- private -->
-        <table style="background-color: #A19284; width: 400px; padding-bottom: 5px;" align="center">
-    <tr style= "height:50px;  text-align:left; color:black;">     
-    <?php
-    $string = $_SESSION['password'];
-    $length = strlen($string);
-    $pass = str_repeat('*', $length);
-?>
-     <td scope ="col" style="padding-left:10px;"> <b> Password: </b>  <?php echo $pass ?>  </td>     
+        <table>
+    <tr>     
+        <?php
+        $string = $_SESSION['password'];
+        $length = strlen($string);
+        $pass = str_repeat('*', $length);
+        ?>
+    <td scope ="col"> <b> Password: </b>  <?php echo $pass ?>  </td>     
     </tr>
   </table>
+
 </body>
     </div>
                   

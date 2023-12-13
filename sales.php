@@ -60,10 +60,6 @@ $output=$conn->query($sequence);
         h1, h2, h3, p {
             font-family: 'Prata', serif;
         }
-        .headings{
-            background-color: #A19284;
-            color: #453321;
-        }
         
         .show{
             background-color: #EAD7BB;
@@ -75,9 +71,7 @@ $output=$conn->query($sequence);
         .show:hover{
             background-color: #BCA37F;
             border-radius: 5px;
-        }
-        .col{
-            border: 3px solid black;
+
         }
         .container .col-6{
             font-size: 30px;

@@ -62,21 +62,27 @@ $result = $conn->query($sql);
         h1, h2, h3, p {
             font-family: 'Prata', serif;
         }
+        .card{
+            background-color: rgba(232, 225, 218, 0.5);
+            margin-top: -1.5em;
+        }
        .col-5{
-        border:2px solid black;
         margin:10px;
-        background-color: #C9BBAE;
+        background-color:#F6F2EF; 
+        box-shadow: -2px -2px 2px 2px #A19284;
+        color: #2F3E46;
+       
        }
        .pack{
-        background-color: #A19284;
-        color:WHITE;
+        background-color: #E8E1DA;
+        color:black;
         width:200px;
         margin:10px;
         display:center;
        }
        .pack:hover{
-        background-color: #E8E1DA;
-        color:black;
+        background-color:#A5A5A5;;
+        color: white;
        }
         a {
 			text-decoration: none;
@@ -116,6 +122,10 @@ $result = $conn->query($sql);
             border-color: #453321;
             border-radius: 10px;
             width: 10px;
+        }
+        .scroll{
+            overflow-y: scroll;
+            max-height: 50em;
         }
         
     </style>
@@ -209,7 +219,8 @@ $result = $conn->query($sql);
         </div>
 </div>
 <br>
-<div class="container">
+
+<div class="card card-body scroll">
 <div class="row justify-content-center">
 <?php if ($result->num_rows > 0) {
                     while ($row = $result->fetch_assoc()) { 
@@ -240,10 +251,9 @@ $result = $conn->query($sql);
 }
 $conn->close();
 ?>
-            
-
         </div>
     </div>
+</div> 
     
     <footer class="container-fluid">
     <div class="row">

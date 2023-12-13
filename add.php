@@ -93,10 +93,14 @@ if (isset($_POST['insert'])) {
         }
         .addition{
             width: 60%;
-            font-size: 30px;
+            font-size: 25px;
+            padding: 5px;
             margin-top: 15px;
+            margin-left: 2em;
             background-color:#F6F2EF;
             border-radius: 20px;
+            color: #2F3E46;
+            font-family: Poppins,sans-serif;
           
         }
         .addition:hover{
@@ -106,10 +110,14 @@ if (isset($_POST['insert'])) {
         }
         .updation{
             width: 60%;
-            font-size: 30px;
+            font-size: 25px;
+            padding: 5px;
             margin-top: 15px;
+            margin-left: 2em;
             background-color:#F6F2EF;
             border-radius: 20px;
+            color: #2F3E46;
+            font-family: Poppins,sans-serif;
           
 
         }
@@ -121,10 +129,14 @@ if (isset($_POST['insert'])) {
         }
         .deletion{
             width: 60%;
-            font-size: 30px;
+            font-size: 25px;
+            padding: 5px;
             margin-top: 15px;
+            margin-left: 2em;
             background-color:#F6F2EF;
             border-radius: 20px;
+            color: #2F3E46;
+            font-family: Poppins,sans-serif;
          
 
         }
@@ -136,17 +148,16 @@ if (isset($_POST['insert'])) {
         
         .form-control{
             width: 500px;
-            background-color: #e8dfda; 
+            background-color: transparent; 
             border-color: #C9BBAE;
             border-bottom: 2px solid black;
         }
         .insert{
-            width: 90%;
-            font-size: 30px;
+            width: 40%;
+            font-size: 29px;
             margin-top: 15px;
-            background-color: #EAD7BB;
+            background-color:#F6F2EF;
             border-radius: 20px;
-            border-color: #113946;
         }
         .insert:hover{
             background-color: #BCA37F ;
@@ -163,16 +174,13 @@ if (isset($_POST['insert'])) {
         h1, h2, h3, p {
             font-family: 'Prata', serif;
         }
-        li{
-            padding-right:15px; 
-        }
         .option,option{
             background-color: #e8dfda; 
             border-color: #C9BBAE;
             border-bottom: 2px solid black;
             color:black;
             height: 50px;
-            width: 220px;
+            width: 200px;
             font-size: 20px;
             font-weight: 400;
             border-radius: 15px;
@@ -205,21 +213,6 @@ if (isset($_POST['insert'])) {
         .header :hover{
             color:#3e2723;
             font-weight: bold;
-
-        }
-        .insert{
-            width: 60%;
-            font-size: 30px;
-            margin-top: 15px;
-            background-color:#F6F2EF;
-            border-radius: 20px;
-         
-
-        }
-        .insert:hover{
-            background-color:#A5A5A5;;
-            border-radius: 20px;
-            color: white;
         }
     </style>
 
@@ -337,21 +330,22 @@ if (isset($_POST['insert'])) {
                 </div>      
                 </div>                    <hr>
                 <div id="message" class="alert alert-success" style="display: none;"></div>
-
-                    <input type="text"  class="form-control" name="item_name" placeholder="Item Name" required><br><br>
-                    <input type="text"  class="form-control" name="item_description" placeholder="Item Description"><br><br>
-                    <input type="file"  class="form-control" name="item_image" placeholder="Item Image" required><br><br>
-                    <input type="number"  class="form-control" name="stocks" placeholder="Quantity" required><br><br>
-                    <input type="number" class="form-control" name="price" placeholder="₱00.00" required><br><br>
-                    <label for="category"><h3 style="font-style: italic;">Category: </h3></label>
-                    <select id="category" class="option " name="category">
+                <br>
+                <label for="category"><h3 style="font-style: italic;">Category: </h3></label>
+                    <select id="category" class="option" name="category">
                     <option name="category" value="Beauty Sets">Beauty Sets</option>
                     <option name="category" value="Body Soap and Scrub">Body Soap and Scrub</option>
                     <option  name="category" value="Cosmetics">Cosmetics</option>
                     <option  name="category" value="Face and Body Lotion">Face and Body Lotion</option>
                     <option  name="category" value="Facial Skin Care">Facial Skin Care</option>
                     </select>
-                    <br> <br>
+                    <br><br><br>
+                    <input type="text"  class="form-control" name="item_name" placeholder="Item Name" required><br><br>
+                    <input type="text"  class="form-control" name="item_description" placeholder="Item Description"><br><br>
+                    <input type="file"  class="form-control" name="item_image" placeholder="Item Image" required><br><br>
+                    <input type="number"  class="form-control" name="stocks" placeholder="Quantity" required><br><br>
+                    <input type="number" class="form-control" name="price" placeholder="₱00.00" required><br><br>
+                
                     <button type="submit" class="insert" name="insert">Add Product</button><br><br>
                 </form>
                 </center>

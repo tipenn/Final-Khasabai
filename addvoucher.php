@@ -92,10 +92,14 @@ if (isset($_POST['insert'])) {
         }
         .addition{
             width: 60%;
-            font-size: 30px;
+            font-size: 25px;
+            padding: 5px;
             margin-top: 15px;
+            margin-left: 2em;
             background-color:#F6F2EF;
             border-radius: 20px;
+            color: #2F3E46;
+            font-family: Poppins,sans-serif;
           
         }
         .addition:hover{
@@ -105,10 +109,14 @@ if (isset($_POST['insert'])) {
         }
         .updation{
             width: 60%;
-            font-size: 30px;
+            font-size: 25px;
+            padding: 5px;
             margin-top: 15px;
+            margin-left: 2em;
             background-color:#F6F2EF;
             border-radius: 20px;
+            color: #2F3E46;
+            font-family: Poppins,sans-serif;
           
 
         }
@@ -120,10 +128,14 @@ if (isset($_POST['insert'])) {
         }
         .deletion{
             width: 60%;
-            font-size: 30px;
+            font-size: 25px;
+            padding: 5px;
             margin-top: 15px;
+            margin-left: 2em;
             background-color:#F6F2EF;
             border-radius: 20px;
+            color: #2F3E46;
+            font-family: Poppins,sans-serif;
          
 
         }
@@ -134,18 +146,15 @@ if (isset($_POST['insert'])) {
         }
         .insert{
             width: 60%;
-
             font-size: 30px;
             margin-top: 15px;
             background-color:#F6F2EF;
             border-radius: 20px;
-         
-
         }
         .insert:hover{
-            background-color:#A5A5A5;;
+            background-color: #BCA37F ;
             border-radius: 20px;
-            color: white;
+            font-weight: bold;
         }
         .form-control{
             width: 500px;
@@ -163,9 +172,7 @@ if (isset($_POST['insert'])) {
         }
         h1, h2, h3, p {
             font-family: 'Prata', serif;
-        }
-        li{
-            padding-right:15px; 
+        
         }
         .option,option{
             background-color: #e8dfda; 
@@ -326,19 +333,17 @@ if (isset($_POST['insert'])) {
                 <hr>
                 <br>
                 <div id="message" class="alert alert-success" style="display: none;"></div>
-                <input type="text" name="voucher_code" class="form-control" placeholder="Voucher Code"><br>
-                <input type="number" name="percent" class="form-control" placeholder="1 - 100%"><br>
-                <input type="date" class="form-control" name="expiration_date"><br>
                 <label for="type"><h3 style="font-style: italic;">Type: </h3></label>
                 <select id="type" class="option " name="type" placeholder="Type">
                     <option name="type" value="Reduce to the item product">Reduce to the item product</option>
                     <option name="type" value="Reduce to the shipping fee">Reduce to the shipping fee</option>
                     <option name="type" value="Reduce to the total fee">Reduce to the total fee</option>
-                </select>
-
-
-
-                    <br> <br>
+                </select> 
+                <br><br><br>
+                <input type="text" name="voucher_code" class="form-control" placeholder="Voucher Code"><br>
+                <input type="number" name="percent" class="form-control" placeholder="1 - 100%"><br>
+                <input type="date" class="form-control" name="expiration_date"><br>
+                <br>
                     <button type="submit" class="insert" name="insert">Add Product</button><br><br>
                 </form>
                 </center>

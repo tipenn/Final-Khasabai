@@ -113,7 +113,7 @@ echo "Error updating user: " . mysqli_error($conn);
         .container{
             background-color: #E8E1DA;
             width: 700px;
-            margin-bottom: 5em; 
+            margin-bottom: 8em; 
         }
         .back{
             width: 40px;
@@ -143,12 +143,26 @@ echo "Error updating user: " . mysqli_error($conn);
         a:hover{
 			color: #5B4E2C;
         }
+        .update{
+            width: 30%;
+            height:40px;
+            font-size: 23px;
+            margin-top: 15px;
+            background-color:#F6F2EF;
+            border-radius: 20px;
+        }
+        .update:hover{
+            background-color: #BCA37F ;
+            border-radius: 20px;
+            font-weight: bold;
+        }
         footer{
             background-color: #A19284;
             color: white;
             bottom: 0;
             left:0;
-            width:100%;    
+            width:100%; 
+            position: fixed;   
         }
         footer a{
             color:#453321;
@@ -266,7 +280,7 @@ if ($result) {
         // Check if the 'profile' column is not null and not empty
         if ($row['profile'] !== null && $row['profile'] !== '') {
             // Profile has data
-            ?><img src="assets/<?php echo $row['profile']; ?>"  alt="Profile Picture" style="height: 150px; width:150px; border-radius:100%;">
+            ?><img src="assets/<?php echo $row['profile']; ?>"  alt="Profile Picture" style="height: 170px; width:170px; border-radius:100%;">
 
             <?php
         } else {
@@ -287,12 +301,11 @@ if ($result) {
 ?>
 </div>
 
-
     <div class="text-center" style="cursor: pointer;">
     <form method="post" >
         <label for="profilePicture" style="display: block; cursor: pointer;">Upload Profile Picture</label>
         <input type="file" id="profilePicture" name="profilePicture" style="display: none;">
-        <input type="submit" value="submut" name="upload">
+        <input type="submit" value="submit" name="upload">
     </form>
 </div>
 </div>
@@ -325,10 +338,11 @@ if(isset($_POST['upload'])){
     <h7>Password</h7>
     <input type="password" class="form-control" name="password" value="<?php echo $_SESSION['password']?>"><br>
     <div class="text-center">
-        <button type="submit" class="update" name="update" style="background-color: #835328; border-radius: 2em; width: 150px; height:40px;">Update Profile</button><br><br>
+        <button type="submit" class="update" name="update">Update Profile</button>
+        <br><br><br>
     </div>
 </form>
-                </center>
+</center>
                 
                 </div>
             </div>
@@ -336,28 +350,25 @@ if(isset($_POST['upload'])){
     </div>
     </div>
    
-
-
-
     <!-- footer -->
-<footer class="container-fluid">
+    <footer class="container-fluid">
+    
     <div class="row">
         <div class="col-6 text-left">
-            <p class="text-lead" style="font-size: 15px; padding-top:20px;">2023©Khasabai | <a href="" style="color: white;"> Privacy Policy</a></p>
+            <p class="text-lead" style="font-size: 15px; padding-top:20px;">2023©Khasabai | Privacy Policy</p>
         </div>
         <div class="col-md-6 text-end sm-3" style="padding-top:20px;">
             <a href="mailto:your-email@example.com" class="d-inline">
-                <i class="far fa-envelope" style="margin: 5px;"></i>
+                <i class="far fa-envelope" style="margin-right: 10px;"></i>
             </a>
             <a href="https://www.facebook.com/kylesumabat13" target="_blank" class="d-inline">
-                <i class="fab fa-facebook" style="margin: 5px;"></i>
+                <i class="fab fa-facebook" style="margin-right: 10px;"></i>
             </a>
             <a href="https://instagram.com/kharyllesumabat?igshid=NzZlODBkYWE4Ng==" target="_blank" class="d-inline">
-                <i class="fab fa-instagram" style="margin: 5px;"></i>
+                <i class="fab fa-instagram" style="margin-right: 10px;"></i>
             </a>
         </div>
     </div>
-</footer>
 <script>
     var message = "<?php echo isset($message) ? $message : ''; ?>";
 if (message.trim() !== "") {

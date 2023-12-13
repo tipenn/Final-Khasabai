@@ -55,27 +55,21 @@ $result = $conn->query($sql);
             color: #5B4E2C;
         }
         h1, h2, h3, p {
-            font-family: 'Prata', serif;
-        }
-        .container{
-            background-color: #A19284;
-            color: #453321;
+            font-size: 18px; 
+            color:#5B4E2C ; 
+            font-family: Raleway;
         }
         .item{
-            background-color: #E8E1DA;
-            
-        }
-        .col{
-            border-bottom: 20px solid rgba(161, 146, 132, 0.5);
-            border-right: 10px solid rgba(161, 146, 132, 0.5);
-            border-left: 10px solid rgba(161, 146, 132, 0.5);
-            padding: 20px;
-            font-weight: bold;
-        
+            background-color: rgba(232, 225, 218, 0.5);
+      
         } 
-        .col img{
+        .col-2 img{
             height:100px;
-            width: 150px;
+            width: 100px;
+        }
+        .card{
+            background-color: rgba(232, 225, 218, 0.5);
+            margin-top: -1.5em;
         }
         a {
 			text-decoration: none;
@@ -116,6 +110,10 @@ $result = $conn->query($sql);
             border-color: #453321;
             border-radius: 10px;
             width: 10px;
+        }
+        .scroll{
+            overflow-y: scroll;
+            max-height: 50em;
         }
         
     </style>
@@ -209,48 +207,50 @@ $result = $conn->query($sql);
         </div>
 
         <br>
-<div class="container">
-    <?php if ($result->num_rows > 0) { ?>
+        <br>
+
         <!-- Display header row outside the loop -->
-        <div class="text-center">
+
         <div class="row">
-                <div class="col">
-                    <h3><b>Item Code</b></h3>
+                <div class="col-1 text-center" >
+                    <h3 style="padding-left:2em;"><b>Item Code</b></h3>
                 </div>
-                <div class="col">
-                    <h3><b>Item Name</b></h3>
+                <div class="col-3 text-center" >
+                    <h3 style="padding-left:1em;"><b>Item Name</b></h3>
                 </div>
-                <div class="col">
-                    <h3><b>Item Description</b></h3>
+                <div class="col-3 text-center">
+                    <h3 style="padding-left:1em;"><b>Item Description</b></h3>
                 </div>
-                <div class="col">
+                <div class="col-2 text-center" >
                     <h3><b>Item Image</b></h3>
                 </div>
-                <div class="col">
+                <div class="col-1 text-center" >
                     <h3><b>Stocks</b></h3>
                 </div>
-                <div class="col" >
+                <div class="col-2 text-center" >
                     <h3><b>Item Price</b></h3>
                 </div>
             </div>
         </div>
-        
+        <br>
+        <div class="card card-body scroll">
+        <?php if ($result->num_rows > 0) { ?>
         <div class="item text-center">
             <?php while ($row = $result->fetch_assoc()) { ?>
                 <div class="row">
-                    <div class="col">
+                    <div class="col-1">
                         <?php echo $row["item_code"] ?>
                     </div>
-                    <div class="col">
+                    <div class="col-3">
                         <?php echo $row["item_name"] ?>
                     </div>
-                    <div class="col">
+                    <div class="col-3">
                         <?php echo $row["item_description"] ?>
                     </div>
-                    <div class="col">
-                        <img src="assets/<?php echo $row["item_image"] ?>">
+                    <div class="col-2">
+                        <img src="assets/<?php echo $row["item_image"] ?>"> 
                     </div>
-                    <div class="col">
+                    <div class="col-1">
                     <?php if ($row["stocks"] < 20){?>
                         <p style="color:red; font-weight:bold;"><?php echo $row["stocks"]?></p>
                         <?php
@@ -260,7 +260,7 @@ $result = $conn->query($sql);
                     ?>
                     </div>
 
-                    <div class="col">
+                    <div class="col-2">
                         ₱<?php echo $row["retail_price"] ?>
                     </div>
                 </div>
@@ -268,6 +268,7 @@ $result = $conn->query($sql);
         </div>
     </div>
 </div>
+                </div> </div>
     <?php } ?>
 
     
