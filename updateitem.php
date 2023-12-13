@@ -259,9 +259,13 @@ if (isset($_POST['change_item'])) {
 
     $result = mysqli_query($conn, $query);
     $message="Item successfully change!";
+    
 
     if ($result) {
-        echo "<script>alert('Item successfully added !!');</script>";
+        echo "<script>
+                    window.location.href='cart.php';
+                    alert('Item successfully added !!');
+                    </script>";
         exit();
     } else {
         echo "Error updating record: " . mysqli_error($conn);
