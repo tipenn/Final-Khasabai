@@ -124,7 +124,6 @@ if (!empty($searchQuery)) {
             margin: 15px 0px 5px 10px;
             box-shadow: 0 0 0px rgba(0, 0, 0, 100); /* Add a subtle box shadow for the raised effect */
             transition: transform 0.3s ease-in-out; /* Add a transition effect for a smoother animation */
-            
         }
         
         .custom-container:hover{
@@ -430,8 +429,8 @@ if (!empty($searchQuery)) {
 
 <div id="allcategory" class="category allcategory" >
 <div class="row">
-            <div class="col">
-            <div class="scrollable-section" >
+            <div class="col" style="max-width: 100%;">
+            <div class="scrollable-section" style="max-width: 100%;">
                 <div class="content" >
                     <div class="row">
                         <?php
