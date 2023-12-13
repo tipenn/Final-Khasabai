@@ -56,7 +56,7 @@ if (isset($_POST['order'])) {
         // Assuming your database table has columns like id, item_name, item_description, item_quantity, item_price, and date
         $query = "INSERT INTO order_customer (item_code, item_name, item_description, quantity, price, total_price, shipping_fee, total_fee, firstName, lastName, email, phoneNumber, address, date) 
               VALUES ('$item_code','$itemName', '$itemDescription', '$quantity', '$itemPrice', '$total_price','$shipping_fee','$total_fee', '$firstName', '$lastName', '$email', '$phoneNumber', '$address', '$date')";
-        $sequence="UPDATE products SET stocks=stocks-$quantity where item_code";
+        $sequence="UPDATE products SET stocks=stocks-$quantity where item_code ='$item_code'";
 
 
         if (mysqli_query($conn, $query)) {
