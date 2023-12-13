@@ -103,6 +103,8 @@ if(isset($_POST['cart'])){
                 echo "<script>alert('Error adding item: " . mysqli_error($conn) . "');</script>";
             }
 }}
+
+
 ?>
 
 <!DOCTYPE html>
@@ -152,73 +154,38 @@ if(isset($_POST['cart'])){
         footer a:hover{
             color:black;
         }
-        
-        .addition{
-            width: 90%;
-            background-color: #A19284;
-            font-size: 30px;
-            border-color: #AB7B5B;
-            margin-top: 15px;
-            color: white;
-        }
-        .addition:hover{
-            background-color: #C9BBAE;
-            color: black;
-        }
-        .updation{
-            width: 90%;
-            background-color: #A19284;
-            font-size: 30px;
-            border-color: #AB7B5B;
-            margin-top: 20px;
-            color: white;
-
-        }
-        .updation:hover{
-            background-color: #C9BBAE;
-            color: black;
-
-        }
-        .deletion{
-            width: 90%;
-            background-color: #A19284;
-            font-size: 30px;
-            border-color: #AB7B5B;
-            margin-top: 20px;
-            color: white;
-        }
-        .deletion:hover{
-            background-color: #C9BBAE;
-            color: black;
+        .custom-container {
+            width: 175px;
+            height: 305px;
+            background-color: rgba(255, 255, 255, 0.3); /* Adjust the alpha value (0.0 to 1.0) for opacity */
+            border-radius: 20px;
+            border: 1px solid black;
+            padding: 5px;
+            margin: 15px 0px 5px 10px;
+            box-shadow: 0 0 0px rgba(0, 0, 0, 100); /* Add a subtle box shadow for the raised effect */
+            transition: transform 0.3s ease-in-out; /* Add a transition effect for a smoother animation */
         }
         
+        .custom-container:hover{
+            transform: scale(1.05); /* Enlarge the card on hover for a pop-out effect */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 100); /* Add a subtle box shadow for the raised effect */
+        }
+        .custom-container p{
+            font-size: 10px;
+            padding-left: 10px;
+            text-align: center;
+            font-weight: bold;
+            height: 50px;
+            width: 160px;
+            font-size: 12px;
+        }
+        .custom-container img{
+            border-radius: 20px;
+            padding: 10px;
+            height: 170px; 
+            width:170px;
+        }
         
-        .insert{
-            width: 200px;
-            background-color: #AC8351;
-            font-size: 30px;
-            margin-top: 20px;
-            color: white;
-        }
-        .insert:hover{
-            background-color: #A19284;
-            color: #eceae8;
-        }
-        .content{
-            border: solid grey;
-            border-radius: 10px;
-            box-shadow: -10px -10px 10px grey;
-            background-color: #C9BBAE;  
-            height:1000px;
-            width:1300px     
-        }
-        
-        .content img{
-            height:500px;
-            width:1300px;
-            border-radius: 10px;
-
-        }
     </style>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
@@ -284,25 +251,24 @@ if(isset($_POST['cart'])){
 <h1 class="text-center">HOME</h1>
 </div>
 <br><br>
-<div class="container">
-    <div class="row">
-        <div class="col">
-            <div class="content">
-                <center>
-                <form action="" method="POST">
-    <img src="assets/<?php echo $row['item_image']; ?>">
-    <input type="hidden" name="item_code" value="<?php echo $row['item_code']?>">
-    <h3 class="text-center"> <?php echo $row['item_name']; ?></h3>
-    <h3 class="text-center"> <?php echo $row['item_description']; ?></h3>
-    <h3 class="text-center"> ₱<?php echo $row['retail_price']; ?></h3>
-    <hr>
-
-    <h3 class="text-start" > Quantity
-        <button type="button" onclick="decreaseQuantity()"><i class="fa-solid fa-minus"></i></button>
-        <input type="number" name="quantity" id="quantity" value="1" min="1" placeholder="1">
-        <button type="button" onclick="increaseQuantity()"><i class="fa-solid fa-plus"></i></button>
-    </h3>
-        <?php
+<form action="" method="POST">
+<input type="hidden" name="item_code" value="<?php echo $row['item_code']?>">
+    <div class="container-fluid" style="font-family: raleway;">
+        <div class="row">
+            <div class="col-5"style="font-style: italic; padding:50px; margin:0px;">
+            <img src="assets/<?php echo $row['item_image']; ?>" style="width: 30em;height:30em;">
+            </div>
+            <div class="col-7 text-start">
+                <br><br><br>
+                <h5 style="font-style: italic;";><?php echo $row['category'];?></h5><br>
+                <h4> <?php echo $row['item_name']; ?></h4>
+                <h3> ₱<?php echo $row['retail_price']; ?></h3>
+                
+            Quantity
+            <button type="button" onclick="decreaseQuantity()"><i class="fa-solid fa-minus"></i></button>
+            <input type="number" name="quantity" id="quantity" value="1" min="1" placeholder="1">
+            <button type="button" onclick="increaseQuantity()"><i class="fa-solid fa-plus"></i></button>
+            <?php
         if ($row['stocks'] <= 0){
            
             ?>
@@ -320,14 +286,14 @@ if(isset($_POST['cart'])){
         <?php
         }
         ?>
-    
-</form>
-                </center>
+        <h4>Product Details</h4>
+        <?php echo $row['item_description']; ?>
             </div>
+            
         </div>
+        
     </div>
-</div>
-
+    </form>
 <script>
     function decreaseQuantity() {
         var quantityInput = document.getElementById("quantity");
@@ -347,6 +313,33 @@ if(isset($_POST['cart'])){
         quantityInput.value = currentQuantity + 1;
     }
 </script>
+
+<h1>Featured Products</h1>
+<div class="text-lead text-center" style="color:grey;">Let your beauty shine through</div>
+<?php
+$category =$row['category'];
+$display="SELECT * FROM products WHERE category='$category'";
+$out=$conn->query($display);
+?>
+
+<div class="content">
+<div class="row">
+    <?php   while ($category_row = $out->fetch_assoc()) {?>
+    <div class="col">
+    <div class="custom-container">
+        <a href="product.php?product_id=<?php echo $category_row['item_code']; ?>" style="text-decoration: none; color: inherit;">
+        <img src="assets/<?php echo $category_row["item_image"] ?>">
+        <p class="text-lead"><?php echo $category_row["item_name"] ?></p><br>
+        <p class="text-lead">₱<?php echo $category_row["retail_price"] ?></p>
+        </a>
+    </div>
+    </div>
+    <?php }?>
+</div>
+
+
+
+</div>
 
 <footer class="container-fluid">
     
@@ -372,6 +365,24 @@ if(isset($_POST['cart'])){
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.18.0/font/bootstrap-icons.css" rel="stylesheet">
+    <script>
+    function decreaseQuantity() {
+        var quantityInput = document.getElementById("quantity");
+        var currentQuantity = parseInt(quantityInput.value);
 
+        if (currentQuantity > 1) {
+            quantityInput.value = currentQuantity - 1;
+        }
+    }
+
+    function increaseQuantity() {
+        var quantityInput = document.getElementById("quantity");
+        var currentQuantity = parseInt(quantityInput.value);
+
+        // You can set a maximum limit if needed
+        // For example: if (currentQuantity < 10)
+        quantityInput.value = currentQuantity + 1;
+    }
+</script>
 </body>
 </html>
