@@ -263,7 +263,7 @@ if (isset($_POST['change_item'])) {
 
     if ($result) {
         echo "<script>
-                    window.location.href='cart.php';
+                    window.location.href=updateitem.php';
                     alert('Item successfully added !!');
                     </script>";
         exit();

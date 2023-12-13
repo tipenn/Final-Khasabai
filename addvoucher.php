@@ -333,17 +333,17 @@ if (isset($_POST['insert'])) {
                 <hr>
                 <br>
                 <div id="message" class="alert alert-success" style="display: none;"></div>
-                <label for="type"><h3 style="font-style: italic;">Type: </h3></label>
-                <select id="type" class="option " name="type" placeholder="Type">
-                    <option name="type" value="Reduce to the item product">Reduce to the item product</option>
-                    <option name="type" value="Reduce to the shipping fee">Reduce to the shipping fee</option>
-                    <option name="type" value="Reduce to the total fee">Reduce to the total fee</option>
+                <label for="type"><h3 style="font-style: italic;" required>Type: </h3></label>
+                <select id="type" class="option " name="type" placeholder="Type" required>
+                    <option name="type" value="Reduce to the item product" required>Reduce to the item product</option>
+                    <option name="type" value="Reduce to the shipping fee"required>Reduce to the shipping fee</option>
+                    <option name="type" value="Reduce to the total fee"required>Reduce to the total fee</option>
                 </select> 
                 <br><br><br>
-                <input type="text" name="voucher_code" class="form-control" placeholder="Voucher Code"><br>
-                <input type="number" name="percent" class="form-control" placeholder="1 - 100%"><br>
-                <input type="date" class="form-control" name="expiration_date"><br>
-                <br>
+                <input type="text" name="voucher_code" class="form-control" placeholder="Voucher Code" required><br>
+                <input type="number" name="percent" class="form-control" placeholder="1 - 100%" required><br>
+                <input type="date" class="form-control" name="expiration_date" required><br>
+                <br>    
                     <button type="submit" class="insert" name="insert">Add Product</button><br><br>
                 </form>
                 </center>

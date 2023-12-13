@@ -314,7 +314,7 @@ if(isset($_POST['upload'])){
     $profile=$_POST['profilePicture'];
     $upload="UPDATE users SET profile ='$profile' WHERE id= '$_SESSION[id]'";
     mysqli_query($conn, $upload);
-    echo "<script>alert('Item successfully added !!');</script>";
+    echo "<script>window.location.href='adminEditprofile.php';</script>";
 }
 ?>
     </div>
@@ -343,7 +343,7 @@ if(isset($_POST['upload'])){
     </div>
 </form>
 </center>
-                
+               
                 </div>
             </div>
         </div>
