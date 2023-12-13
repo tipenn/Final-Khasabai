@@ -22,7 +22,8 @@ if (isset($_POST['order_id'])) {
             $sequel = "UPDATE order_customer SET status = 'Waiting for Courier' WHERE id =$order_id";
         
             if ($conn->query($sequel) === TRUE) {
-                echo "<script>alert('Shipment status updated successfully.');</script>";
+                echo "<script>window.location.href='adminorder.php';
+                alert('Shipment status updated successfully.');</script>";
                 } else {
                 echo "Error updating shipment status: " . $conn->error;
             }

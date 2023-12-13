@@ -159,7 +159,7 @@ if (isset($_POST['signup'])) {
                         <br>
                         <input type="text" class="form-control" name="email" placeholder="Email" style="background-color: #EDE9E8; border-bottom: 1px solid black;" required>
                         <br>
-                        <input type="text" class="form-control" name="phoneNumber" placeholder="Phone Number(+63)" style="background-color: #EDE9E8; border-bottom: 1px solid black;" required>
+                        <input type="text" class="form-control" name="phoneNumber" placeholder="Phone Number" maxlength="11"style="background-color: #EDE9E8; border-bottom: 1px solid black;" pattern="[0-9]+" title="Please enter only numbers" required>
                         <br>
                         <input type="text" class="form-control" name="address" placeholder="Address" style="background-color: #EDE9E8; border-bottom: 1px solid black;" required>
                         <br>

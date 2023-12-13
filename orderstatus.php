@@ -235,7 +235,7 @@ $result = $conn->query($sql);
             <div class="row">
                 <!-- First Column -->
                 <?php echo $row['id']?>
-                <div class="col"><b>Delivered by:</b> <?php echo $row['kha'] ?> <br><b>Ordered Date:</b> <?php echo $row['date'] ?><br><b>Date of Arrival: </b><?php echo $row['date_arrival'] ?><br> <b>Status: <?php echo $row['status']?></b></div>
+                <div class="col"><b>Delivered by:</b> <?php echo $row['kha'] ?> <br><b>Ordered Date:</b> <?php echo $row['date'] ?><br><b>Date of Arrival: </b><?php echo $row['date_arrival'] ?><br> <b><a href="progressbar.php?id=<?php echo $row['id']; ?>">Status: <?php echo $row['status']?></b></a></div>
                 <div class="col"><b>Quantity: </b> <?php echo $row['quantity'] ?><br><b> Name of product: </b><?php echo $row['item_name'] ?></div>
                 <div class="col"><b> Sub Total:</b> ₱<?php echo $row['total_price'] ?><br><b>Shipping Fee:</b> ₱<?php echo $row['shipping_fee'] ?><br> <b>Total:</b> ₱<?php echo $row['total_fee'] ?></div>
                    <!-- Second Column -->
