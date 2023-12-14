@@ -2,7 +2,7 @@
 include 'function.php';
 session_start();
 $email=$_SESSION['email'];
-$sql = "SELECT * FROM order_customer WHERE email='$email' ORDER BY date_arrival ASC, id DESC";
+$sql = "SELECT * FROM order_customer WHERE email='$email' AND status != 'Cart'ORDER BY  id DESC";
 $result = $conn->query($sql);
 
 ?>
@@ -228,7 +228,7 @@ $result = $conn->query($sql);
         </ul>
     </div>
 </nav>
- <h1> ORDER HISTORY </h1>
+ <h1> My Orders </h1>
  <div class="container">
     <?php if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) { ?>
@@ -238,8 +238,7 @@ $result = $conn->query($sql);
                 <div class="col"><b>Delivered by:</b> <?php echo $row['kha'] ?> <br><b>Ordered Date:</b> <?php echo $row['date'] ?><br><b>Date of Arrival: </b><?php echo $row['date_arrival'] ?><br> <b><a href="progressbar.php?id=<?php echo $row['id']; ?>">Status: <?php echo $row['status']?></b></a></div>
                 <div class="col"><b>Quantity: </b> <?php echo $row['quantity'] ?><br><b> Name of product: </b><?php echo $row['item_name'] ?></div>
                 <div class="col"><b> Sub Total:</b> ₱<?php echo $row['total_price'] ?><br><b>Shipping Fee:</b> ₱<?php echo $row['shipping_fee'] ?><br> <b>Total:</b> ₱<?php echo $row['total_fee'] ?></div>
-                   <!-- Second Column -->
-                
+                <img src="assets/<?php echo $row['item_image'];?>">                
             </div>
         <?php 
         }

@@ -6,21 +6,20 @@ $sql = "SELECT * FROM order_customer where id=$order_id;";
 $result = $conn->query($sql);
 
 $kha= $_SESSION['email'];
-if(isset($_POST['done_pickup'])){
+if (isset($_POST['done_pickup'])) {
+    $status_sql = "UPDATE order_customer SET status = 'Is on the way' WHERE id = $order_id";
 
-    // Assuming $order_id and $kha are already defined
-
-    // Update status
-    $status_sql = "UPDATE order_customer SET status= 'Is on the way' WHERE id = $order_id";
     if ($conn->query($status_sql) === TRUE) {
     } else {
+        echo "Error updating status: " . $conn->error;
     }
 
-    // Update kha
-    $kha_sql = "UPDATE order_customer SET kha= '$kha' WHERE id = $order_id";
+    $date_arrival = date("Y-m-d H:i:s");
+    $kha_sql = "UPDATE order_customer SET kha = '$kha', date_arrival = '$date_arrival' WHERE id = $order_id";
+
     if ($conn->query($kha_sql) === TRUE) {
     } else {
-    $conn->error;
+        echo "Error updating kha and date_arrival: " . $conn->error;
     }
 }
 

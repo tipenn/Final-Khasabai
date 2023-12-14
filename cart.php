@@ -198,7 +198,7 @@ $result = $conn->query($sql);
                 </div>
                 <div class="col" style="padding:40px">
                 <p class="text-mute">
-                <?php echo $row['item_name']?> <?php echo $row['item_description']?><br>₱<?php echo $row['price']?>
+                <?php echo $row['item_name']?> <br>₱<?php echo $row['price']?>
                 <br>Quantity : <?php echo $row['quantity']?></p>
                 <form method="POST">
                     <!-- Hidden input for item ID -->

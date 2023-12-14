@@ -317,7 +317,7 @@ $result = $conn->query($sql);
 <!--body-->
 <body>
                 <h4 class="text-start" style="color:#453321;  padding-right: 3em;">
-                    <a href="customerhome.php">
+                    <a href="orderstatus.php">
                         <button type="submit" class="addition" style="margin-left: 1em; margin-right: 10px;">
                             <i class="fa-solid fa-arrow-left" style="color: white;"></i></button></a>ORDER DETAILS</h4>
     </div><div>

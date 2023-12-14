@@ -440,7 +440,7 @@ if (!empty($searchQuery)) {
                                 <div class="custom-container">
                                     <a href="product.php?product_id=<?php echo $row['item_code']; ?>" style="text-decoration: none; color: inherit;">
                                     <img src="assets/<?php echo $row["item_image"] ?>">
-                                    <p class="text-lead"><?php echo $row["item_name"] . ' ' . $row["item_description"] ?></p><br>
+                                    <p class="text-lead"><?php echo $row["item_name"]?></p><br>
                                     <p class="text-lead">₱<?php echo $row["retail_price"] ?></p>
                                     </a>
                                 </div>
