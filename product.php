@@ -1,7 +1,7 @@
 <?php
 include 'function.php';
 session_start();
-
+error_reporting (0);
 
 if (isset($_GET['product_id'])) {
     $product_id = $_GET['product_id'];
@@ -18,21 +18,18 @@ if (isset($_GET['product_id'])) {
         $result = mysqli_stmt_get_result($stmt);
         $row = mysqli_fetch_assoc($result);
 
-        // Now $row contains the information of the selected item
-        // You can access individual fields like $row['item_name'], $row['price'], etc.
 
-        // Close the statement
         mysqli_stmt_close($stmt);
     } else {
-        // Handle the case where the statement preparation failed
         echo "Error in preparing the statement: " . mysqli_error($conn);
     }
 } else {
-    // Handle the case where product_id is not set in the URL
     echo "Product ID is not provided in the URL.";
 }
 
-if (isset($_POST['order'])) {
+
+
+if(isset($_POST['cart'])){
     
     $firstName = $_SESSION['firstName'];
     $lastName = $_SESSION['lastName'];
@@ -40,69 +37,78 @@ if (isset($_POST['order'])) {
     $phoneNumber = $_SESSION['phoneNumber'];
     $address = $_SESSION['address'];
     $itemName = $row['item_name'];
-    $itemDescription = $row['item_description'];
     $quantity = $_POST['quantity'];
     $itemPrice = $row['retail_price'];
     $date = date("Y-m-d");
     $total_price = $quantity * $itemPrice;
     $shipping_fee = $total_price * 0.1;
-    $total_fee = $shipping_fee + $total_price;
-    $item_code = $_POST['item_code'];
-
-    // Check if the quantity exceeds available stock
-    if ($quantity > $row['stocks']) {
-        echo "<script>alert('Desired quantity exceeds the current stocks.');</script>";
-    } else {
-        // Assuming your database table has columns like id, item_name, item_description, item_quantity, item_price, and date
-        $query = "INSERT INTO order_customer (item_code, item_name, item_description, quantity, price, total_price, shipping_fee, total_fee, firstName, lastName, email, phoneNumber, address, date) 
-              VALUES ('$item_code','$itemName', '$itemDescription', '$quantity', '$itemPrice', '$total_price','$shipping_fee','$total_fee', '$firstName', '$lastName', '$email', '$phoneNumber', '$address', '$date')";
-        $sequence="UPDATE products SET stocks=stocks-$quantity where item_code ='$item_code'";
-
-
-        if (mysqli_query($conn, $query)) {
-            echo "<script>alert('Item successfully ordered !!');</script>";
-        } else {
-            echo "<script>alert('Error adding item: " . mysqli_error($conn) . "');</script>";
-        }
-        if(mysqli_query($conn, $sequence)) {
-        } else {
-            echo "<script>alert('Error adding item: " . mysqli_error($conn) . "');</script>";
-        }
-    }
-}
-
-if(isset($_POST['cart'])){
-    header('Location: cart.php');
-
-    $firstName = $_SESSION['firstName'];
-    $lastName = $_SESSION['lastName'];
-    $email = $_SESSION['email'];
-    $phoneNumber = $_SESSION['phoneNumber'];
-    $address = $_SESSION['address'];
-    $itemName = $row['item_name'];
-    $itemDescription = $row['item_description'];
-    $quantity = $_POST['quantity'];
-    $itemPrice = $row['retail_price'];
-    $date = date("Y-m-d");
-    $total_price = $quantity * $itemPrice;
-    $shipping_fee = $total_price * 0.1;
-    $total_fee = $shipping_fee + $total_price;
     $item_code = $_POST['item_code'];
     $image=$row['item_image'];
+    $voucher = $_POST['voucher'];
 
-    // Check if the quantity exceeds available stock
     if ($quantity > $row['stocks']) {
         echo "<script>alert('Desired quantity exceeds the current stocks.');</script>";
     } else {
-        // Assuming your database table has columns like id, item_name, item_description, item_quantity, item_price, and date
-        $sequel = "INSERT INTO order_customer (item_code, item_name, item_description, item_image, quantity, price, total_price, shipping_fee, total_fee, firstName, lastName, email, phoneNumber, address, date, status) 
-              VALUES ('$item_code','$itemName', '$itemDescription','$image', '$quantity', '$itemPrice', '$total_price','$shipping_fee','$total_fee', '$firstName', '$lastName', '$email', '$phoneNumber', '$address', '$date', 'Cart')";
-              if (mysqli_query($conn, $sequel)) {
-                echo "<script>alert('Item successfully ordered !!');</script>";
-              }else {
-                echo "<script>alert('Error adding item: " . mysqli_error($conn) . "');</script>";
+        $checkVoucherQuery = "SELECT * FROM order_customer WHERE voucher = '$voucher' AND email = '$email'";
+        $ended = $conn->query($checkVoucherQuery);
+        
+        if ($ended) {
+            if ($ended->num_rows == 0 || $voucher == NULL) {
+                // Voucher has not been used for this email address or voucher is NULL
+                // Proceed with your order processing logic
+                $output = $conn->query("SELECT * FROM voucher WHERE voucher_code = '$voucher'");
+        
+                if ($output) {
+                    $voucher_row = $output->fetch_assoc();
+
+                    if ($output->num_rows > 0 || $voucher==Null)  {
+                        $discount = $voucher_row['percent'];
+                        $currentDate = new DateTime();
+                        $expiration_date=$voucher_row['expiration_date'];
+                        if ($expiration_date < $currentDate) {
+                            $message = "The voucher is expired";
+                        } else {                        
+                        $total_fee = $shipping_fee + $total_price-$discount;
+                        $sequel = "INSERT INTO order_customer (item_code, item_name, item_image, quantity, voucher, voucher_discount, price, total_price, shipping_fee, total_fee, firstName, lastName, email, phoneNumber, address, date, status) 
+                            VALUES ('$item_code', '$itemName', '$image', '$quantity', '$voucher', '$discount', '$itemPrice', '$total_price', '$shipping_fee', '$total_fee', '$firstName', '$lastName', '$email', '$phoneNumber', '$address', '$date', 'Cart')";
+        
+                        if (mysqli_query($conn, $sequel)) {
+                            echo "<script>window.location.href='cart.php';</script>";
+                        } else {
+                            echo "<script>alert('Error adding item: " . mysqli_error($conn) . "');</script>";
+                        }}
+                    } else {
+                        $message = "There is no such voucher!";
+                    }
+                }
+            } else {
+                // Voucher has been used for this email address
+                $message = "Voucher has already been used for this email address.";
             }
+        } else {
+            // Error in query
+            echo "Error in query: " . $conn->error;
+        }
 }}
+if(isset($_POST['order'])){
+   
+    $_SESSION['itemName'] = $row['item_name'];
+    $_SESSION['quantity'] = $_POST['quantity'];
+    $_SESSION['itemPrice'] = $row['retail_price'];
+    $_SESSION['date'] = date("Y-m-d");
+    $_SESSION['total_price'] = $_SESSION['quantity'] * $_SESSION['itemPrice'];
+    $_SESSION['shipping_fee'] = $_SESSION['total_price'] * 0.1;
+    $_SESSION['total_fee'] = $_SESSION['shipping_fee'] + $_SESSION['total_price'];
+    $_SESSION['item_code'] = $_POST['item_code'];
+    $_SESSION['image'] = $row['item_image'];
+    $_SESSION['voucher'] = $_POST['voucher'];
+    if ( $_POST['quantity'] > $row['stocks']) {
+        echo "<script>alert('Desired quantity exceeds the current stocks.');</script>";
+    } else {
+        // Assuming your database table has columns like id, item_name, item_description, item_quantity, item_price, and date
+                echo "<script>window.location.href='checkout.php';</script>";
+            } 
+}
 
 
 ?>
@@ -251,7 +257,7 @@ if(isset($_POST['cart'])){
 <h1 class="text-center">HOME</h1>
 </div>
 <br><br>
-<form action="" method="POST">
+<form action="#" method="POST">
 <input type="hidden" name="item_code" value="<?php echo $row['item_code']?>">
     <div class="container-fluid" style="font-family: raleway;">
         <div class="row">
@@ -261,13 +267,14 @@ if(isset($_POST['cart'])){
             <div class="col-7 text-start">
                 <br><br><br>
                 <h5 style="font-style: italic;";><?php echo $row['category'];?></h5><br>
+                <div id="message" class="alert alert-danger" style="display: none;"></div>
                 <h4> <?php echo $row['item_name']; ?></h4>
                 <h3> ₱<?php echo $row['retail_price']; ?></h3>
                 
-            Quantity
-            <button type="button" onclick="decreaseQuantity()"><i class="fa-solid fa-minus"></i></button>
-            <input type="number" name="quantity" id="quantity" value="1" min="1" placeholder="1">
-            <button type="button" onclick="increaseQuantity()"><i class="fa-solid fa-plus"></i></button>
+                Quantity
+    <button type="button" onclick="decreaseQuantity()"><i class="fa-solid fa-minus"></i></button>
+    <input type="number" name="quantity" id="quantity" value="1" min="1" placeholder="1">
+    <button type="button" onclick="increaseQuantity()"><i class="fa-solid fa-plus"></i></button>
             <?php
         if ($row['stocks'] <= 0){
            
@@ -278,11 +285,13 @@ if(isset($_POST['cart'])){
     <?php
         }else{ ?>
          
-        <div style="margin-left: 4em; margin-right: 4em;">
-        <button type="submit" name="cart" class="addition">Add to Cart</button>
-        <button type="submit" name="order" class="addition">Buy Now</button>
-        
-    </div>
+         <div style="margin-left: 4em; margin-right: 4em;">
+         Voucher:
+                    <input type="text" name="voucher" placeholder="xxxxxxx"><br>
+            <button type="submit" name="cart" class="addition">Add to Cart</button>
+            <button type="submit" name="order" class="addition">Buy Now</button>
+        </div>
+
         <?php
         }
         ?>
@@ -383,6 +392,11 @@ $out=$conn->query($display);
         // For example: if (currentQuantity < 10)
         quantityInput.value = currentQuantity + 1;
     }
+    if ('<?php echo $message; ?>'.trim() !== "") {
+    var messageDiv = document.getElementById('message');
+    messageDiv.innerText = '<?php echo $message; ?>';
+    messageDiv.style.display = 'block';
+}
 </script>
 </body>
 </html>

@@ -468,7 +468,7 @@ if (!empty($searchQuery)) {
                                 <div class="custom-container">
                                     <a href="product.php?product_id=<?php echo $beauty_sets_row['item_code']; ?>" style="text-decoration: none; color: inherit;">
                                     <img src="assets/<?php echo $beauty_sets_row["item_image"] ?>">
-                                    <p class="text-lead"><?php echo $beauty_sets_row["item_name"] . ' ' . $beauty_sets_row["item_description"] ?></p><br>
+                                    <p class="text-lead"><?php echo $beauty_sets_row["item_name"]?></p><br>
                                     <p class="text-lead">₱<?php echo $beauty_sets_row["retail_price"] ?></p>
                                     </a>
                                 </div>
@@ -492,7 +492,7 @@ if (!empty($searchQuery)) {
                                 <div class="custom-container">
                                     <a href="product.php?product_id=<?php echo $body_soap_row['item_code']; ?>" style="text-decoration: none; color: inherit;">
                                     <img src="assets/<?php echo $body_soap_row["item_image"] ?>">
-                                    <p class="text-lead"><?php echo $body_soap_row["item_name"] . ' ' . $body_soap_row["item_description"] ?></p><br>
+                                    <p class="text-lead"><?php echo $body_soap_row["item_name"]?></p><br>
                                     <p class="text-lead">₱<?php echo $body_soap_row["retail_price"] ?></p>
                                     </a>
                                 </div>
@@ -516,7 +516,7 @@ if (!empty($searchQuery)) {
                                 <div class="custom-container">
                                     <a href="product.php?product_id=<?php echo $lotion_row['item_code']; ?>" style="text-decoration: none; color: inherit;">
                                     <img src="assets/<?php echo $lotion_row["item_image"] ?>">
-                                    <p class="text-lead"><?php echo $lotion_row["item_name"] . ' ' . $lotion_row["item_description"] ?></p><br>
+                                    <p class="text-lead"><?php echo $lotion_row["item_name"]?></p><br>
                                     <p class="text-lead">₱<?php echo $lotion_row["retail_price"] ?></p>
                                     </a>
                                 </div>
@@ -539,7 +539,7 @@ if (!empty($searchQuery)) {
                                 <div class="custom-container">
                                     <a href="product.php?product_id=<?php echo $cosmetics_row['item_code']; ?>" style="text-decoration: none; color: inherit;">
                                     <img src="assets/<?php echo $cosmetics_row["item_image"] ?>">
-                                    <p class="text-lead"><?php echo $cosmetics_row["item_name"] . ' ' . $cosmetics_row["item_description"] ?></p><br>
+                                    <p class="text-lead"><?php echo $cosmetics_row["item_name"]?></p><br>
                                     <p class="text-lead">₱<?php echo $cosmetics_row["retail_price"] ?></p>
                                     </a>
                                 </div>
@@ -562,7 +562,7 @@ if (!empty($searchQuery)) {
                                 <div class="custom-container">
                                     <a href="product.php?product_id=<?php echo $skincare_row['item_code']; ?>" style="text-decoration: none; color: inherit;">
                                     <img src="assets/<?php echo $skincare_row["item_image"] ?>">
-                                    <p class="text-lead"><?php echo $skincare_row["item_name"] . ' ' . $skincare_row["item_description"] ?></p><br>
+                                    <p class="text-lead"><?php echo $skincare_row["item_name"]?></p><br>
                                     <p class="text-lead">₱<?php echo $skincare_row["retail_price"] ?></p>
                                     </a>
                                 </div>

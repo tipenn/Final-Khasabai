@@ -341,8 +341,9 @@ if (isset($_POST['insert'])) {
                 </select> 
                 <br><br><br>
                 <input type="text" name="voucher_code" class="form-control" placeholder="Voucher Code" required><br>
-                <input type="number" name="percent" class="form-control" placeholder="1 - 100%" required><br>
-                <input type="date" class="form-control" name="expiration_date" required><br>
+                <input type="number" name="percent" class="form-control" placeholder="00.00" required><br>
+                Expiration Date: 
+                <input type="date" class="form-control" placeholder="Expiration Date"name="expiration_date" required><br>
                 <br>    
                     <button type="submit" class="insert" name="insert">Add Product</button><br><br>
                 </form>

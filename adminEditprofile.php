@@ -266,7 +266,6 @@ echo "Error updating user: " . mysqli_error($conn);
                         <button type="button" class="back" style="margin-left: 1em; margin-right: 10px;">
                             <i class="fa-solid fa-arrow-left" style="color: white;"></i></button></a> </h4>
 <div class="text-center" style="margin-top: 5em; ">
-
 <?php
 $sql = "SELECT * FROM users WHERE id = '$_SESSION[id]'";
 $result = $conn->query($sql);

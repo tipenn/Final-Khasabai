@@ -6,8 +6,6 @@ session_start();
 $email=$_SESSION['email'];
 $sql = "SELECT * FROM order_customer WHERE email='$email' AND status='Cart'";
 $result = $conn->query($sql);
-
-
 ?>
 
 <!DOCTYPE html>
@@ -194,11 +192,11 @@ $result = $conn->query($sql);
             <div class="content">
         <div class="row ">
             <div class="col">
-                    <img src="assets/<?php echo $row['item_image']?>">
+                    <img src="assets/<?php $row['item_image']?>">
                 </div>
                 <div class="col" style="padding:40px">
                 <p class="text-mute">
-                <?php echo $row['item_name']?> <br>₱<?php echo $row['price']?>
+                <?php echo $row['id'] . $row['item_name']?> <br>₱<?php echo $row['price']?>
                 <br>Quantity : <?php echo $row['quantity']?></p>
                 <form method="POST">
                     <!-- Hidden input for item ID -->
@@ -265,7 +263,8 @@ if ($output === null) { ?>
 }
  else {
     while ($row = $output->fetch_assoc()) {
-        ?>
+        ?>        <form action="#" method="post">
+
         <center><h6>Mode of Payment: Cash on Delivery</h6></center>
         <hr style="color: #5B4E2C; height: 5px;">
         <div class="row">
@@ -284,34 +283,44 @@ if ($output === null) { ?>
                 ₱<?php echo $row['shipping_fee']; ?>
             </div>
         </div>
+        <div class="row">
+            <div class="col">
+                Voucher Discount:
+            </div>
+            <div class="col">
+                ₱<?php echo $row['voucher_discount'];
+                ?>
+            </div>
+        </div>
         <hr style="color: #5B4E2C; height: 5px;">
         <div class="row" style="padding: 20px;">
             <div class="col">
                 <b> T O T A L :</b>
             </div>
             <div class="col">
-                <b>₱<?php echo $row['total_fee']; ?></b>
+                <b>₱<?php
+                $total = $row['shipping_fee'] + $row['total_price'] - $row['voucher_discount'];
+                 echo $total ?></b>
             </div>
         </div>
-        <form method="post">
             <input type="hidden" name="id" value="<?php echo $id; ?>">
         <button type="submit" name="ship" class="ship" style="float: right; background-color:#835328; border-radius: 2em; width: 120px; height:30px; ">
             <h6>Check out</h6>
         </button>
         </form>
         <?php
-    }}
+       
+    
+    }}echo $total;
     if(isset($_POST['ship'])){
         $id = $_POST['id'];
-        $mysequel = "UPDATE order_customer SET status='Ordered' WHERE id='$id'";
+        $mysequel = "UPDATE order_customer SET status = 'Ordered' WHERE id='$id'";
         if(mysqli_query($conn, $mysequel)) {
             echo "<script>alert('Item successfully ordered !!');</script>";
         } else {
             echo "<script>alert('Error updating item: " . mysqli_error($conn) . "');</script>";
         }
-    }
-
-?>   
+    }?>   
             </div>
         </div>
         
