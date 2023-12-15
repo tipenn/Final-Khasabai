@@ -126,10 +126,10 @@ if (!empty($searchQuery)) {
         .custom-container {
             width: 300px;
             height: 305px;
+            background-color: transparent;
             padding: 5px;
             margin: 15px 0px 5px 10px;
-            background-color:transparent ;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 100); /* Add a subtle box shadow for the raised effect */
+            box-shadow: 0 0 0px rgba(0, 0, 0, 100); /* Add a subtle box shadow for the raised effect */
             transition: transform 0.3s ease-in-out; /* Add a transition effect for a smoother animation */
         }
         
@@ -220,6 +220,7 @@ if (!empty($searchQuery)) {
         .carousel-button.prev {
         left: 1rem;
         }
+
         .carousel-button.next {
         right: 1rem;
         }
@@ -231,38 +232,42 @@ if (!empty($searchQuery)) {
         .skincare_category {
             display: none;
     
-        }
+        /* }
         .category{
-            width: 99%; 
+            background-color:#F6F2EF;
+            width: 98%;
+            box-shadow: 0 5px 5px #757676;
+            border:2px solid #cccccc;
+            margin-top: 33em; */
+           
         }
         .content{
             background-color:#F6F2EF;
             width: 98%;
             border:2px solid #cccccc;
             height: 505px;
-        }
-        .fit{
-            float: center;
-            background-image: url("https://drive.google.com/uc?id=1VdMQTbNwy9vY_nWoi4Zmi67F8QM1QeTu")
+        
         }
         .wrap{
+            background-color: rgb(56, 91, 79, 0.2);
             font-size: 22px; 
             text-align: center;
             width:100%;
             margin-top: 54.3em;
             padding:0px 10px 3px 10px;
             font-family: prata;
-            font-style: italic;   
+            font-style: italic;
+            
+            
         }
         .head {
             transform: translateY(0); /* Baseline transform */
             transition: box-shadow 0.5s, transform 0.5s;
             padding: 3px 3px 3px 3px;
-            
         }
 
         .head:hover{
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* Adjusted shadow on hover*/
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* Adjusted shadow on hover */
             transform: translateX(-5px); /* Adjusted translateY value */
             background: linear-gradient(to bottom, #f0f8ff, #fc94a4);
             background-color: rgba(252, 148, 164, 0.3);
@@ -279,6 +284,7 @@ if (!empty($searchQuery)) {
             color: #5B4E2C;
             margin-top: -25px;
         }
+
         h3 {
             font-family: 'Raleway', sans-serif;
             font-size: 30px;
@@ -473,6 +479,7 @@ if (!empty($searchQuery)) {
     setInterval(showNextSlide, 5000); // Change the interval time according to your preference
 </script>
 </div>
+
 <div class="left">
   <img src="assets/bg.png" style="width: 100%; max-width: 100%; border-radius: 10px;">
   <div class="welcome">
@@ -498,8 +505,7 @@ if (!empty($searchQuery)) {
     <div class="face-body head" style="display: inline-block;  cursor: pointer; margin-left: 1em;" onclick="toggleContent('lotion_')">Face and Body Lotion</div>
     <div class="cosmetics head" style="display: inline-block;  cursor: pointer; margin-left: 1em;" onclick="toggleContent('cosmetics_')">Cosmetics</div>
     <div class="skincare head" style="display: inline-block;  cursor: pointer; margin-left: 1em; " onclick="toggleContent('skincare_')">Facial Skincare</div>
-</div>   
-<div class="fit">
+</div>  
 <div id="allcategory" class="category allcategory" >
 <div class="row">
             <div class="col" style="max-width: 100%;">
@@ -526,7 +532,7 @@ if (!empty($searchQuery)) {
             </div>
 </div>
 </div>
-<div class="fit">
+
 <div id="beauty_set_category" class="category beauty_set_category" >
             <div class="scrollable-section">
                     <div class="row">
@@ -547,9 +553,9 @@ if (!empty($searchQuery)) {
                 </div>
             </div>
 </div>
-                    </div>
 
-                    <div class="fit">
+
+
 <div id="body_soap_category" class="category body_soap_category">
             <div class="scrollable-section">
                     <div class="row">
@@ -569,11 +575,10 @@ if (!empty($searchQuery)) {
                     </div>
                 </div>
             </div>
-        </div>
 </div>
 
 
-<div class="fit">
+
 <div id="lotion_category" class="category lotion_category" >
             <div class="scrollable-section">
                     <div class="row">
@@ -593,10 +598,9 @@ if (!empty($searchQuery)) {
                     </div>
                 </div>
             </div>
-    </div>
 </div>
 
-<div class="fit">
+
 <div id="cosmetics_category" class="category cosmetics_category" >
             <div class="scrollable-section">
                     <div class="row">
@@ -616,10 +620,9 @@ if (!empty($searchQuery)) {
                     </div>
                 </div>
             </div>
-                    </div>
 </div>
 
-<div class="fit">
+
 <div id="skincare_category" class="category skincare_category">
             <div class="scrollable-section">
                     <div class="row">
@@ -639,9 +642,8 @@ if (!empty($searchQuery)) {
                     </div>
                 </div>
             </div>
-                    </div>
-        </div>
-                    </div>
+</div>
+
 </div>
                     </center>
 
