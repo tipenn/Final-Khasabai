@@ -192,7 +192,7 @@ $result = $conn->query($sql);
             <div class="content">
         <div class="row ">
             <div class="col">
-                    <img src="assets/<?php $row['item_image']?>">
+                    <img src="assets/<?php echo $row['item_image']?>">
                 </div>
                 <div class="col" style="padding:40px">
                 <p class="text-mute">

@@ -308,22 +308,39 @@ $result=$conn->query($sql);
                 <?php 
                 $check = "SELECT * FROM voucher WHERE voucher_code = '$voucher'";
                 $output = $conn->query($check);
-                
                 if ($output) {
                     if ($output->num_rows > 0) {
                         // Voucher found
                         $row = $output->fetch_assoc();
                         $currentDate = new DateTime();
-                        $expiration_date=$row['expiration_date'];
-                        if ($expiration_date < $currentDate) {
+                        $expirationDate = new DateTime($row['expiration_date']);
+                        
+                        if ($expirationDate < $currentDate) {
                             echo "The voucher is expired";
-                        }else{
-                        echo $voucher;
+                            $discount=0;
+
+                        } else {
+                            $voucher = $row['voucher_code'];
+                            
+                            // Check if the customer has already used the voucher
+                            $checkUsedQuery = "SELECT * FROM order_customer WHERE email = '$_SESSION[email]' AND voucher = '$voucher'";
+                            $checkUsedResult = $conn->query($checkUsedQuery);
+                            
+                            if ($checkUsedResult && $checkUsedResult->num_rows > 0) {
+                                echo "The voucher has already been used by this customer";
+                                $discount=0;
+                            } else {
+                                // Display the voucher code
+                                echo $voucher;
+                                $discount=$row['percent'];
+                            }
                         }
                     } else {
                         // Voucher not found
-                        echo "There is no such voucher";
-                        $voucher= NULL;
+                        echo "No voucher";
+                        $voucher = NULL;
+                        $discount=0;
+
                     }
                 } else {
                     // Error in query
@@ -363,18 +380,8 @@ $result=$conn->query($sql);
                     </div>
                     <div class="col">
                     ₱ <?php   
-                    if ($output->num_rows > 0) {
-                        if ($row['expiration_date'] < $currentDate) {
-                            $discount = 0;
-                            echo $discount;
-                        } else {
-                            $discount = $row['percent'];
-                            echo $discount;
-                        }
-                    } else {
-                        $discount = 0;
-                        echo $discount;
-                    }
+                    
+                    echo $discount;
                    ?>
                     </div>
                 </div>
@@ -403,7 +410,6 @@ $ended = $conn->query($checkVoucherQuery);
 
 if ($ended) {
     if ($ended->num_rows == 0 || $voucher == NULL ) {
-        // Voucher has been used for this email address
         $home=$_POST['address'];
         $status="Ordered";  
         $insert = "INSERT INTO order_customer 

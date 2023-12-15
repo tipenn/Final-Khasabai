@@ -29,8 +29,7 @@ if (isset($_GET['product_id'])) {
 
 
 
-if(isset($_POST['cart'])){
-    
+if (isset($_POST['cart'])) {
     $firstName = $_SESSION['firstName'];
     $lastName = $_SESSION['lastName'];
     $email = $_SESSION['email'];
@@ -43,40 +42,43 @@ if(isset($_POST['cart'])){
     $total_price = $quantity * $itemPrice;
     $shipping_fee = $total_price * 0.1;
     $item_code = $_POST['item_code'];
-    $image=$row['item_image'];
+    $image = $row['item_image'];
     $voucher = $_POST['voucher'];
+    $message = ""; // Initialize message variable
 
     if ($quantity > $row['stocks']) {
-        echo "<script>alert('Desired quantity exceeds the current stocks.');</script>";
+        $message = "Desired quantity exceeds the current stocks.";
     } else {
         $checkVoucherQuery = "SELECT * FROM order_customer WHERE voucher = '$voucher' AND email = '$email'";
         $ended = $conn->query($checkVoucherQuery);
-        
+
         if ($ended) {
             if ($ended->num_rows == 0 || $voucher == NULL) {
                 // Voucher has not been used for this email address or voucher is NULL
                 // Proceed with your order processing logic
                 $output = $conn->query("SELECT * FROM voucher WHERE voucher_code = '$voucher'");
-        
+
                 if ($output) {
                     $voucher_row = $output->fetch_assoc();
 
-                    if ($output->num_rows > 0 || $voucher==Null)  {
+                    if ($output->num_rows > 0 || $voucher == null) {
                         $discount = $voucher_row['percent'];
                         $currentDate = new DateTime();
-                        $expiration_date=$voucher_row['expiration_date'];
+                        $expiration_date = new DateTime($voucher_row['expiration_date']);
+
                         if ($expiration_date < $currentDate) {
                             $message = "The voucher is expired";
-                        } else {                        
-                        $total_fee = $shipping_fee + $total_price-$discount;
-                        $sequel = "INSERT INTO order_customer (item_code, item_name, item_image, quantity, voucher, voucher_discount, price, total_price, shipping_fee, total_fee, firstName, lastName, email, phoneNumber, address, date, status) 
-                            VALUES ('$item_code', '$itemName', '$image', '$quantity', '$voucher', '$discount', '$itemPrice', '$total_price', '$shipping_fee', '$total_fee', '$firstName', '$lastName', '$email', '$phoneNumber', '$address', '$date', 'Cart')";
-        
-                        if (mysqli_query($conn, $sequel)) {
-                            echo "<script>window.location.href='cart.php';</script>";
                         } else {
-                            echo "<script>alert('Error adding item: " . mysqli_error($conn) . "');</script>";
-                        }}
+                            $total_fee = $shipping_fee + $total_price - $discount;
+                            $sequel = "INSERT INTO order_customer (item_code, item_name, item_image, quantity, voucher, voucher_discount, price, total_price, shipping_fee, total_fee, firstName, lastName, email, phoneNumber, address, date, status) 
+                                VALUES ('$item_code', '$itemName', '$image', '$quantity', '$voucher', '$discount', '$itemPrice', '$total_price', '$shipping_fee', '$total_fee', '$firstName', '$lastName', '$email', '$phoneNumber', '$address', '$date', 'Cart')";
+
+                            if (mysqli_query($conn, $sequel)) {
+                                echo "<script>window.location.href='cart.php';</script>";
+                            } else {
+                                $message = "Error adding item: " . mysqli_error($conn);
+                            }
+                        }
                     } else {
                         $message = "There is no such voucher!";
                     }
@@ -87,9 +89,13 @@ if(isset($_POST['cart'])){
             }
         } else {
             // Error in query
-            echo "Error in query: " . $conn->error;
+            $message = "Error in query: " . $conn->error;
         }
-}}
+    }
+
+    // Output the message, you can handle it as needed (e.g., show it to the user)
+    
+}
 if(isset($_POST['order'])){
    
     $_SESSION['itemName'] = $row['item_name'];
