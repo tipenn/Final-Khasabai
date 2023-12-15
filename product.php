@@ -109,7 +109,8 @@ if(isset($_POST['order'])){
     $_SESSION['image'] = $row['item_image'];
     $_SESSION['voucher'] = $_POST['voucher'];
     if ( $_POST['quantity'] > $row['stocks']) {
-        echo "<script>alert('Desired quantity exceeds the current stocks.');</script>";
+        $message = "Desired quantity exceeds the current stocks.";
+
     } else {
         // Assuming your database table has columns like id, item_name, item_description, item_quantity, item_price, and date
                 echo "<script>window.location.href='checkout.php';</script>";
