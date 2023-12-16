@@ -192,14 +192,7 @@ $result = $conn->query($sql);
         .search{
             width: 240px;
            margin-left: 7em;
-        
-        }
-        .search .form-control {
-            text-align: center;
-            background-color: transparent;
-            border-color: #453321;
-            border-radius: 10px;
-            width: 10px;
+    
         }
         
     </style>

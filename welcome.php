@@ -86,7 +86,7 @@ if (!empty($searchQuery)) {
                 border-top: 1px solid #ccc;
                 padding-left: 15px;
                 margin: 0px;         
-                background-color: rgba(137, 111, 102, 0.2); /* Light yellow with 90% opacity */
+                background-color:rgb(239, 232, 227, 0.9); /* Light yellow with 90% opacity */
         }
         .bar{
             text-align: center;
@@ -98,8 +98,8 @@ if (!empty($searchQuery)) {
         }
         .bar li{	
             padding-left: 10px;
-            font-size: 17px;
-            font-family: Roboto;
+            font-size: 20px;
+            font-family: Neuzeit S LT W01 Book;
             color: #5B4E2C;
         
         }
@@ -137,19 +137,19 @@ if (!empty($searchQuery)) {
             box-shadow: 0 0 10px rgba(0, 0, 0, 100); /* Add a subtle box shadow for the raised effect */
         }
         .custom-container img{
-            border-radius: 20px;
             padding: 10px;
             height: 170px; 
-            width:170px;
+            width:210px;
         }
         .custom-container p{
-            font-size: 10px;
             padding-left: 10px;
             text-align: center;
             font-weight: bold;
-            height: 50px;
-            width: 160px;
-            font-size: 12px;
+            height: 40px;
+            width: 220px;
+            font-size: 15px;
+            margin-bottom: 1px;
+    
             
         }        
         button{
@@ -252,13 +252,12 @@ if (!empty($searchQuery)) {
 
         }
         .wrap{
-            font-size: 22px; 
+            font-size: 25px; 
             text-align: center;
             width:100%;
             margin-top: 5em;
-            padding:0px 10px 3px 10px;
-            font-family: prata;
-            font-style: italic;   
+            padding:10px 10px 3px 10px;
+            font-family: Neuzeit S LT W01 Book;
         }
         .head {
             transform: translateY(0); /* Baseline transform */
@@ -272,7 +271,6 @@ if (!empty($searchQuery)) {
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* Adjusted shadow on hover*/
             transform: translateX(-5px); /* Adjusted translateY value */
             background: linear-gradient(to bottom, #F6EEE3, #E3CCCC);
-            background-color: rgba(252, 148, 164, 0.3);
         }
         h1 {
             font-family: 'Prata', serif;
@@ -312,14 +310,15 @@ if (!empty($searchQuery)) {
 			color: #5B4E2C;
         }
         footer{
-            background-color: #A19284;
+            background-color:#514F4D ;
             color: white;
             bottom: 0;
             left:0;
             width:100%;
+            height: 100px;
         }
         footer a{
-            color:#453321;
+            color:#EFE8E3;
         }
         footer a:hover{
             color: black;
@@ -329,19 +328,13 @@ if (!empty($searchQuery)) {
         background-color: transparent;
         border-color: #453321;
         border-radius: 10px;
-        width: 10px;
+       width: 10%;
         }
         .search{
             width: 240px;
-           margin-left: 10em;
-        
-        }
-        .search .form-control {
-            text-align: center;
-            background-color: transparent;
-            border-color: #453321;
-            border-radius: 10px;
-            width: 10px;
+           margin-left: 9em;
+           position: relative;
+    
         }
         .scroll{
             overflow-y: scroll;
@@ -407,15 +400,15 @@ if (!empty($searchQuery)) {
                 Cart
          </li>
         </a>
-   
-<div class="search">
+        
+        <div class="search">
         <form method="GET" action="" class="search">
             <div class="input-group">
                 <input type="search" name="query" class="form-control" placeholder="Search..."
                     style="border-top-left-radius: 10px; border-bottom-left-radius: 10px;">
-                <div class="input-group-append">
+                
                     <button class="btn btn-secondary" type="submit"
-                        style="background-color: transparent; border-color: #453321; border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-top-left-radius: 0; border-bottom-left-radius: 0;">
+                        style="background-color: transparent;width:15%; border-color: #453321; border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-top-left-radius: 0; border-bottom-left-radius: 0;">
                         <span class="btn-label"><i class="fas fa-search" style="color: #5a4939;"></i></span>
                     </button>
                 </div>
@@ -651,17 +644,17 @@ if (!empty($searchQuery)) {
 <footer class="container-fluid">
     <div class="row">
         <div class="col-6 text-left">
-            <p class="text-lead" style="font-size: 15px; padding-top:20px;">2023©Khasabai | Privacy Policy</p>
+            <p class="text-lead" style="font-size: 18px; padding-top:2em; color: #EFE8E3;padding-left: 2em;">2023©Khasabai | Privacy Policy</p>
         </div>
-        <div class="col-md-6 text-end sm-3" style="padding-top:20px;">
+        <div class="col-md-6 text-end sm-3" style="padding-top:2em  ; ">
             <a href="mailto:your-email@example.com" class="d-inline">
-                <i class="far fa-envelope" style="margin-right: 10px;"></i>
+                <i class="far fa-envelope" style="margin-right: 10px; font-size: 28px;  "></i>
             </a>
             <a href="https://www.facebook.com/kylesumabat13" target="_blank" class="d-inline">
-                <i class="fab fa-facebook" style="margin-right: 10px;"></i>
+                <i class="fab fa-facebook" style="margin-right: 10px; font-size: 28px; "></i>
             </a>
             <a href="https://instagram.com/kharyllesumabat?igshid=NzZlODBkYWE4Ng==" target="_blank" class="d-inline">
-                <i class="fab fa-instagram" style="margin-right: 10px;"></i>
+                <i class="fab fa-instagram" style="margin-right: 2em; font-size: 28px; "></i>
             </a>
         </div>
     </div>
