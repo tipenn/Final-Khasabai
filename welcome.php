@@ -68,7 +68,7 @@ if (!empty($searchQuery)) {
     <style>
          body {
             font-family: 'Roboto', sans-serif;
-            background-size: cover;
+            background-color:#F6F2EF;
             background-repeat: no-repeat;
             background-attachment: fixed; /* Optional, for a fixed background */
         }
@@ -118,17 +118,16 @@ if (!empty($searchQuery)) {
         }
         .left{
             float: right;
-            margin-top: -2em;
             margin-left: 30em;
-            margin-right: 2em;
+            margin-top:2em;
             position: relative;
         }
         .custom-container {
-            width: 300px;
+            width: 250px;
             height: 305px;
             padding: 5px;
             margin: 15px 0px 5px 10px;
-            background-color:transparent ;
+            background-color:#F6F2EF;
             box-shadow: 0 0 10px rgba(0, 0, 0, 100); /* Add a subtle box shadow for the raised effect */
             transition: transform 0.3s ease-in-out; /* Add a transition effect for a smoother animation */
         }
@@ -151,6 +150,7 @@ if (!empty($searchQuery)) {
             height: 50px;
             width: 160px;
             font-size: 12px;
+            
         }        
         button{
             width:40%;     
@@ -182,11 +182,9 @@ if (!empty($searchQuery)) {
         .carousel {
         width: 100%;
         height: 700px;
-        float: left;
         background-color: #F1E3E6;
-        position:relative;
         border-top:2px solid #cccccc;
-        margin-top: -1em;
+        align: center;
 
         }
         .carousel > ul {
@@ -233,23 +231,31 @@ if (!empty($searchQuery)) {
     
         }
         .category{
-            width: 99%; 
+            width: 100%; 
+            padding-left:2em;
+            align: left;
+            
         }
         .content{
+            float: center;  
+            margin-top: -1em;
             background-color:#F6F2EF;
-            width: 98%;
+            box-shadow:  -2px 2px grey;
+            width: 90%;
             border:2px solid #cccccc;
-            height: 505px;
+            height: auto;
         }
         .fit{
-            float: center;
-            background-image: url("https://drive.google.com/uc?id=1VdMQTbNwy9vY_nWoi4Zmi67F8QM1QeTu")
+            background-image: url("https://drive.google.com/uc?id=1VdMQTbNwy9vY_nWoi4Zmi67F8QM1QeTu");
+            width: 100%;
+            align: center;
+
         }
         .wrap{
             font-size: 22px; 
             text-align: center;
             width:100%;
-            margin-top: 54.3em;
+            margin-top: 5em;
             padding:0px 10px 3px 10px;
             font-family: prata;
             font-style: italic;   
@@ -258,13 +264,14 @@ if (!empty($searchQuery)) {
             transform: translateY(0); /* Baseline transform */
             transition: box-shadow 0.5s, transform 0.5s;
             padding: 3px 3px 3px 3px;
+            color: #383633;
             
         }
 
         .head:hover{
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* Adjusted shadow on hover*/
             transform: translateX(-5px); /* Adjusted translateY value */
-            background: linear-gradient(to bottom, #f0f8ff, #fc94a4);
+            background: linear-gradient(to bottom, #F6EEE3, #E3CCCC);
             background-color: rgba(252, 148, 164, 0.3);
         }
         h1 {
@@ -310,7 +317,6 @@ if (!empty($searchQuery)) {
             bottom: 0;
             left:0;
             width:100%;
-            margin-top: 5em;
         }
         footer a{
             color:#453321;
@@ -337,7 +343,13 @@ if (!empty($searchQuery)) {
             border-radius: 10px;
             width: 10px;
         }
-        
+        .scroll{
+            overflow-y: scroll;
+            max-height: 50em;
+        }
+        .card{
+            background-color: rgba(232, 225, 218, 0.5);
+        }
     </style>
 
 
@@ -420,14 +432,13 @@ if (!empty($searchQuery)) {
   <span style="font-size: 32px;"><br>Elevate Your Beauty Rituals with Exquisite Beauty Products Crafted for Timeless Elegance.</span> 
   </p>
     <br><br><br>
-    <hr>
  <!-- content -->
 <center>
   <!-- <p style="font-family: 'raleway', serif; position: absolute; top: 70%; left: 60%; transform: translate(-10%, -40%); color: #453321; font-size: 28px; font-weight: bold; font-style: italic; text-align: center;">
   <span style="font-size: 32px;"><br>Elevate Your Beauty Rituals with Exquisite Beauty Products Crafted for Timeless Elegance.</span> 
   </p> -->
 
-
+<div class="content">
 <section aria-label="Newest Photos">
     <div class="carousel" data-carousel>
         <button class="carousel-button prev" data-carousel-button="prev"><i class="fa-solid fa-angle-left" style="margin-right: 10px;"></i></button>
@@ -472,7 +483,7 @@ if (!empty($searchQuery)) {
     // Set interval to show the next slide every 1000 milliseconds (1 second)
     setInterval(showNextSlide, 5000); // Change the interval time according to your preference
 </script>
-</div>
+
 <div class="left">
   <img src="assets/bg.png" style="width: 100%; max-width: 100%; border-radius: 10px;">
   <div class="welcome">
@@ -487,19 +498,25 @@ if (!empty($searchQuery)) {
     </div> 
     </div>
     </div>
-
-
-<br><br><br>
+    <hr style="width: 100%; margin-bottom: -8em; background:#4F3B33; height: 3px;">
 <div class="wrap" >
-
-    <a href="1"><div class="all head" style="display: inline-block;  cursor: pointer; margin: 0;"   onclick="toggleContent('all')" >All</div></a>
-    <div class="beauty-sets head" style="display: inline-block;  cursor: pointer; margin-left: 1em;"   onclick="toggleContent('beauty_set_')">Beauty Sets</div>
-    <div class="soap-scrub head" style="display: inline-block;  cursor: pointer;margin-left: 1em;"   onclick="toggleContent('body_soap_')">Body Soup and Scrub</div>
-    <div class="face-body head" style="display: inline-block;  cursor: pointer; margin-left: 1em;" onclick="toggleContent('lotion_')">Face and Body Lotion</div>
-    <div class="cosmetics head" style="display: inline-block;  cursor: pointer; margin-left: 1em;" onclick="toggleContent('cosmetics_')">Cosmetics</div>
-    <div class="skincare head" style="display: inline-block;  cursor: pointer; margin-left: 1em; " onclick="toggleContent('skincare_')">Facial Skincare</div>
+    <div class="row">
+    <div class="col-1">
+    <div class="all head" style="display: inline-block;  cursor: pointer; margin: 0;"   onclick="toggleContent('all')" >All</div></div>
+    <div class="col-2">
+    <div class="beauty-sets head" style="display: inline-block;  cursor: pointer; margin-left: 1em;"   onclick="toggleContent('beauty_set_')">Beauty Sets</div></div>
+    <div class="col-3">
+    <div class="soap-scrub head" style="display: inline-block;  cursor: pointer;margin-left: 1em;"   onclick="toggleContent('body_soap_')">Body Soup and Scrub</div></div>
+    <div class="col-3">
+    <div class="face-body head" style="display: inline-block;  cursor: pointer; margin-left: 1em;" onclick="toggleContent('lotion_')">Face and Body Lotion</div></div>
+    <div class="col-1">
+    <div class="cosmetics head" style="display: inline-block;  cursor: pointer; margin-left: 1em;" onclick="toggleContent('cosmetics_')">Cosmetics</div></div>
+    <div class="col-2">
+    <div class="skincare head" style="display: inline-block;  cursor: pointer; margin-left: 1em; " onclick="toggleContent('skincare_')">Skincare</div></div>
+    </div>
 </div>   
-<div class="fit">
+
+<div class="card card-body scroll">
 <div id="allcategory" class="category allcategory" >
 <div class="row">
             <div class="col" style="max-width: 100%;">
@@ -522,11 +539,10 @@ if (!empty($searchQuery)) {
                     </div>
                 
         </div>
-    </div>
-            </div>
+    
 </div>
 </div>
-<div class="fit">
+
 <div id="beauty_set_category" class="category beauty_set_category" >
             <div class="scrollable-section">
                     <div class="row">
@@ -546,10 +562,8 @@ if (!empty($searchQuery)) {
                     </div>
                 </div>
             </div>
-</div>
-                    </div>
 
-                    <div class="fit">
+
 <div id="body_soap_category" class="category body_soap_category">
             <div class="scrollable-section">
                     <div class="row">
@@ -569,11 +583,7 @@ if (!empty($searchQuery)) {
                     </div>
                 </div>
             </div>
-        </div>
-</div>
 
-
-<div class="fit">
 <div id="lotion_category" class="category lotion_category" >
             <div class="scrollable-section">
                     <div class="row">
@@ -593,10 +603,7 @@ if (!empty($searchQuery)) {
                     </div>
                 </div>
             </div>
-    </div>
-</div>
 
-<div class="fit">
 <div id="cosmetics_category" class="category cosmetics_category" >
             <div class="scrollable-section">
                     <div class="row">
@@ -616,10 +623,7 @@ if (!empty($searchQuery)) {
                     </div>
                 </div>
             </div>
-                    </div>
-</div>
 
-<div class="fit">
 <div id="skincare_category" class="category skincare_category">
             <div class="scrollable-section">
                     <div class="row">
@@ -639,14 +643,12 @@ if (!empty($searchQuery)) {
                     </div>
                 </div>
             </div>
-                    </div>
         </div>
-                    </div>
-</div>
-                    </center>
+    </div>
+</center>
+                    
 
 <footer class="container-fluid">
-    
     <div class="row">
         <div class="col-6 text-left">
             <p class="text-lead" style="font-size: 15px; padding-top:20px;">2023©Khasabai | Privacy Policy</p>
