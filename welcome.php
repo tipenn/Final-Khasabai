@@ -86,7 +86,7 @@ if (!empty($searchQuery)) {
                 border-top: 1px solid #ccc;
                 padding-left: 15px;
                 margin: 0px;         
-                background-color:rgb(239, 232, 227, 0.9); /* Light yellow with 90% opacity */
+                background-color: rgba(250, 250, 243, 0.4); /* Light yellow with 90% opacity */
         }
         .bar{
             text-align: center;
@@ -157,7 +157,6 @@ if (!empty($searchQuery)) {
         }
 
         .slide {
-        background-color: ;
         position: absolute;
         inset: 0;
         opacity: 0;
@@ -354,8 +353,10 @@ if (!empty($searchQuery)) {
     <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
     <script src='main.js'></script>
 </head>
+<body class="bg-image" style="background-image: url('https://drive.google.com/uc?id=1VdMQTbNwy9vY_nWoi4Zmi67F8QM1QeTu'); background-size: cover;">
+
 <div class="navigation">
-    <nav class="navbar navbar-expand-sm">
+<nav class="navbar navbar-expand-sm">
         <div style="display: flex; align-items: center;">
             <div style="margin-right: 10px; margin-left: 2em; padding-left:10px; padding-top: 6px;">
             <img src="https://scontent.xx.fbcdn.net/v/t1.15752-9/369627246_289801410057308_7488894476029786008_n.png?_nc_cat=103&ccb=1-7&_nc_sid=510075&_nc_eui2=AeHREZSn9SSNmamdnSsRCcVxI9F0L_pc2Fgj0XQv-lzYWNfYyCBB0reg-zh1OLoO1jlcXtuHY_x2uQ3r8lBI6mYY&_nc_ohc=qWkxmDrrYZkAX9n5wr3&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AdTlJoLVkthf50CQvYCphnSimKF4flckWwAbIeWb2MQAig&oe=657E214B" alt="Logo" width="70" height="70">
@@ -376,6 +377,12 @@ if (!empty($searchQuery)) {
     <div class="collapse navbar-collapse justify-content" id="navbarNav" >
     <div class="bar">
         <ul class="navbar-nav ">
+        <a href="welcome.php" class="nav-link">
+        <li class="nav-item text-center" >
+           
+                Home
+        </li>
+        </a>
         <a href="aboutus.php" class="nav-link">
         <li class="nav-item text-center" >
            

@@ -78,9 +78,7 @@ if (!empty($searchQuery)) {
             background-attachment: fixed; /* Optional, for a fixed background */
             margin:0px;
         }
-        .navigation{
-                background-color: #FAFAF3;
-            }
+       
         .navbar a:hover {
             font-weight: bold;
             background: linear-gradient(to bottom, transparent 0%, transparent 80%, #83776c 80%, #83776c 100%, white);
