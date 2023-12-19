@@ -52,7 +52,7 @@ $mail->send();
     <link href="https://fonts.googleapis.com/css2?family=Prata&display=swap" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <style>
-body {
+        body {
             font-family: 'Roboto', sans-serif;
             background-color:#F6F2EF;
             background-repeat: no-repeat;
@@ -79,7 +79,7 @@ body {
             padding: 2px;
             margin-top: 2em;
             margin-right: 0px; 
-            margin-left: 18em;
+            margin-left: 20em;
             
         }
         .bar li{	
@@ -96,7 +96,7 @@ body {
             left:0;
             width:100%;
             height: 100px;
-            margin-top: -2em;
+            position: fixed;
         }
         footer a{
             color:#EFE8E3;
@@ -105,15 +105,15 @@ body {
             color: black;
         }
         .search .form-control {
-        text-align: center;
-        background-color: transparent;
-        border-color: #453321;
-        border-radius: 10px;
-       width: 10%;
+            text-align: center;
+            background-color: transparent;
+            border-color: #453321;
+            border-radius: 10px;
+            width: 10%;
         }
         .search{
             width: 240px;
-           margin-left: 6em;
+           margin-left: 9em;
            position: relative;
     
         }
@@ -145,17 +145,17 @@ body {
         }
        
         .form-control {
-        text-align: center;
-        background-color: transparent;
-        border-bottom: 3px solid #453321;
-        border-radius: 10px;
-        width: 90%;
-        background-color:rgb(239, 232, 227, 0.9);
+            text-align: center;
+            background-color: transparent;
+            border-bottom: 3px solid #453321;
+            border-radius: 10px;
+            width: 90%;
+            background-color:rgb(239, 232, 227, 0.9);
         }
         .button{
             border-radius: 100px;
             background-color:#D8CEC2  ;
-            width: 90%;
+            width: 60%;
             font-size: 20px;
         }
         .button :hover{
@@ -221,6 +221,7 @@ body {
     </div>
 </div>
     </nav>
+    <br><br><br><br>
     <div class="container">
     <div class="row">
     <div class="col-lg-4 col-md-6 col-sm-8 offset-lg-4 offset-md-3 offset-sm-2 divup">
@@ -235,8 +236,8 @@ body {
                 <form action="#" method="post">
     <div id="errorMessage" class="alert alert-danger" style="display: none;"></div>
 
-        <label for="email">Email:</label>
-        <center>
+        <label for="email" > </label>
+    <center>
         <input type="email" name="email" class="form-control" placeholder="Email" required>
     </center>
         <br>
@@ -247,8 +248,6 @@ body {
             </div>
         </div>
     </div>
-<br><BR><BR><BR><br><BR><BR><BR>
-<br><BR><BR><BR>
 
     <footer class="container-fluid">
     <div class="row">

@@ -181,7 +181,7 @@ if(isset($_POST['order'])){
             text-align: center;
             font-family: 'Prata', serif; /* Set font to Prata */
             color: #453321;
-            font-size: 60px;
+            font-size: 55px;
         }
         h3{
             font-family: roboto;
@@ -273,6 +273,17 @@ if(isset($_POST['order'])){
             margin:none;
             width: 90%;
             align:center;
+        }
+        .divider-top{
+            width: 600px;
+            padding: 1em;
+            position: absolute;
+            top: 120%;
+            left: 31%;
+            font-style: 25px;
+        }
+        .category{
+            background-color: #B8A588;
         }
     </style>
 
@@ -427,13 +438,17 @@ if(isset($_POST['order'])){
         quantityInput.value = currentQuantity + 1;
     }
 </script>
-<hr>
-<div class="divider">
-    <img src="assets/asd.png" style="width:100%; position:relative;">
-    <div class="text-lead text-center" style="color:grey; position:absolute; top: 2.7em;">
-<h1>Featured Products</h1>
-Let your beauty shine through</div>
+<br><br>
+<img src="assets/abt4.png" style="width:100%;height: 600px; ">
+<div class="divider-top">
+<h2 class="text-center">
+        <img src="https://scontent.xx.fbcdn.net/v/t1.15752-9/369627246_289801410057308_7488894476029786008_n.png?_nc_cat=103&ccb=1-7&_nc_sid=510075&_nc_eui2=AeHREZSn9SSNmamdnSsRCcVxI9F0L_pc2Fgj0XQv-lzYWNfYyCBB0reg-zh1OLoO1jlcXtuHY_x2uQ3r8lBI6mYY&_nc_ohc=qWkxmDrrYZkAX9n5wr3&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AdTlJoLVkthf50CQvYCphnSimKF4flckWwAbIeWb2MQAig&oe=657E214B"alt="Logo" width="90" height="90">
+        </h2>
+        <h1> KHASABAI
+        <br> FEATURED PRODUCTS </h1>
+
 </div>
+<div class="category">
 <?php
 $category =$row['category'];
 $display="SELECT * FROM products WHERE category='$category'";
@@ -454,7 +469,7 @@ $out=$conn->query($display);
     </div>
     <?php }?>
 </div>
-
+    </div>
 
 
 </div>

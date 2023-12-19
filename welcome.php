@@ -65,10 +65,10 @@ if (!empty($searchQuery)) {
 </head>
 
 
-    <style>
+
+<style>
          body {
             font-family: 'Roboto', sans-serif;
-            background-color:#F6F2EF;
             background-repeat: no-repeat;
             background-attachment: fixed; /* Optional, for a fixed background */
         }
@@ -88,12 +88,12 @@ if (!empty($searchQuery)) {
                 margin: 0px;         
                 background-color: rgba(250, 250, 243, 0.4); /* Light yellow with 90% opacity */
         }
-        .bar{
+         .bar{
             text-align: center;
             padding: 2px;
             margin-top: 2em;
             margin-right: 0px; 
-            margin-left: 18em;
+            margin-left: 20em;
             
         }
         .bar li{	
@@ -101,7 +101,6 @@ if (!empty($searchQuery)) {
             font-size: 20px;
             font-family: Neuzeit S LT W01 Book;
             color: #5B4E2C;
-        
         }
         h1 {
             text-align: center;
@@ -296,6 +295,18 @@ if (!empty($searchQuery)) {
         a {
 			text-decoration: none;
 			color: #453321;
+    
+        }
+        .scroll{
+            overflow-y: scroll;
+            max-height: 50em;
+        }
+        .card{
+            background-color: rgba(232, 225, 218, 0.5);
+        }
+        a {
+			text-decoration: none;
+			color: #453321;
         }
         a:hover{
 			color: #5B4E2C;
@@ -346,9 +357,8 @@ if (!empty($searchQuery)) {
     <script src='main.js'></script>
 </head>
 <body class="bg-image" style="background-image: url('https://drive.google.com/uc?id=1VdMQTbNwy9vY_nWoi4Zmi67F8QM1QeTu'); background-size: cover;">
-
-<div class="navigation">
-<nav class="navbar navbar-expand-sm">
+    <div class="navigation">
+    <nav class="navbar navbar-expand-sm">
         <div style="display: flex; align-items: center;">
             <div style="margin-right: 10px; margin-left: 2em; padding-left:10px; padding-top: 6px;">
             <img src="https://scontent.xx.fbcdn.net/v/t1.15752-9/369627246_289801410057308_7488894476029786008_n.png?_nc_cat=103&ccb=1-7&_nc_sid=510075&_nc_eui2=AeHREZSn9SSNmamdnSsRCcVxI9F0L_pc2Fgj0XQv-lzYWNfYyCBB0reg-zh1OLoO1jlcXtuHY_x2uQ3r8lBI6mYY&_nc_ohc=qWkxmDrrYZkAX9n5wr3&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AdTlJoLVkthf50CQvYCphnSimKF4flckWwAbIeWb2MQAig&oe=657E214B" alt="Logo" width="70" height="70">
@@ -387,9 +397,6 @@ if (!empty($searchQuery)) {
                 Login
         </li>
         </a>
-        </ul>
-    </div>
-        
         <div class="search">
         <form method="GET" action="" class="search">
             <div class="input-group">

@@ -65,7 +65,6 @@ if (!empty($searchQuery)) {
     <style>
          body {
             font-family: 'Roboto', sans-serif;
-            background-color:#F6F2EF;
             background-repeat: no-repeat;
             background-attachment: fixed; /* Optional, for a fixed background */
         }
@@ -83,14 +82,14 @@ if (!empty($searchQuery)) {
                 border-top: 1px solid #ccc;
                 padding-left: 15px;
                 margin: 0px;         
-                background-color:rgb(239, 232, 227, 0.9); /* Light yellow with 90% opacity */
+                background-color: rgba(250, 250, 243, 0.5); /* Light yellow with 90% opacity */
         }
-        .bar{
+         .bar{
             text-align: center;
             padding: 2px;
             margin-top: 2em;
             margin-right: 0px; 
-            margin-left: 18em;
+            margin-left: 20em;
             
         }
         .bar li{	
@@ -98,7 +97,6 @@ if (!empty($searchQuery)) {
             font-size: 20px;
             font-family: Neuzeit S LT W01 Book;
             color: #5B4E2C;
-        
         }
         h1 {
             text-align: center;
@@ -108,14 +106,17 @@ if (!empty($searchQuery)) {
         }      
         .float{
             float: center;
-            margin-top:-3em;
-            position: relative;
+
         }
         .right{
-            float: right;
-            margin-left: 30em;
-            margin-top:2em;
-            position: relative;
+            background-color: rgba(232, 225, 218, 0.5);
+            text-align: justify;
+            width: 600px;
+            padding: 1em;
+            position: absolute;
+            top: 130%;
+            left: 5.5%;
+            font-size: 30px;
         }
         .left{
             float: left;
@@ -152,7 +153,8 @@ if (!empty($searchQuery)) {
 
         .slide > img {
         display: block;
-        width: 50%;
+
+        width: 100%;
         height: 100%;
         object-fit: cover;
         object-position: center;
@@ -165,16 +167,14 @@ if (!empty($searchQuery)) {
         }
         
         .carousel {
-        width: 100%;
+        width: 50%;
         height: 600px;
-        margin-top: -1.5em;
         background-color: #F1E3E6;
         border-top:2px solid #cccccc;
-        align: center;
-
+        left: 50%;
         }
         .carousel > ul {
-        margin: 0;
+        margin-left:2em ;
         padding: 0;
         list-style: none;
         }
@@ -193,6 +193,7 @@ if (!empty($searchQuery)) {
             width:100%;
             height: 100px;
             margin-top: -2em;
+
         }
         footer a{
             color:#EFE8E3;
@@ -209,7 +210,7 @@ if (!empty($searchQuery)) {
         }
         .search{
             width: 240px;
-           margin-left: 6em;
+           margin-left: 9em;
            position: relative;
     
         }
@@ -219,6 +220,17 @@ if (!empty($searchQuery)) {
         }
         .card{
             background-color: rgba(232, 225, 218, 0.5);
+        }
+        .text-top{
+            background-color: rgba(232, 225, 218, 0.5);
+            text-align: justify;
+            width: 600px;
+            padding: 1em;
+            position: absolute;
+            top: 220%;
+            left: 31%;
+            font-style: 30px;
+
         }
     </style>
 
@@ -271,19 +283,6 @@ if (!empty($searchQuery)) {
                 Login
         </li>
         </a>
-        <a href="customerprofile.php" class="nav-link">
-         <li class="nav-item text-center" >
-           
-                Profile
-         </li>
-        </a>
-        <a href="cart.php" class="nav-link">
-         <li class="nav-item text-center">
-        
-                Cart
-         </li>
-        </a>
-        
         <div class="search">
         <form method="GET" action="" class="search">
             <div class="input-group">
@@ -302,7 +301,7 @@ if (!empty($searchQuery)) {
     </nav>
         </div>
         <br><br>
-        <img src="assets/abt2.png" style="width: 100%; height:800px; max-width: 100%; margin-top: -3em;">
+        <img src="assets/abt2.png" style="width: 100%; height:800px; max-width: 100%; margin-top: -10em;">
     <section aria-label="Newest Photos">
     <div class="carousel" data-carousel>
         <button class="carousel-button prev" data-carousel-button="prev"><i class="fa-solid fa-angle-left" style="margin-right: 10px;"></i></button>
@@ -348,17 +347,16 @@ if (!empty($searchQuery)) {
     setInterval(showNextSlide, 5000); // Change the interval time according to your preference
 </script>
         <div class="right">
-       <p style="font-size: 20px; line-height: 2em; color:#5B4E2C ; font-family: Raleway;font-weight: bold; margin-top: -21em; margin-left: 14em; margin-right: 3em; text-align: justify;">
-            Khasabai serves as the best way of delivering a great user experience by deeply understanding what people want and love. We provided authentic products, descriptions, and inclusions of the products that are most helpful, relevant, and timely. That's why it makes users happy and loyal.
-        
+       <p>Welcome to Khasabai. Khasabai serves as the best way of delivering a great user experience by deeply understanding what people want and love. We provided authentic products, descriptions, and inclusions of the products that are most helpful, relevant, and timely. That's why it makes users happy and loyal.
 </div>
 <div class="float">
-        <img src="assets/aboutus.png" style="width: 100%; height:800px; max-width: 100%; margin-top: -2em; margin-bottom: 0px;">
-        <h1 style="font-size: 48px; position: absolute; top: 2.7em; left: 42%; transform: translate(-10%, -40%);">Know our story.</h1><br><br>
-        <p style="font-family: 'raleway', serif; position: absolute; top: 13em; left: 35%; right: 28%; transform: translate(-10%, -40%); color: #453321; font-size: 28px; font-weight: bold; text-align: center;">
-        <span style="font-size: 22px;"><br>Elevate Your Beauty Rituals with Exquisite Beauty Products Crafted for Timeless Elegance.</span>
-        </p>
-    </div>
+        <img src="assets/aboutus.png" style="width: 100%; height:800px; max-width: 100%;">
+        <h1 style="font-size: 48px; position: absolute; top: 18em; left: 13%; ">Know our story.</h1><br><br></div>
+<div class="text-top">
+    <p> Our mission is to transform the online shopping experience by providing a seamless journey that blends dependability, convenience, and tailored recommendations. We aim for customer satisfaction, so this website upholds complete transparency and ensures that every transaction is a secure and trustworthy experience. Our platform is designed to be your go-to destination for all your skincare shopping needs.</p>
+</div>
+
+        
 
  <!-- footer -->
  <footer class="container-fluid">

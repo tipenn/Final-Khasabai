@@ -183,6 +183,7 @@ if (!empty($searchQuery)) {
         background-color: #F1E3E6;
         border-top:2px solid #cccccc;
         align: center;
+        margin-top: -7.5em;
 
         }
         .carousel > ul {
@@ -233,7 +234,7 @@ if (!empty($searchQuery)) {
             padding-left:2em;
             align: left;
             
-        }
+        /* }
         .content{
             float: center;  
             margin-top: -1em;
@@ -242,7 +243,7 @@ if (!empty($searchQuery)) {
             width: 90%;
             border:2px solid #cccccc;
             height: auto;
-            margin-top: -7.5em;
+            margin-top: -7.5em; */
         }
         .fit{
             background-image: url("https://drive.google.com/uc?id=1VdMQTbNwy9vY_nWoi4Zmi67F8QM1QeTu");
@@ -273,7 +274,7 @@ if (!empty($searchQuery)) {
         }
         h1 {
             font-family: 'Prata', serif;
-            font-size: 130px;
+            font-size: 60px;
             text-align: center;
         }
         h2 {
@@ -306,7 +307,7 @@ if (!empty($searchQuery)) {
             max-height: 50em;
         }
         .card{
-            background-color: rgba(232, 225, 218, 0.5);
+            background-color:#F1E6DF;
         }
         a {
 			text-decoration: none;
@@ -342,6 +343,14 @@ if (!empty($searchQuery)) {
            margin-left: 6em;
            position: relative;
     
+        }
+        .divider-top{
+            width: 900px;
+            padding: 1em;
+            position: absolute;
+            top: 110%;
+            left: 21%;
+            font-style: 25px;
         }
     </style>
 
@@ -478,11 +487,11 @@ if (!empty($searchQuery)) {
     // Set interval to show the next slide every 1000 milliseconds (1 second)
     setInterval(showNextSlide, 5000); // Change the interval time according to your preference
 </script>
-<h1 style="font-size: 70px; margin-top: 1em;">Unveil Your Radiance with Khasabai</h1><br><br>
-        <p style="font-family: 'raleway', serif; position: absolute;  left: 16%; transform: translate(-10%, -40%); color: #453321; font-size: 28px; font-weight: bold; font-style: italic; text-align: center;">
-  <span style="font-size: 32px; "><br>Elevate Your Beauty Rituals with Exquisite Beauty Products Crafted for Timeless Elegance.</span> 
-  </p>
-    <hr style="width: 100%; margin-bottom: -8em; margin-top: 12em; background:#4F3B33; height: 3px;">
+<img src="assets/abt5.png" style="width:100%;height: 600px; "> 
+<div class="divider-top">
+<h1 style="font-size: 70px; margin-top: 1em;">Unveil Your Radiance with Khasabai</h1></div>
+  <p style="font-size: 32px; color: #453321; margin-top: -26%; font-size: 28px; font-weight: bold; font-style: italic; text-align: center; "><br>Elevate Your Beauty Rituals with Exquisite Beauty Products Crafted for Timeless Elegance.</p> 
+
 <div class="wrap" >
     <div class="row">
     <div class="col-1">

@@ -59,7 +59,7 @@ if (isset($_POST['signup'])) {
             padding: 2px;
             margin-top: 2em;
             margin-right: 0px; 
-            margin-left: 18em;
+            margin-left: 20em;
             
         }
         .bar li{	
@@ -144,7 +144,7 @@ if (isset($_POST['signup'])) {
         }
         .search{
             width: 240px;
-           margin-left: 6em;
+           margin-left: 9em;
            position: relative;
         }
     </style>
@@ -197,18 +197,6 @@ if (isset($_POST['signup'])) {
            
                 Login
         </li>
-        </a>
-        <a href="customerprofile.php" class="nav-link">
-         <li class="nav-item text-center" >
-           
-                Profile
-         </li>
-        </a>
-        <a href="cart.php" class="nav-link">
-         <li class="nav-item text-center">
-        
-                Cart
-         </li>
         </a>
         
         <div class="search">

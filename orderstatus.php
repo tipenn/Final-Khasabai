@@ -79,7 +79,7 @@ $result = $conn->query($sql);
             font-family: 'Prata', serif;
         }
         .order{
-            background-color:#F6F2EF;
+           background-color:#F1E6DF;;
             border: 1px solid gray;
             margin-bottom: 5px;
         }

@@ -34,21 +34,21 @@ $result = $conn->query($sql);
             background-repeat: no-repeat;
             background-attachment: fixed; /* Optional, for a fixed background */
         }
-        .navbar a {
+            .navbar a {
                 transition: color 0.5s ease; /* Initial transition property for non-hover state */
-         }
+            }
 
-        .navbar a:hover {
-            font-weight: bold;
-            transition: color 0.5s ease 1s; /* Transition with a 1-second delay */
-            background: linear-gradient(to bottom, transparent 0%, transparent 90%, #83776c 90%, #83776c 100%, white);
-        }
+            .navbar a:hover {
+                font-weight: bold;
+                transition: color 0.5s ease 1s; /* Transition with a 1-second delay */
+                background: linear-gradient(to bottom, transparent 0%, transparent 90%, #83776c 90%, #83776c 100%, white);
+            }
 
-        .navbar {
-            border-top: 1px solid #ccc;
-            padding-left: 15px;
-            margin: 0px;         
-            background-color: rgba(250, 250, 243, 0.4); /* Light yellow with 90% opacity */
+            .navbar {
+                border-top: 1px solid #ccc;
+                padding-left: 15px;
+                margin: 0px;         
+                background-color: rgba(250, 250, 243, 0.4); /* Light yellow with 90% opacity */
         }
         .bar{
             text-align: center;
@@ -86,7 +86,7 @@ $result = $conn->query($sql);
             float: left;
             margin-top: 2em;
             margin-left: 5em;
-            background-color:#F6F2EF; 
+            background-color: #B8A588;
             border-color: grey;
             box-shadow: -2px -2px 5px 2px grey;
 
@@ -173,7 +173,7 @@ $result = $conn->query($sql);
     <script src='main.js'></script>
 </head>
 <body class="bg-image" style="background-image: url('https://drive.google.com/uc?id=1VdMQTbNwy9vY_nWoi4Zmi67F8QM1QeTu'); background-size: cover;">
-<nav class="navbar navbar-expand-sm">
+    <nav class="navbar navbar-expand-sm">
         <div style="display: flex; align-items: center;">
             <div style="margin-right: 10px; margin-left: 2em; padding-left:10px; padding-top: 6px;">
             <img src="https://scontent.xx.fbcdn.net/v/t1.15752-9/369627246_289801410057308_7488894476029786008_n.png?_nc_cat=103&ccb=1-7&_nc_sid=510075&_nc_eui2=AeHREZSn9SSNmamdnSsRCcVxI9F0L_pc2Fgj0XQv-lzYWNfYyCBB0reg-zh1OLoO1jlcXtuHY_x2uQ3r8lBI6mYY&_nc_ohc=qWkxmDrrYZkAX9n5wr3&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AdTlJoLVkthf50CQvYCphnSimKF4flckWwAbIeWb2MQAig&oe=657E214B" alt="Logo" width="70" height="70">
@@ -242,8 +242,7 @@ $result = $conn->query($sql);
 </div>
     </nav>
         </div>
-  
-
+        <br><br>
 <!-- content left side-->
 <div class="container">
 <br><br><br><br>
@@ -264,7 +263,7 @@ $result = $conn->query($sql);
                 </div>
                 <div class="col" style="padding:40px">
                 <p class="text-mute">
-                <?php echo $row['item_name']?> <br>₱<?php echo $row['price']?>
+                <?php echo $row['id'] . $row['item_name']?> <br>₱<?php echo $row['price']?>
                 <br>Quantity : <?php echo $row['quantity']?></p>
                 <form method="POST">
                     <!-- Hidden input for item ID -->
@@ -329,22 +328,22 @@ if ($output === null) { ?>
 
         <center><h6>Mode of Payment: Cash on Delivery</h6></center>
         <hr style="color: #5B4E2C; height: 5px;">
-                <div class="row">
-                    <div class="col" style="padding-left: 2em;" >
-                        SUB TOTAL:
-                    </div>
-                    <div class="col">
-                    ₱<?php echo $row['total_price']?>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col" style="padding-left: 2em;" >
-                        SHIPPING FEE:
-                    </div>
-                    <div class="col">
-                    ₱<?php echo $row['shipping_fee']?>
-                    </div>
-                </div>
+        <div class="row">
+            <div class="col">
+                SUB TOTAL:
+            </div>
+            <div class="col">
+                ₱<?php echo $row['total_price']; ?>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                SHIPPING FEE:
+            </div>
+            <div class="col">
+                ₱<?php echo $row['shipping_fee']; ?>
+            </div>
+        </div>
         <div class="row">
             <div class="col">
                 Voucher Discount:

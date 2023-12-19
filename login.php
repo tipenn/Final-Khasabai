@@ -79,7 +79,7 @@ if (isset($_POST['submit_btn'])) {
             padding: 2px;
             margin-top: 2em;
             margin-right: 0px; 
-            margin-left: 18em;
+            margin-left: 20em;
             
         }
         .bar li{	
@@ -145,7 +145,7 @@ if (isset($_POST['submit_btn'])) {
         }
         .search{
             width: 240px;
-           margin-left: 6em;
+           margin-left: 9em;
            position: relative;
         }
     </style>
