@@ -1,47 +1,6 @@
-<?php 
+<?php
 include 'function.php';
 session_start();
-
-//all
-$sql="SELECT * FROM products;";
-$result=$conn->query($sql);
-
-
-$beauty="SELECT * FROM products where category = 'Beauty Sets'";
-$output=$conn->query($beauty);
-
-$soap_scrub="SELECT * FROM products where category ='Body Soap and Scrub'";
-$outcome=$conn->query($soap_scrub);
-
-$lotion="SELECT * FROM products where category ='Face and Body Lotion'";
-$end=$conn->query($lotion);
-
-$cosmetics="SELECT * FROM products where category ='Cosmetics'";
-$last=$conn->query($cosmetics);
-
-$skincare="SELECT * FROM products where category ='Facial Skin Care'";
-$follow=$conn->query($skincare);
-
-
-
-if (isset($_POST['order'])) {
-    header('Location: ordercustomer.php'); // Provide the complete URL
-    exit(); // Make sure to exit after a header redirect
-}
-
-if (isset($_POST['cart'])) {
-    header('Location: cart.php'); // Provide the complete URL
-    exit(); // Make sure to exit after a header redirect
-}
-$searchQuery = isset($_GET['query']) ? $_GET['query'] : '';
-
-if (!empty($searchQuery)) {
-    // If there's a search query, modify the SQL query
-    $sql = "SELECT * FROM products WHERE item_name LIKE '%$searchQuery%' OR item_description LIKE '%$searchQuery%';";
-} else {
-    // If no search query, retrieve all products
-    $sql = "SELECT * FROM products;";
-}
 ?>
 
 <!doctype html>
@@ -111,17 +70,18 @@ if (!empty($searchQuery)) {
             margin-top:-3em;
             position: relative;
         }
-        .right{
-            float: right;
-            margin-left: 30em;
-            margin-top:2em;
-            position: relative;
-        }
-        .left{
-            float: left;
-            margin-right: 30em;
-            position: relative;
-            margin-top: 2em;
+        
+
+        p.small {
+            line-height: 1.4;
+            font-size: 20px; 
+            font-family: Raleway;
+            color: #231F20; 
+            text-align: justify;
+            letter-spacing: 3px;
+            padding-left: 1em;
+            padding-right: 1em;
+            margin-top: -4em;
         }
         h1 {
             font-family: 'Prata', serif;
@@ -142,41 +102,16 @@ if (!empty($searchQuery)) {
             font-style: italic;
             margin-top: -70px;
         }
-        .slide {
-        position: absolute;
-        inset: 0;
-        opacity: 0;
-        transition: 200ms opacity ease-in-out;
-        transition-delay: 200ms;
+
+        .ladder-text {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
         }
 
-        .slide > img {
-        display: block;
-        width: 50%;
-        height: 100%;
-        object-fit: cover;
-        object-position: center;
-        }
-
-        .slide[data-active] {
-        opacity: 1;
-        z-index: 1;
-        transition-delay: 0ms;
-        }
-        
-        .carousel {
-        width: 100%;
-        height: 600px;
-        margin-top: -1.5em;
-        background-color: #F1E3E6;
-        border-top:2px solid #cccccc;
-        align: center;
-
-        }
-        .carousel > ul {
-        margin: 0;
-        padding: 0;
-        list-style: none;
+        .ladder-text span {
+            display: inline-block;
+            margin-bottom: 5px;
         }
         a {
 			text-decoration: none;
@@ -192,7 +127,6 @@ if (!empty($searchQuery)) {
             left:0;
             width:100%;
             height: 100px;
-            margin-top: -2em;
         }
         footer a{
             color:#EFE8E3;
@@ -302,64 +236,26 @@ if (!empty($searchQuery)) {
     </nav>
         </div>
         <br><br>
-        <img src="assets/abt2.png" style="width: 100%; height:800px; max-width: 100%; margin-top: -3em;">
-    <section aria-label="Newest Photos">
-    <div class="carousel" data-carousel>
-        <button class="carousel-button prev" data-carousel-button="prev"><i class="fa-solid fa-angle-left" style="margin-right: 10px;"></i></button>
-        <button class="carousel-button next" data-carousel-button="next"><i class="fa-solid fa-angle-right" style="margin-right: 10px;"></i></button>
-        <ul data-slides>
-    <?php
-    $result->data_seek(0); // Reset the internal pointer to the beginning
-    $firstSlide = true; // Flag to identify the first slide
-
-    while ($row = $result->fetch_assoc()) {
-        $activeAttribute = $firstSlide ? 'data-active' : ''; // Add 'data-active' attribute to the first slide
-        ?>
-        <li class="slide" <?php echo $activeAttribute; ?>>
-            <img src="assets/<?php echo $row["item_image"] ?>" alt="Product">
-        </li>
-        <?php
-        $firstSlide = false; // Set the flag to false after the first slide
-    }
-    ?>
-</ul>
-    </div>
-</section>
-
-<script>
-    function showNextSlide() {
-        const slides = document.querySelector('[data-slides]');
-        const activeSlide = slides.querySelector('[data-active]');
-        const nextSlide = activeSlide.nextElementSibling || slides.firstElementChild;
-
-        // Remove data-active from the current active slide
-        delete activeSlide.dataset.active;
-
-        // Add data-active to the next slide or the first slide if there is no next slide
-        if (nextSlide) {
-            nextSlide.dataset.active = true;
-        } else {
-            // If there is no next slide, go back to the first slide
-            slides.firstElementChild.dataset.active = true;
-        }
-    }
-
-    // Set interval to show the next slide every 1000 milliseconds (1 second)
-    setInterval(showNextSlide, 5000); // Change the interval time according to your preference
-</script>
-        <div class="right">
-       <p style="font-size: 20px; line-height: 2em; color:#5B4E2C ; font-family: Raleway;font-weight: bold; margin-top: -21em; margin-left: 14em; margin-right: 3em; text-align: justify;">
-            Khasabai serves as the best way of delivering a great user experience by deeply understanding what people want and love. We provided authentic products, descriptions, and inclusions of the products that are most helpful, relevant, and timely. That's why it makes users happy and loyal.
-        
-</div>
-<div class="float">
-        <img src="assets/aboutus.png" style="width: 100%; height:800px; max-width: 100%; margin-top: -2em; margin-bottom: 0px;">
-        <h1 style="font-size: 48px; position: absolute; top: 2.7em; left: 42%; transform: translate(-10%, -40%);">Know our story.</h1><br><br>
-        <p style="font-family: 'raleway', serif; position: absolute; top: 13em; left: 35%; right: 28%; transform: translate(-10%, -40%); color: #453321; font-size: 28px; font-weight: bold; text-align: center;">
+        <div class="float">
+        <img src="assets/aboutus.png" style="width: 100%; height:800px; max-width: 100%;">
+        <h1 style="font-size: 48px; position: absolute; top: 4.9em; left: 41%; transform: translate(-10%, -40%);">Know our story.</h1><br><br>
+        <p style="font-family: 'raleway', serif; position: absolute; top: 11em; left: 35%; right: 28%; transform: translate(-10%, -40%); color: #453321; font-size: 28px; font-weight: bold; text-align: center;">
         <span style="font-size: 22px;"><br>Elevate Your Beauty Rituals with Exquisite Beauty Products Crafted for Timeless Elegance.</span>
         </p>
     </div>
+    <br><br><br>
+<center>
+            <p class="small"> The primary objective of this study is to assess the feasibility, benefits, and limitations of implementing an Online Skincare Purchasing System within Khasabai's enterprise procurement framework. It seeks to provide a comprehensive understanding of the potential impact of this digital approach on skincare product acquisition, aiming to guide Khasabai in making informed decisions.
+            <br>
+            <br> Furthermore, the study aims to analyze the current skincare procurement processes at Khasabai, identify the organization's skincare needs, and evaluate the technical infrastructure to determine its readiness for the adoption of an online system. By exploring the capabilities and limitations of this digital transformation, the study equips Khasabai with insights that will aid in optimizing skincare procurement processes, enhancing vendor relations, and ultimately ensuring the consistent delivery of high-quality skincare products to its customers.
+    </p>
+    </div>
 
+    </center>
+    </div>
+    </div>
+    </div>
+<br>
  <!-- footer -->
  <footer class="container-fluid">
     <div class="row">
@@ -379,6 +275,7 @@ if (!empty($searchQuery)) {
         </div>
     </div>
 </footer>
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <script>

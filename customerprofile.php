@@ -4,30 +4,25 @@ session_start()
 
 ?>
 
-
-
-<!doctype html>
-<html lang="en">
-  <head>
-    <title>KHASABAI</title>
-    <link rel="icon" type="image/x-icon" href="https://scontent.xx.fbcdn.net/v/t1.15752-9/369627246_289801410057308_7488894476029786008_n.png?_nc_cat=103&ccb=1-7&_nc_sid=510075&_nc_eui2=AeHREZSn9SSNmamdnSsRCcVxI9F0L_pc2Fgj0XQv-lzYWNfYyCBB0reg-zh1OLoO1jlcXtuHY_x2uQ3r8lBI6mYY&_nc_ohc=qWkxmDrrYZkAX9n5wr3&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AdTlJoLVkthf50CQvYCphnSimKF4flckWwAbIeWb2MQAig&oe=657E214B">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<!DOCTYPE html>
+<html>
+<head>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Prata&display=swap" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-   
-</head>
-
-
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="icon" type="image/x-icon" href="https://scontent.xx.fbcdn.net/v/t1.15752-9/369627246_289801410057308_7488894476029786008_n.png?_nc_cat=103&ccb=1-7&_nc_sid=510075&_nc_eui2=AeHREZSn9SSNmamdnSsRCcVxI9F0L_pc2Fgj0XQv-lzYWNfYyCBB0reg-zh1OLoO1jlcXtuHY_x2uQ3r8lBI6mYY&_nc_ohc=qWkxmDrrYZkAX9n5wr3&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AdTlJoLVkthf50CQvYCphnSimKF4flckWwAbIeWb2MQAig&oe=657E214B">
+    
+    
     <style>
-         body {
+        body {
             font-family: 'Roboto', sans-serif;
-            background-color:#F6F2EF;
+            background-size: cover;
             background-repeat: no-repeat;
             background-attachment: fixed; /* Optional, for a fixed background */
         }
@@ -51,17 +46,36 @@ session_start()
             text-align: center;
             padding: 2px;
             margin-top: 2em;
+            margin-left: 15em;
             margin-right: 0px; 
-            margin-left: 18em;
             
         }
         .bar li{	
             padding-left: 10px;
-            font-size: 20px;
-            font-family: Neuzeit S LT W01 Book;
+            font-size: 17px;
+            font-family: Roboto;
             color: #5B4E2C;
+        }
+        .search .form-control {
+        text-align: center;
+        background-color: transparent;
+        border-color: #453321;
+        border-radius: 10px;
+        width: 10px;
+        }
+        .search{
+            width: 240px;
+           margin-left: 7em;
         
         }
+        .search .form-control {
+            text-align: center;
+            background-color: transparent;
+            border-color: #453321;
+            border-radius: 10px;
+            width: 10px;
+        }
+        
         .container{
             background-color: transparent;
             width: 400px; 
@@ -80,25 +94,11 @@ session_start()
             background-color: #A19284;
             color: black;
         }
-        table{
-            background-color:#F6F2EF; 
-            width: 400px; 
-            margin-right: 35em;
-            box-shadow: -2px -2px 2px grey;
-        }
-        tr{
-            height:50px;  
-            text-align:left; 
-            color:black;
-        }
-        td{
-            padding-left:10px;
-        }
         h1, h2, h3, p {
             font-family: 'Prata', serif;
             padding-top: 0;
         }
-            a {
+        a {
 			text-decoration: none;
 			color: #453321;
         }
@@ -106,118 +106,88 @@ session_start()
 			color: #5B4E2C;
         }
         footer{
-            background-color:#514F4D ;
+            background-color: #A19284;
             color: white;
             bottom: 0;
             left:0;
-            width:100%;
-            height: 100px;
-            margin-top: -2em;
+            width:100%;    
         }
         footer a{
-            color:#EFE8E3;
+            color:#453321;
         }
         footer a:hover{
             color: black;
         }
-        .search .form-control {
-        text-align: center;
-        background-color: transparent;
-        border-color: #453321;
-        border-radius: 10px;
-       width: 10%;
-        }
-        .search{
-            width: 240px;
-           margin-left: 6em;
-           position: relative;
-    
-        }
     </style>
 
-
- <meta charset='utf-8'>
+<head>
+    
+<meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>KHASABAI</title>
+    <title>Admin page</title>
     <link rel="icon" type="image/x-icon" href="https://scontent.xx.fbcdn.net/v/t1.15752-9/369627246_289801410057308_7488894476029786008_n.png?_nc_cat=103&ccb=1-7&_nc_sid=510075&_nc_eui2=AeHREZSn9SSNmamdnSsRCcVxI9F0L_pc2Fgj0XQv-lzYWNfYyCBB0reg-zh1OLoO1jlcXtuHY_x2uQ3r8lBI6mYY&_nc_ohc=qWkxmDrrYZkAX9n5wr3&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AdTlJoLVkthf50CQvYCphnSimKF4flckWwAbIeWb2MQAig&oe=657E214B">
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
     <script src='main.js'></script>
 </head>
-<body class="bg-image" style="background-image: url('https://drive.google.com/uc?id=1VdMQTbNwy9vY_nWoi4Zmi67F8QM1QeTu'); background-size: cover;">
+<body class="bg-image" style="background-image: url('https://scontent.xx.fbcdn.net/v/t1.15752-9/406461146_2801070146700533_8926185643662779815_n.png?_nc_cat=100&ccb=1-7&_nc_sid=510075&_nc_eui2=AeE8EUJuE9vK-u7uoH-hFuqfJMSbbB90MD4kxJtsH3QwPj3y99yjqTLFVw1tcQu7VzqIrKIJGB53LEwFWPJUYd4L&_nc_ohc=zgX-7eBLWyMAX8SX_Ve&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AdQYjVh5cxqmCd-fmKx76irFbBM6szywFFaknbFQjeBJ1A&oe=659E2DAE'); background-size: cover;">
 
-<div class="navigation">
-<nav class="navbar navbar-expand-sm">
+<nav class="navbar navbar-expand-sm" >
         <div style="display: flex; align-items: center;">
             <div style="margin-right: 10px; margin-left: 2em; padding-left:10px; padding-top: 6px;">
-            <img src="https://scontent.xx.fbcdn.net/v/t1.15752-9/369627246_289801410057308_7488894476029786008_n.png?_nc_cat=103&ccb=1-7&_nc_sid=510075&_nc_eui2=AeHREZSn9SSNmamdnSsRCcVxI9F0L_pc2Fgj0XQv-lzYWNfYyCBB0reg-zh1OLoO1jlcXtuHY_x2uQ3r8lBI6mYY&_nc_ohc=qWkxmDrrYZkAX9n5wr3&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AdTlJoLVkthf50CQvYCphnSimKF4flckWwAbIeWb2MQAig&oe=657E214B" alt="Logo" width="70" height="70">
+                <img src="https://scontent.xx.fbcdn.net/v/t1.15752-9/369627246_289801410057308_7488894476029786008_n.png?_nc_cat=103&ccb=1-7&_nc_sid=510075&_nc_eui2=AeHREZSn9SSNmamdnSsRCcVxI9F0L_pc2Fgj0XQv-lzYWNfYyCBB0reg-zh1OLoO1jlcXtuHY_x2uQ3r8lBI6mYY&_nc_ohc=qWkxmDrrYZkAX9n5wr3&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AdTlJoLVkthf50CQvYCphnSimKF4flckWwAbIeWb2MQAig&oe=657E214B" alt="Logo" width="70" height="70">
             </div>
             <div>
-                <p style="margin: 0;  font-size: 18px; color:#5B4E2C ; font-family: Raleway;font-weight: bold; text-align: left;">KHASABAI</p>
-                <p style="margin: 0;  font-size: 18px; color:#5B4E2C ; font-family: Raleway;font-weight: bold;  text-align: left;">BEAUTY PRODUCTS</p></a>
+                <p style="margin: 0;  font-size: 18px; color:#5B4E2C ; font-family: Raleway; text-align: left;">KHASABAI</p>
+                <p style="margin: 0;  font-size: 18px; color:#5B4E2C ; font-family: Raleway; text-align: left;">BEAUTY PRODUCTS</p>
             </div>
                 <br>
                 <br>
-                
     </div>
-    
+    <hr>
     <button type="button" data-toggle="collapse" data-target="#navbarNav" class="navbar-toggler" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon "></span>
     </button>
-        
-    <div class="collapse navbar-collapse justify-content" id="navbarNav" >
-    <div class="bar">
-        <ul class="navbar-nav ">
+
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav" >
+        <ul class="navbar-nav ml-auto ">
         <a href="customerprofile.php" class="nav-link">
-        <li class="nav-item text-center" >
-           
+        <li class="nav-item text-center active" >
+            <i class="fas fa-user fa"></i>
                 Profile
         </li>
         </a>
         <a href="customerhome.php" class="nav-link">
-        <li class="nav-item text-center" >
-           
+         <li class="nav-item text-center" >
+            <i class="fas fa-home"></i>
                 Home
-        </li>
+         </li>
         </a>
         <a href="orderstatus.php" class="nav-link">
-        <li class="nav-item text-center" >
-           
+         <li class="nav-item text-center" >
+            <i class="fas fa-chart-line"></i>
                 Orders
-        </li>
+         </li>
         </a>
         <a href="cart.php" class="nav-link">
-         <li class="nav-item text-center">
-        
+         <li class="nav-item text-center" >
+            <i class="fas fa-shopping-cart"></i>
                 Cart
          </li>
         </a>
         <a href="logout.php" class="nav-link">
-         <li class="nav-item text-center">
-        
-                Logout
+        <li class="nav-item text-center" >
+            <i class="fas fa-sign-out-alt"></i>
+                Log out
          </li>
         </a>
-        
-        <div class="search">
-        <form method="GET" action="" class="search">
-            <div class="input-group">
-                <input type="search" name="query" class="form-control" placeholder="Search..."
-                    style="border-top-left-radius: 10px; border-bottom-left-radius: 10px;">
-                
-                    <button class="btn btn-secondary" type="submit"
-                        style="background-color: transparent;width:15%; border-color: #453321; border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-top-left-radius: 0; border-bottom-left-radius: 0;">
-                        <span class="btn-label"><i class="fas fa-search" style="color: #5a4939;"></i></span>
-                    </button>
-                </div>
-            </div>
-        </form>
+        </ul>
     </div>
-</div>
-    </nav>
+</nav>
         </div>
+
+<!-- header profile -->
 <!-- content -->
-<center>
 <div class="text-center" style="margin-top: 2em; ">
 <?php
 $sql = "SELECT * FROM users WHERE id = '$_SESSION[id]'";
@@ -250,9 +220,7 @@ if ($result) {
     // Query execution failed
     echo "Error executing the query: " . $conn->error;
 }
-?>   
-</center>
-    <div class="text-right" style="margin-right: 30em; float: right; ">
+?>    <div class="text-right" style="margin-right: 30em; float: right; ">
     <button type="button" class="btn btn-outline-secondary btn-lg" onclick="myFunction()"> <i class="fa-solid fa-pencil" style="color: #453321;"></i></button>
     </button> 
     </div>
@@ -260,47 +228,42 @@ if ($result) {
     <br>
     
 <div class="container">
-    <table align="center" >
-    <tr >     
-     <td scope ="col"> <b> Email: </b>  <?php echo $_SESSION['email'] ?> </td>
+    <table style="background-color: #A19284; width: 400px; margin-right: 35em;" align="center" >
+    <tr style= "height:50px;  text-align:left; color:black; ">     
+     <td scope ="col" style="padding-left:10px;"> <b> Email: </b>  <?php echo $_SESSION['email'] ?> </td>
      
     </tr>
     </table>
         <br>
-    
-        <table align="center">
-    <tr >     
-     <td scope ="col" > <b> Name: </b>   <?php echo $_SESSION['firstName'] ?> <?php echo $_SESSION['lastName'] ?></td>
+        <table style="background-color: #A19284; width: 400px; margin-right: 35em;" align="center">
+    <tr style= "height:50px;  text-align:left; color:black; ">     
+     <td scope ="col" style="padding-left:10px; " > <b> Name: </b>   <?php echo $_SESSION['firstName'] ?> <?php echo $_SESSION['lastName'] ?></td>
     </tr>
     </table>
         <br>
-
-    <table>
-    <tr>     
-     <td scope ="col"> <b> Address: </b>  <?php echo $_SESSION['address'] ?>  </td>
+    <table style="background-color: #A19284; width: 400px; padding-bottom: 5px;" align="center">
+    <tr style= "height:50px; text-align:left; color:black;">     
+     <td scope ="col" style="padding-left:10px;"> <b> Address: </b>  <?php echo $_SESSION['address'] ?>  </td>
     </tr>
     </table>
         <br>
-
-    <table align="center">
-    <tr >     
-     <td scope ="col"> <b> Contact: </b>  <?php echo $_SESSION['phoneNumber'] ?>  </td>
+    <table style="background-color: #A19284; width: 400px; padding-bottom: 5px;" align="center">
+    <tr style= "height:50px;  text-align: left; color:black;">     
+     <td scope ="col" style="padding-left:10px;"> <b> Contact: </b>  <?php echo $_SESSION['phoneNumber'] ?>  </td>
     </tr>
     </table>
         <br>
-
         <!-- asterisk- private -->
-        <table>
-    <tr>     
-        <?php
-        $string = $_SESSION['password'];
-        $length = strlen($string);
-        $pass = str_repeat('*', $length);
-        ?>
-    <td scope ="col"> <b> Password: </b>  <?php echo $pass ?>  </td>     
+        <table style="background-color: #A19284; width: 400px; padding-bottom: 5px;" align="center">
+    <tr style= "height:50px;  text-align:left; color:black;">     
+    <?php
+    $string = $_SESSION['password'];
+    $length = strlen($string);
+    $pass = str_repeat('*', $length);
+?>
+     <td scope ="col" style="padding-left:10px;"> <b> Password: </b>  <?php echo $pass ?>  </td>     
     </tr>
   </table>
-
 </body>
     </div>
                   
@@ -312,21 +275,21 @@ if ($result) {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.18.0/font/bootstrap-icons.css" rel="stylesheet">
  
  
- <!-- footer -->
+    <!-- footer -->
  <footer class="container-fluid">
     <div class="row">
         <div class="col-6 text-left">
-            <p class="text-lead" style="font-size: 18px; padding-top:2em; color: #EFE8E3;padding-left: 2em;">2023©Khasabai | Privacy Policy</p>
+            <p class="text-lead" style="font-size: 15px; padding-top:20px;">2023©Khasabai | <a href="" style="color: white;"> Privacy Policy</a></p>
         </div>
-        <div class="col-md-6 text-end sm-3" style="padding-top:2em  ; ">
+        <div class="col-md-6 text-end sm-3" style="padding-top:20px;">
             <a href="mailto:your-email@example.com" class="d-inline">
-                <i class="far fa-envelope" style="margin-right: 10px; font-size: 28px;  "></i>
+                <i class="far fa-envelope" style="margin: 5px;"></i>
             </a>
             <a href="https://www.facebook.com/kylesumabat13" target="_blank" class="d-inline">
-                <i class="fab fa-facebook" style="margin-right: 10px; font-size: 28px; "></i>
+                <i class="fab fa-facebook" style="margin: 5px;"></i>
             </a>
             <a href="https://instagram.com/kharyllesumabat?igshid=NzZlODBkYWE4Ng==" target="_blank" class="d-inline">
-                <i class="fab fa-instagram" style="margin-right: 2em; font-size: 28px; "></i>
+                <i class="fab fa-instagram" style="margin: 5px;"></i>
             </a>
         </div>
     </div>

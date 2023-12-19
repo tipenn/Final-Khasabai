@@ -16,7 +16,7 @@ if (isset($_POST['signup'])) {
 <!doctype html>
 <html lang="en">
   <head>
-    <title>KHASABAI</title>
+  <title>KHASABAI</title>
     <link rel="icon" type="image/x-icon" href="https://scontent.xx.fbcdn.net/v/t1.15752-9/369627246_289801410057308_7488894476029786008_n.png?_nc_cat=103&ccb=1-7&_nc_sid=510075&_nc_eui2=AeHREZSn9SSNmamdnSsRCcVxI9F0L_pc2Fgj0XQv-lzYWNfYyCBB0reg-zh1OLoO1jlcXtuHY_x2uQ3r8lBI6mYY&_nc_ohc=qWkxmDrrYZkAX9n5wr3&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AdTlJoLVkthf50CQvYCphnSimKF4flckWwAbIeWb2MQAig&oe=657E214B">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -32,42 +32,21 @@ if (isset($_POST['signup'])) {
 
 
     <style>
-         body {
-            font-family: 'Roboto', sans-serif;
-            background-color:#F6F2EF;
-            background-repeat: no-repeat;
-            background-attachment: fixed; /* Optional, for a fixed background */
-        }
-            .navbar a {
-                transition: color 0.5s ease; /* Initial transition property for non-hover state */
-            }
-
-            .navbar a:hover {
-                font-weight: bold;
-                transition: color 0.5s ease 1s; /* Transition with a 1-second delay */
-                background: linear-gradient(to bottom, transparent 0%, transparent 90%, #83776c 90%, #83776c 100%, white);
-            }
-
-            .navbar {
-                border-top: 1px solid #ccc;
-                padding-left: 15px;
-                margin: 0px;         
-                background-color:rgb(239, 232, 227, 0.9); /* Light yellow with 90% opacity */
+        .container{
+            text-align: center;
         }
         .bar{
             text-align: center;
-            padding: 2px;
-            margin-top: 2em;
-            margin-right: 0px; 
-            margin-left: 18em;
-            
+            padding: 0px;
+            margin-top: 0;
+
         }
         .bar li{	
-            padding-left: 10px;
-            font-size: 20px;
-            font-family: Neuzeit S LT W01 Book;
-            color: #5B4E2C;
+            padding-left: 1.5em;
+            font-size: 15px;
+            font-family: Roboto;
         }
+
     /* center container */
         .divup{
             border: solid grey;
@@ -104,16 +83,54 @@ if (isset($_POST['signup'])) {
             background-repeat: no-repeat;
             background-attachment: fixed; 
         }
+        .navigation{
+            background-color: transparent;
+            }
+        .navbar a:hover {
+            background: linear-gradient(to bottom, transparent 0%, transparent 80%, #83776c 80%, #83776c 100%);
+        }
+        .navbar {
+            padding-left: 15px;
+            margin: 0px;
+    /* add */
+        }
+    /* second nav bar */
+       
         .main {
             width: 100%;
-            margin: 0;    
+            margin: 0;
+            
+        }
+
+    /*input with search icon */
+
+        .search .form-control {
+            padding: 0;
+            text-align: center;
+            background-color: transparent;
+            border-color: #453321;
+            border-right: none;
+            border-radius: 10px;
+            margin-left: 3.8em;
+            margin-top: 0;
+           
+        }
+
+        .search .form-control-feedback {
+            position: fixed;
+            z-index: 2;
+            width: 1px;
+            height: 2.375rem;
+            line-height: 2.375rem;
+            text-align: center;
+            
         }
         h1 {
             text-align: center;
             font-family: 'Prata', serif;
             color: #5B4E2C;
         }
-            a {
+        a {
 			text-decoration: none;
 			color: #453321;
         }
@@ -121,154 +138,131 @@ if (isset($_POST['signup'])) {
 			color: #5B4E2C;
         }
         footer{
-            background-color:#514F4D ;
+            background-color: #A19284;
             color: white;
+            position:fixed;
             bottom: 0;
             left:0;
             width:100%;
-            height: 100px;
-           
         }
         footer a{
-            color:#EFE8E3;
+            color:#453321;
         }
         footer a:hover{
             color: black;
         }
-        .search .form-control {
-        text-align: center;
-        background-color: transparent;
-        border-color: #453321;
-        border-radius: 10px;
-       width: 10%;
-        }
-        .search{
-            width: 240px;
-           margin-left: 6em;
-           position: relative;
-        }
     </style>
 
-
- <meta charset='utf-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>KHASABAI</title>
-    <link rel="icon" type="image/x-icon" href="https://scontent.xx.fbcdn.net/v/t1.15752-9/369627246_289801410057308_7488894476029786008_n.png?_nc_cat=103&ccb=1-7&_nc_sid=510075&_nc_eui2=AeHREZSn9SSNmamdnSsRCcVxI9F0L_pc2Fgj0XQv-lzYWNfYyCBB0reg-zh1OLoO1jlcXtuHY_x2uQ3r8lBI6mYY&_nc_ohc=qWkxmDrrYZkAX9n5wr3&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AdTlJoLVkthf50CQvYCphnSimKF4flckWwAbIeWb2MQAig&oe=657E214B">
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
-    <script src='main.js'></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Khasabai</title>
 </head>
-<body>
-    <nav class="navbar navbar-expand-sm">
-        <div style="display: flex; align-items: center;">
-            <div style="margin-right: 10px; margin-left: 2em; padding-left:10px; padding-top: 6px;">
-            <img src="https://scontent.xx.fbcdn.net/v/t1.15752-9/369627246_289801410057308_7488894476029786008_n.png?_nc_cat=103&ccb=1-7&_nc_sid=510075&_nc_eui2=AeHREZSn9SSNmamdnSsRCcVxI9F0L_pc2Fgj0XQv-lzYWNfYyCBB0reg-zh1OLoO1jlcXtuHY_x2uQ3r8lBI6mYY&_nc_ohc=qWkxmDrrYZkAX9n5wr3&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AdTlJoLVkthf50CQvYCphnSimKF4flckWwAbIeWb2MQAig&oe=657E214B" alt="Logo" width="70" height="70">
-            </div>
-            <div>
-                <p style="margin: 0;  font-size: 18px; color:#5B4E2C ; font-family: Raleway;font-weight: bold; text-align: left;">KHASABAI</p>
-                <p style="margin: 0;  font-size: 18px; color:#5B4E2C ; font-family: Raleway;font-weight: bold;  text-align: left;">BEAUTY PRODUCTS</p></a>
-            </div>
-                <br>
-                <br>
-                
-    </div>
-    
-    <button type="button" data-toggle="collapse" data-target="#navbarNav" class="navbar-toggler" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon "></span>
-    </button>
-        
-    <div class="collapse navbar-collapse justify-content" id="navbarNav" >
-    <div class="bar">
-        <ul class="navbar-nav ">
-        <a href="welcome.php" class="nav-link">
-        <li class="nav-item text-center" >
-           
-                Home
-        </li>
-        </a>
-        <a href="aboutus.php" class="nav-link">
-        <li class="nav-item text-center" >
-           
-                About Us
-        </li>
-        </a>
-        <a href="log.php" class="nav-link">
-        <li class="nav-item text-center" >
-           
-                Login
-        </li>
-        </a>
-        <a href="customerprofile.php" class="nav-link">
-         <li class="nav-item text-center" >
-           
-                Profile
-         </li>
-        </a>
-        <a href="cart.php" class="nav-link">
-         <li class="nav-item text-center">
-        
-                Cart
-         </li>
-        </a>
-        
-        <div class="search">
-        <form method="GET" action="" class="search">
-            <div class="input-group">
-                <input type="search" name="query" class="form-control" placeholder="Search..."
-                    style="border-top-left-radius: 10px; border-bottom-left-radius: 10px;">
-                
-                    <button class="btn btn-secondary" type="submit"
-                        style="background-color: transparent;width:15%; border-color: #453321; border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-top-left-radius: 0; border-bottom-left-radius: 0;">
-                        <span class="btn-label"><i class="fas fa-search" style="color: #5a4939;"></i></span>
-                    </button>
-                </div>
-            </div>
-        </form>
-    </div>
-</div>
-    </nav>
+
+     <!-- navbar -->
+     <nav class="navbar navbar-expand-sm">
+   <div class="bar">
+       <div class="collapse navbar-collapse" id="navbarNav">
+           <ul class="navbar-nav">
+               <li class="nav-item">
+                    <a href="welcome.php" class="nav-link active">
+                       Home
+                   </a>
+               </li>
+               <li class="nav-item">
+                   <a href="aboutus.php" class="nav-link active">
+                       About Us
+                   </a>
+               </li>
+               <li class="nav-item active">
+                   <a href="login.php" class="nav-link active">
+                       Log in
+                   </a>
+               </li>
+               <li class="nav-item active">
+                   <a href="log.php" class="nav-link active">
+                       Cart
+                   </a>
+               </li>
+           </ul>
+       </div>
+   </div>
+   
+     <!-- upper right side (nav bar) -->
+     <div style="display: flex; align-items: right;">
+            <br>
+            <hr style= "margin-top: 10px; margin-left: 15px; width: 850px; background:#4F3B33; height: 2px;"> </hr>
         </div>
-        <br><br>
+        <br>
+        <div class="collapse navbar-collapse" id="navbarNav">
+        <div class="navbar-nav ml-auto">
+        <div style="display: flex; align-items: center;">
+            <div>
+                <p style="margin: 0;  font-size: 18px; color:#5B4E2C ; font-family: Raleway; text-align: right;">KHASABAI</p>
+                <p style="margin: 0;  font-size: 18px; color:#5B4E2C ; font-family: Raleway; text-align: right;">BEAUTY PRODUCTS</p>
+            </div>
+                
+            <div style="margin-left: 10px;  padding-right:10px; padding-top: 6px;">
+                <img src="https://scontent.xx.fbcdn.net/v/t1.15752-9/369627246_289801410057308_7488894476029786008_n.png?_nc_cat=103&ccb=1-7&_nc_sid=510075&_nc_eui2=AeHREZSn9SSNmamdnSsRCcVxI9F0L_pc2Fgj0XQv-lzYWNfYyCBB0reg-zh1OLoO1jlcXtuHY_x2uQ3r8lBI6mYY&_nc_ohc=qWkxmDrrYZkAX9n5wr3&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AdTlJoLVkthf50CQvYCphnSimKF4flckWwAbIeWb2MQAig&oe=657E214B" alt="Logo" width="70" height="70">
+            </div>
+        </div>
+    </nav>
+    </div>
+
+<!-- second navbar (search btn)-->
+<nav class="navbar navbar-expand-sm">
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <div class="search">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Search">
+                <div class="input-group-append">
+                <button class="btn btn-secondary" type="button" style="background-color: transparent; border-color: #453321; border-left: none; border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-bottom-left-radius: 0; border-top-left-radius: 0;">
+                <span class="btn-label"><i class="fa-solid fa-magnifying-glass" style="color: #5a4939; "></i></span></button>
+                </button>
+            </div>
+        </div>
+    </div>
+            
+    </nav>
     <h2 class="text-center">
                     <h2 class="text-center">
                         <img src="https://scontent.xx.fbcdn.net/v/t1.15752-9/369627246_289801410057308_7488894476029786008_n.png?_nc_cat=103&ccb=1-7&_nc_sid=510075&_nc_eui2=AeHREZSn9SSNmamdnSsRCcVxI9F0L_pc2Fgj0XQv-lzYWNfYyCBB0reg-zh1OLoO1jlcXtuHY_x2uQ3r8lBI6mYY&_nc_ohc=qWkxmDrrYZkAX9n5wr3&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AdTlJoLVkthf50CQvYCphnSimKF4flckWwAbIeWb2MQAig&oe=657E214B"alt="Logo" width="90" height="90">
                     </h2>
     <h1> KHASABAI
         <br> BEAUTY PRODUCTS </h1>
-       <center>
+        <div class="container">
         <form method="post" action="">
         <button type="submit" name="login" class="btn buttoncst" style="margin-top: 3em; margin-bottom: -25px;" >LOG IN</button>
         </form>
         <form method="post" action="">
         <button type="submit" name="signup" class="btn buttoncst" style="margin-bottom: 7em;">SIGN UP</button>
         </form>
-        </center>
+
 
         <p style="text-align: center;font-family: 'Raleway', serif; color:#453321;"> By continuing, you agree to our Terms of Service 
         <br> and acknowledge you've read our Privacy Policy </p>
     </div>
    
-
- <!-- footer -->
- <footer class="container-fluid">
+<!-- footer -->
+<<footer class="container-fluid">
     <div class="row">
         <div class="col-6 text-left">
-            <p class="text-lead" style="font-size: 18px; padding-top:2em; color: #EFE8E3;padding-left: 2em;">2023©Khasabai | Privacy Policy</p>
+            <p class="text-lead" style="font-size: 15px; padding-top:20px;">2023©Khasabai | <a href="" style="color: white;"> Privacy Policy</a></p>
         </div>
-        <div class="col-md-6 text-end sm-3" style="padding-top:2em  ; ">
+        <div class="col-md-6 text-end sm-3" style="padding-top:20px;">
             <a href="mailto:your-email@example.com" class="d-inline">
-                <i class="far fa-envelope" style="margin-right: 10px; font-size: 28px;  "></i>
+                <i class="far fa-envelope" style="margin: 5px;"></i>
             </a>
             <a href="https://www.facebook.com/kylesumabat13" target="_blank" class="d-inline">
-                <i class="fab fa-facebook" style="margin-right: 10px; font-size: 28px; "></i>
+                <i class="fab fa-facebook" style="margin: 5px;"></i>
             </a>
             <a href="https://instagram.com/kharyllesumabat?igshid=NzZlODBkYWE4Ng==" target="_blank" class="d-inline">
-                <i class="fab fa-instagram" style="margin-right: 2em; font-size: 28px; "></i>
+                <i class="fab fa-instagram" style="margin: 5px;"></i>
             </a>
         </div>
     </div>
 </footer>
-
+ </body>
+</html>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <script>
