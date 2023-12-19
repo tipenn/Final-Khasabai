@@ -212,15 +212,15 @@ $result = $conn->query($sql);
         <!-- Display header row outside the loop -->
 
         <div class="row">
-                <div class="col-1 text-center" >
+                <div class="col-2 text-center" >
                     <h3 style="padding-left:2em;"><b>Item Code</b></h3>
+                </div>
+                <div class="col-2 text-center">
+                    <h3 style="padding-left:1em;"><b>Category</b></h3>
                 </div>
                 <div class="col-3 text-center" >
                     <h3 style="padding-left:1em;"><b>Item Name</b></h3>
-                </div>
-                <div class="col-3 text-center">
-                    <h3 style="padding-left:1em;"><b>Item Description</b></h3>
-                </div>
+                </div>  
                 <div class="col-2 text-center" >
                     <h3><b>Item Image</b></h3>
                 </div>
@@ -238,14 +238,14 @@ $result = $conn->query($sql);
         <div class="item text-center">
             <?php while ($row = $result->fetch_assoc()) { ?>
                 <div class="row">
-                    <div class="col-1">
+                    <div class="col-2">
                         <?php echo $row["item_code"] ?>
+                    </div>
+                    <div class="col-2">
+                        <?php echo $row["category"] ?>
                     </div>
                     <div class="col-3">
                         <?php echo $row["item_name"] ?>
-                    </div>
-                    <div class="col-3">
-                        <?php echo $row["item_description"] ?>
                     </div>
                     <div class="col-2">
                         <img src="assets/<?php echo $row["item_image"] ?>"> 
