@@ -356,7 +356,6 @@ if (!empty($searchQuery)) {
 </head>
 <body class="bg-image" style="background-image: url('https://drive.google.com/uc?id=1VdMQTbNwy9vY_nWoi4Zmi67F8QM1QeTu'); background-size: cover;">
 
-<div class="navigation">
 <nav class="navbar navbar-expand-sm">
         <div style="display: flex; align-items: center;">
             <div style="margin-right: 10px; margin-left: 2em; padding-left:10px; padding-top: 6px;">
@@ -425,7 +424,6 @@ if (!empty($searchQuery)) {
     </div>
 </div>
     </nav>
-        </div>
         <br><br>
        
     <br><br><br>
