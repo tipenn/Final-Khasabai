@@ -19,6 +19,8 @@ $date = date("Y-m-d");
 $sql="SELECT * FROM products WHERE item_code='$item_code'";
 $result=$conn->query($sql);
 
+
+
 ?>
 
 
@@ -458,7 +460,7 @@ $result=$conn->query($sql);
                 </div>
 
     </div>
-    <div class="place"><button type="submit" class="place" name="place">Place Order</button></div>
+    <div class="place"><button type="submit" class="place" name="btn_checkout">Place Order</button></div>
                 </form>
     <?php if(isset($_POST['btn_checkout'])){
 

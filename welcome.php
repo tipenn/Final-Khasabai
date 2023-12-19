@@ -235,15 +235,7 @@ if (!empty($searchQuery)) {
             align: left;
             
         }
-        .content{
-            float: center;  
-            margin-top: -1em;
-            background-color:#F6F2EF;
-            box-shadow:  -2px 2px grey;
-            width: 90%;
-            border:2px solid #cccccc;
-            height: auto;
-        }
+       
         .fit{
             background-image: url("https://drive.google.com/uc?id=1VdMQTbNwy9vY_nWoi4Zmi67F8QM1QeTu");
             width: 100%;
@@ -395,18 +387,8 @@ if (!empty($searchQuery)) {
                 Login
         </li>
         </a>
-        <a href="customerprofile.php" class="nav-link">
-         <li class="nav-item text-center" >
-           
-                Profile
-         </li>
-        </a>
-        <a href="cart.php" class="nav-link">
-         <li class="nav-item text-center">
-        
-                Cart
-         </li>
-        </a>
+        </ul>
+    </div>
         
         <div class="search">
         <form method="GET" action="" class="search">
@@ -526,11 +508,9 @@ if (!empty($searchQuery)) {
                         while ($row = $result->fetch_assoc()) {?>
                             <div class="col-3">
                                 <div class="custom-container">
-                                    <a href="product.php?product_id=<?php echo $row['item_code']; ?>" style="text-decoration: none; color: inherit;">
                                     <img src="assets/<?php echo $row["item_image"] ?>">
                                     <p class="text-lead"><?php echo $row["item_name"]?></p><br>
                                     <p class="text-lead">₱<?php echo $row["retail_price"] ?></p>
-                                    </a>
                                 </div>
                                         
                             </div>

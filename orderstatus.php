@@ -97,7 +97,6 @@ $result = $conn->query($sql);
             left:0;
             width:100%;
             height: 100px;
-            position: fixed;
         }
         footer a{
             color:#EFE8E3;
@@ -116,8 +115,8 @@ $result = $conn->query($sql);
             width: 240px;
            margin-left: 6em;
            position: relative;
-    
         }
+        
     </style>
 
 
@@ -206,10 +205,10 @@ $result = $conn->query($sql);
     <?php if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) { ?>
         <div class="order">
-            <div class="row" style=" margin-bottom: 1em;">
+            <div class="row" >
                 <!-- First Column -->
                 <!-- <?php echo $row['id']?> -->
-                <div class="col-3"><img src="assets/<?php echo $row['item_image'];?>"></div>
+                <div class="col-2"><img src="assets/<?php echo $row['item_image'];?>" style="border-radius:100px; height:25%; padding:10px;"></div>
                 <div class="col-3"><b>Delivered by:</b> <?php echo $row['kha'] ?> <br><b>Ordered Date:</b> <?php echo $row['date'] ?><br><b>Date of Arrival: </b><?php echo $row['date_arrival'] ?><br> <b><a href="progressbar.php?id=<?php echo $row['id']; ?>">Status: <?php echo $row['status']?></b></a></div>
                 <div class="col-3"><b>Quantity: </b> <?php echo $row['quantity'] ?><br><b> Name of product: </b><?php echo $row['item_name'] ?></div>
                 <div class="col-3"><b> Sub Total:</b> ₱<?php echo $row['total_price'] ?><br><b>Shipping Fee:</b> ₱<?php echo $row['shipping_fee'] ?><br> <b>Total:</b> ₱<?php echo $row['total_fee'] ?></div>             

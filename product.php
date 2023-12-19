@@ -264,6 +264,16 @@ if(isset($_POST['order'])){
            position: relative;
     
         }
+        button{
+            border:none;
+        }
+        .wrap{
+            background-color: whitesmoke;
+            padding: none;
+            margin:none;
+            width: 90%;
+            align:center;
+        }
     </style>
 
 
@@ -348,6 +358,8 @@ if(isset($_POST['order'])){
     </nav>
         </div>
         <br><br>
+        <center>
+        <div class="wrap">
 <form action="#" method="POST">
 <input type="hidden" name="item_code" value="<?php echo $row['item_code']?>">
     <div class="container-fluid" style="font-family: raleway;">
@@ -363,19 +375,20 @@ if(isset($_POST['order'])){
                 <h3> ₱<?php echo $row['retail_price']; ?></h3>
                 Quantity
     <button type="button" onclick="decreaseQuantity()"><i class="fa-solid fa-minus"></i></button>
-    <input type="number" name="quantity" id="quantity" value="1" min="1" placeholder="1" style="width: 50px; align:">
+    <input type="number" name="quantity" id="quantity" value="1" min="1" placeholder="1" style="background-color: transparent; border:none; border-bottom:1px solid black;width: 50px; align:">
     <button type="button" onclick="increaseQuantity()"><i class="fa-solid fa-plus"></i></button> 
             <?php
         if ($row['stocks'] <= 0){
            
             ?>
-            
             <h1> OUT OF STOCK</h1>
     
     <?php
         }else{ ?>
         
          <div style="margin-left: 4em; margin-right: 4em;">
+         <br>
+
          Voucher:
                     <input type="text" name="voucher" placeholder="xxxxxxx"><br><br>
             <button type="submit" name="cart" class="addition" style="width: 100px; background-color: #F2E3E6;">Add to Cart</button>
@@ -393,6 +406,8 @@ if(isset($_POST['order'])){
         
     </div>
     </form>
+        </div>
+    </center>
 <script>
     function decreaseQuantity() {
         var quantityInput = document.getElementById("quantity");
@@ -413,8 +428,12 @@ if(isset($_POST['order'])){
     }
 </script>
 <hr>
+<div class="divider">
+    <img src="assets/asd.png" style="width:100%; position:relative;">
+    <div class="text-lead text-center" style="color:grey; position:absolute; top: 2.7em;">
 <h1>Featured Products</h1>
-<div class="text-lead text-center" style="color:grey;">Let your beauty shine through</div>
+Let your beauty shine through</div>
+</div>
 <?php
 $category =$row['category'];
 $display="SELECT * FROM products WHERE category='$category'";
