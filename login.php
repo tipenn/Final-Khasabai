@@ -56,7 +56,7 @@ if (isset($_POST['submit_btn'])) {
             font-family: 'Roboto', sans-serif;
             background-color:#F6F2EF;
             background-repeat: no-repeat;
-            background-attachment: fixed; /* Optional, for a fixed background */
+            background-attachment: fixed; 
         }
             .navbar a {
                 transition: color 0.5s ease; /* Initial transition property for non-hover state */
@@ -199,18 +199,7 @@ if (isset($_POST['submit_btn'])) {
                 Login
         </li>
         </a>
-        <a href="customerprofile.php" class="nav-link">
-         <li class="nav-item text-center" >
-           
-                Profile
-         </li>
-        </a>
-        <a href="cart.php" class="nav-link">
-         <li class="nav-item text-center">
-        
-                Cart
-         </li>
-        </a>
+      
         
         <div class="search">
         <form method="GET" action="" class="search">

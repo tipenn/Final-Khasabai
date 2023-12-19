@@ -375,7 +375,7 @@ if(isset($_POST['order'])){
                 <h3> ₱<?php echo $row['retail_price']; ?></h3>
                 Quantity
     <button type="button" onclick="decreaseQuantity()"><i class="fa-solid fa-minus"></i></button>
-    <input type="number" name="quantity" id="quantity" value="1" min="1" placeholder="1" style="background-color: transparent; border:none; border-bottom:1px solid black;width: 50px; align:">
+    <input type="number" name="quantity" id="quantity" value="1" min="1" placeholder="1" style="background-color: transparent; border:none; border-bottom:1px solid black;width: 50px;">
     <button type="button" onclick="increaseQuantity()"><i class="fa-solid fa-plus"></i></button> 
             <?php
         if ($row['stocks'] <= 0){
