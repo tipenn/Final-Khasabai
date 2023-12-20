@@ -81,8 +81,13 @@ $result = $conn->query($sql);
         .order{
            background-color:#F1E6DF;;
             border: 1px solid gray;
-            margin-bottom: 5px;
+            height: 10em;
+            margin-bottom: 10px;
         }
+       .order a:hover{
+            color:white;
+            font-weight: bold;
+       }
         a {
 			text-decoration: none;
 			color: #453321;
@@ -116,7 +121,10 @@ $result = $conn->query($sql);
            margin-left: 6em;
            position: relative;
         }
-        
+        .content{
+            overflow-y: scroll;
+            height: 35em;
+        }
     </style>
 
 
@@ -201,14 +209,14 @@ $result = $conn->query($sql);
     </nav>
         </div>
         <br><br>
- <div class="container">
+ <div class="content" >
     <?php if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) { ?>
         <div class="order">
             <div class="row" >
                 <!-- First Column -->
                 <!-- <?php echo $row['id']?> -->
-                <div class="col-2"><img src="assets/<?php echo $row['item_image'];?>" style="border-radius:100px; height:25%; padding:10px;"></div>
+                <div class="col-2"><img src="assets/<?php echo $row['item_image'];?>" style="border-radius:100px; height:25%; margin:10px;"></div>
                 <div class="col-3"><b>Delivered by:</b> <?php echo $row['kha'] ?> <br><b>Ordered Date:</b> <?php echo $row['date'] ?><br><b>Date of Arrival: </b><?php echo $row['date_arrival'] ?><br> <b><a href="progressbar.php?id=<?php echo $row['id']; ?>">Status: <?php echo $row['status']?></b></a></div>
                 <div class="col-3"><b>Quantity: </b> <?php echo $row['quantity'] ?><br><b> Name of product: </b><?php echo $row['item_name'] ?></div>
                 <div class="col-3"><b> Sub Total:</b> ₱<?php echo $row['total_price'] ?><br><b>Shipping Fee:</b> ₱<?php echo $row['shipping_fee'] ?><br> <b>Total:</b> ₱<?php echo $row['total_fee'] ?></div>             

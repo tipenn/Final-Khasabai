@@ -474,7 +474,9 @@ if ($ended) {
         $status="Ordered";  
         $insert = "INSERT INTO order_customer 
         VALUES ('', '$firstName', '$lastName', '$email', '$phoneNumber', '$home', '$item_code', '$itemName', '$image', '$quantity', '$voucher', '$discount', '$itemPrice', '$sub_total', '$shipping_fee', '$total_fee', '$date', '', '', '$status')";
-        $outcome=$conn->query($insert);    
+        $outcome=$conn->query($insert);
+        $update="UPDATE products SET stocks=stocks-$quantity WHERE item_code='$item_code'"; 
+        $outcome = mysqli_query($conn, $update);  
         $message='order processed';
         
     } else {

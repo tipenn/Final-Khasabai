@@ -33,16 +33,19 @@ if (isset($_POST['cart'])) {
     header('Location: cart.php'); // Provide the complete URL
     exit(); // Make sure to exit after a header redirect
 }
+$search = "SELECT * FROM products;";
+$search_result = $conn->query($search);
 $searchQuery = isset($_GET['query']) ? $_GET['query'] : '';
 
 if (!empty($searchQuery)) {
     // If there's a search query, modify the SQL query
-    $sql = "SELECT * FROM products WHERE item_name LIKE '%$searchQuery%' OR item_description LIKE '%$searchQuery%';";
+    $search = "SELECT * FROM products WHERE item_name LIKE '%$searchQuery%' OR item_description LIKE '%$searchQuery%';";
 } else {
     // If no search query, retrieve all products
-    $sql = "SELECT * FROM products;";
+    $search = "SELECT * FROM products;";
 }
 
+$result = $conn->query($search);
 
 ?>
 
