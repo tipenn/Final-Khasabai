@@ -195,7 +195,8 @@ if(isset($_POST['order'])){
         }
         h5{
             font-family: roboto;
-            font-size: 30px;
+            font-size: 27px;
+            font-weight: bold;
             
         }
         .custom-container {
@@ -268,22 +269,35 @@ if(isset($_POST['order'])){
             border:none;
         }
         .wrap{
-            background-color: whitesmoke;
+            background-color: rgb(211, 196, 176, 0.7);
             padding: none;
             margin:none;
-            width: 90%;
-            align:center;
+            width: 100%;
+            margin-top: -3em;
+            
         }
         .divider-top{
             width: 600px;
             padding: 1em;
             position: absolute;
-            top: 120%;
+            top: 110%;
             left: 31%;
             font-style: 25px;
         }
         .category{
             background-color: #B8A588;
+        }
+        .addition{
+            background-color: #AC8351;
+            height: 40px;
+            width: 207px;
+            color: white;
+            border-radius: 2px;
+        }
+        .addition:hover{
+            border-style: solid;
+            border-color: #835328;
+            font-weight: bold;
         }
     </style>
 
@@ -369,25 +383,24 @@ if(isset($_POST['order'])){
     </nav>
         </div>
         <br><br>
-        <center>
         <div class="wrap">
+            <center>
 <form action="#" method="POST">
 <input type="hidden" name="item_code" value="<?php echo $row['item_code']?>">
     <div class="container-fluid" style="font-family: raleway;">
         <div class="row">
             <div class="col-5"style="font-style: italic; padding:50px; margin:0px;">
-            <img src="assets/<?php echo $row['item_image']; ?>" style="width: 30em;height:30em;">
+            <img src="assets/<?php echo $row['item_image']; ?>" style="width: 30em;height:30em; margin-left: 12em;">
             </div>
-            <div class="col-7 text-start">
+            <div class="col-7 text-start" style="padding-left: 10em;">
                 <br><br><br>
-                <!-- <h5 style="font-style: italic; font-family: Neuzeit S LT W01 Book; color: #5B4E2C; font-size: 40px;";><?php echo $row['category'];?></h5><br> -->
                 <div id="message" class="alert alert-danger" style="display: none;"></div>
                 <h4> <?php echo $row['item_name']; ?></h4>
                 <h3> ₱<?php echo $row['retail_price']; ?></h3>
                 Quantity
-    <button type="button" onclick="decreaseQuantity()"><i class="fa-solid fa-minus"></i></button>
-    <input type="number" name="quantity" id="quantity" value="1" min="1" placeholder="1" style="background-color: transparent; border:none; border-bottom:1px solid black;width: 50px;">
-    <button type="button" onclick="increaseQuantity()"><i class="fa-solid fa-plus"></i></button> 
+    <button type="button" onclick="decreaseQuantity()" style="background-color: rgb(255, 255, 255, 0.3);"><i class="fa-solid fa-minus"></i></button>
+    <input type="number" name="quantity" id="quantity" value="1" min="1" placeholder="1" style="background-color: transparent; border:none; border-bottom:1px solid black;width: 40px;">
+    <button type="button" onclick="increaseQuantity()" style="background-color: rgb(255, 255, 255, 0.3);" ><i class="fa-solid fa-plus"></i></button> 
             <?php
         if ($row['stocks'] <= 0){
            
@@ -397,20 +410,18 @@ if(isset($_POST['order'])){
     <?php
         }else{ ?>
         
-         <div style="margin-left: 4em; margin-right: 4em;">
-         <br>
-
+         <div style="margin-top: 10px;">
          Voucher:
-                    <input type="text" name="voucher" placeholder="xxxxxxx"><br><br>
-            <button type="submit" name="cart" class="addition" style="width: 100px; background-color: #F2E3E6;">Add to Cart</button>
-            <button type="submit" name="order" class="addition" style="width: 100px;background-color:#F2E3E6">Buy Now</button>
+                    <input type="text" name="voucher" placeholder="xxxxxxx"  style="background-color: rgb(255, 255, 255, 0.7);"><br><br>
+            <button type="submit" name="cart" class="addition" style="background-color: #B8A588; color: white;" >Add to Cart</button>
+            <button type="submit" name="order" class="addition" >Buy Now</button>
         </div>
         <br><br>
         <?php
         }
         ?>
         <h5>Product Details</h5>
-        <p style="width: 600px; text-align: justify;"><?php echo $row['item_description']; ?></p>
+        <p style="width: 450px; text-align: justify;"><?php echo $row['item_description']; ?></p>
             </div>
             
         </div>
@@ -439,7 +450,7 @@ if(isset($_POST['order'])){
     }
 </script>
 <br><br>
-<img src="assets/abt4.png" style="width:100%;height: 600px; ">
+<img src="assets/abt4.png" style="width:100%;height: 600px;margin-top: -3em; ">
 <div class="divider-top">
 <h2 class="text-center">
         <img src="https://scontent.xx.fbcdn.net/v/t1.15752-9/369627246_289801410057308_7488894476029786008_n.png?_nc_cat=103&ccb=1-7&_nc_sid=510075&_nc_eui2=AeHREZSn9SSNmamdnSsRCcVxI9F0L_pc2Fgj0XQv-lzYWNfYyCBB0reg-zh1OLoO1jlcXtuHY_x2uQ3r8lBI6mYY&_nc_ohc=qWkxmDrrYZkAX9n5wr3&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AdTlJoLVkthf50CQvYCphnSimKF4flckWwAbIeWb2MQAig&oe=657E214B"alt="Logo" width="90" height="90">

@@ -51,6 +51,7 @@ $mail->send();
     <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Prata&display=swap" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+
 <style>
         body {
             font-family: 'Roboto', sans-serif;
@@ -162,8 +163,10 @@ $mail->send();
             background-color:black ;
         }
 </style>
+
+
 </head>
-<body>
+<body class="bg-image" style="background-image: url('https://drive.google.com/uc?id=1VdMQTbNwy9vY_nWoi4Zmi67F8QM1QeTu'); background-size: cover;">
 <nav class="navbar navbar-expand-sm">
         <div style="display: flex; align-items: center;">
             <div style="margin-right: 10px; margin-left: 2em; padding-left:10px; padding-top: 6px;">
@@ -248,7 +251,7 @@ $mail->send();
             </div>
         </div>
     </div>
-
+    </div>
     <footer class="container-fluid">
     <div class="row">
         <div class="col-6 text-left">

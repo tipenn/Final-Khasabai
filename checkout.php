@@ -119,29 +119,28 @@ $result=$conn->query($sql);
         .items{
             height: 180px;
             width: 400px;
-            padding-left: 55px;
-            padding-top: 40px;
+            text-align: center;
+            background-color: rgb(211, 196, 176, 0.7);
+            padding:40px;
             margin-top: 2em;
             margin-right: 56em;
-            background-color: #C9BBAE;
-            border-radius: 6em;
+            border-radius: 10px;
             color: #453321;
         }
         .items2{
             height: 180px;
             width: 400px;
-            padding-left: 55px;
-            padding-top: 40px;
+            text-align: center;
+            background-color: rgb(211, 196, 176, 0.7);
+            padding: 40px;
             margin-top: 2em;
             margin-right: 56em;
-            border: 2px solid #5B4E2C;
-            border-radius: 6em;
+            border-radius: 10px;
             color: #453321;
-            background-color: transparent;
         }
         .vl {
             border-left: 3px solid #5B4E2C;
-            height: 620px;
+            height: 690px;
             position: absolute;
             left: 40%;
             margin-left: -3px;
@@ -151,12 +150,12 @@ $result=$conn->query($sql);
         .col-5{
             border:2px solid black;
             margin:10px;
-            background-color: transparent;
-            float: right;   
-            margin-right: 10em;
-            margin-top: -35em;
-            margin-bottom: 20%;
-            padding: 2em;
+            background-color:#F6F2EF;
+            position: absolute;
+            top: 25%;
+            left: 50%;
+            padding: 1em;
+            height: 680px;
         }
         .pack{
             background-color: #A19284;
@@ -170,17 +169,18 @@ $result=$conn->query($sql);
             color:black;
         }
         .place{
-            width: 30%;
+            width: 35%;
             height:40px;
             font-size: 23px;
-            background-color:#F6F2EF;
+            background-color:#AC8351;
             border-radius: 20px;
             margin-bottom: 2em;
+            color: white;
+            font-family: Neuzeit S LT W01 Book;
+           
         }
         .place:hover{
-            width: 30%;
-            background-color: #BCA37F ;
-            border-radius: 20px;
+            background-color: #BCA37F;
             font-weight: bold;
        }
         
@@ -208,7 +208,7 @@ $result=$conn->query($sql);
             left:0;
             width:100%;
             height: 100px;
-            margin-top: 7em;
+            margin-top: 10em;
         }
         footer a{
             color:#EFE8E3;
@@ -312,14 +312,14 @@ $result=$conn->query($sql);
 </div>
     </nav>
         </div>
-        <br><br>
+
 
 <!-- content -->
 <h4 style="color:#453321;  padding-right: 3em; float: left;">
 <a href="product.php?product_id=<?php echo $item_code; ?>">
                         <button type="button" class="back" style="margin-left: 1em; margin-right: 10px;">
                             <i class="fa-solid fa-arrow-left" style="color: white;"></i></button></a> </h4>
-<br><br>
+<br><br><br>
 <!--body-->
     <div class="container">
         <form method="POST">
@@ -338,7 +338,7 @@ $result=$conn->query($sql);
                 <h5><b><?php echo $_SESSION['firstName'] . ' '. $_SESSION['lastName'];?><b></h5>
                 
                 <h7 style="padding-left: 1em;"><?php echo $_SESSION['address']?></h7>
-                <h5 style="padding-top: 5px;"><b>MOBILE NUMBER<?php echo $item_code ;?></b></h5>
+                <h5 style="padding-top: 5px;"><b>MOBILE NUMBER</b></h5>
                 <h7 style="padding-left: 1em;"><?php echo $_SESSION['phoneNumber']?></h7>
     </div>
     </div>
@@ -457,11 +457,14 @@ $result=$conn->query($sql);
                     echo $total_fee;
                     ?></b>
                     </div>
+                
+                      <div class="text-end">
+        <button type="submit" class="place" name="btn_checkout">Place Order</button></div>
                 </div>
 
     </div>
-    <div class="place"><button type="submit" class="place" name="btn_checkout">Place Order</button></div>
                 </form>
+    
     <?php if(isset($_POST['btn_checkout'])){
 
 $checkVoucherQuery = "SELECT * FROM order_customer WHERE voucher = '$voucher' AND email = '$email'";
@@ -474,9 +477,7 @@ if ($ended) {
         $status="Ordered";  
         $insert = "INSERT INTO order_customer 
         VALUES ('', '$firstName', '$lastName', '$email', '$phoneNumber', '$home', '$item_code', '$itemName', '$image', '$quantity', '$voucher', '$discount', '$itemPrice', '$sub_total', '$shipping_fee', '$total_fee', '$date', '', '', '$status')";
-        $outcome=$conn->query($insert);
-        $update="UPDATE products SET stocks=stocks-$quantity WHERE item_code='$item_code'"; 
-        $outcome = mysqli_query($conn, $update);  
+        $outcome=$conn->query($insert);    
         $message='order processed';
         
     } else {

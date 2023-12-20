@@ -87,6 +87,7 @@ $result = $conn->query($sql);
             color: black;
             margin-left: 8em;
             padding-left: 0;
+            margin-top: -5em;
         }
 
         #progressbar li {
@@ -212,23 +213,48 @@ $result = $conn->query($sql);
             background-color: #A19284;
             color: black;
         }
+        .content{
+            background-color: rgba(232, 225, 218, 0.7);
+            border-style: solid;
+            border-color:#C9BBAE;
+            height: 400px;
+            width: 500px;
+            padding: 2em;
+            text-align: left;
+            margin-left: 7em;
+            margin-top: -1em;
+        }
+        .mod{
+            margin-top: -5.5em;
+            background-color: rgba(232, 225, 218, 0.7);
+            border-style: solid;
+            border-color:#C9BBAE;
+            height: 500px;
+            width: 600px;
+            padding-top: 2em;
+        
+        }
         .ship{
-            width: 90%;
-            background-color: #AC8351;
+            font-family: 'Prata', serif;
+            width: 35%;
+            height: 40px;
+            font-size: 22px;
+            background-color: #E8E1DA;
             border-radius: 20px;
+            color: #2F3E46;
+            font-family: Poppins,sans-serif;
         }
         .ship:hover{
             color: white;
-            background-color: #A19284;
+            background-color:#A5A5A5;
         }
         .total{
+           border-radius: 20px;
             float:right;
             width: 400px;
-            height: 250px; 
-            margin-left: 63em;
-            margin-top: -12em;
-            position: absolute;
-            background-color:#F6F2EF;
+            height: 270px; 
+            margin-right: 15em;
+            background-color:#F1E6DF;
             border: 1px solid gray;
         }
         h1, h2, p {
@@ -251,7 +277,6 @@ $result = $conn->query($sql);
             left:0;
             width:100%;
             height: 100px;
-            margin-top: 7em;
           
         }
         footer a{
@@ -356,20 +381,17 @@ $result = $conn->query($sql);
 </div>
     </nav>
         </div>
-        <br><br>
 <body>
                 <h4 class="text-start" style="color:#453321;  padding-right: 3em;">
                     <a href="orderstatus.php">
                         <button type="submit" class="addition" style="margin-left: 1em; margin-right: 10px;">
-                            <i class="fa-solid fa-arrow-left" style="color: white;"></i></button></a>ORDER DETAILS</h4>
+                            <i class="fa-solid fa-arrow-left" style="color: white;"></i></button></a></h4>
     </div><div>
 <!-- order details-->
 
-<hr>
         <!-- order status -->
         <body>
         <div class="container px-1 px-md-4 py-5 mx-auto">
-
         <!-- active -->
         <?php //if status is ordered
         if ($result->num_rows > 0) {
@@ -456,33 +478,35 @@ $result = $conn->query($sql);
             </div>
         </div>
         </div>
-        <hr>
+        <hr style="margin-top: -3.5em;">
 <!--main-->
+
 <div class="container">
-    <div class="col-6">
     <div class="row">
-        <div class="col" style="padding:0px; margin:0px;">
+        <div class="col">
+        <div class="content">
         <p style="font-family: Roboto; font-size: 20px;"><i class="fas fa-home" style="color: #453321; margin-right: 10px;"></i><b>DELIVERY ADDRESS</b></p>
-        <p class="text-lead"><?php echo $row['firstName']?> <?php echo $row['lastName']; ?>
+        <p class="text-lead" style=" padding-left:2em;"><?php echo $row['firstName']?> <?php echo $row['lastName']; ?>
         <br> <?php echo $row["phoneNumber"];?>
         <br><?php echo $row['address']?></p>
-        </div><br>
-        <div class="col-7">
-        <p style="font-family: Roboto; font-size: 20px;"><i class="fas fa-truck" style="color: #453321; margin-right: 10px;"></i><b>SHIPPING INFORMATION</b></p>
-        <p class="text-lead" style="margin-left: 2em; font-size: 20px; ">STANDARD INTERNATIONAL -76117393703<br>PARCEL IS OUT FOR DELIVERY<br>12 - 11 - 2023 - 19:26</p>
-            </div>
-        </div>
-    </div> 
-</div>
-   
-    <div class="total">
         <br>
-                <center><h5>
+        <p style="font-family: Roboto; font-size: 20px;"><i class="fas fa-truck" style="color: #453321; margin-right: 10px;"></i><b>ORDER INFORMATION</b></p>
+        <p class="text-lead"  style=" padding-left:2em;"><?php echo $row['date']?><br>
+        <?php echo $row['item_name']?> <?php echo $row['item_description'] ?>
+                <br>₱<?php echo $row['price']?>
+                <br>Quantity : <?php echo $row['quantity']?></p>
+        </div>
+    </div>
+        <div class="col">
+            <br><BR><BR>
+            <div class="mod">
+                <br>
+                <center><h4>
                Mode of Payment: Cash on Delivery
-                </h5></center>
-                <hr style="color: #5B4E2C; height: 5px;">
+                </h4></center>
+                <hr style="color: white; height: 2px;">
                 <div class="row">
-                    <div class="col" style="padding-left: 2em;" >
+                    <div class="col"  style=" padding-left:3em;">
                         SUB TOTAL:
                     </div>
                     <div class="col">
@@ -490,26 +514,33 @@ $result = $conn->query($sql);
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col" style="padding-left: 2em;" >
+                    <div class="col"  style=" padding-left:3em;">
                         SHIPPING FEE:
                     </div>
                     <div class="col">
                     ₱<?php echo $row['shipping_fee']?>
                     </div>
                 </div>
-                <hr style="color: #5B4E2C; height: 5px;">
+                <div class="row">
+                    <div class="col"  style=" padding-left:3em;">
+                        VOUCHER USED:
+                    </div>
+                    <div class="col">
+                    ₱<?php echo $row['voucher']?>
+                    </div>
+                </div>
+                <hr style="color: black; height: 10px;">
                 <div class="row" style="padding: 20px;">
                     <div class="col">
                         <b> T O T A L :</b>
                     </div>
                     <div class="col">
                     <b>₱<?php echo $row['total_fee']?></b>
-                                
-                            </div>
-                        </Div>
-                    </div>
-                </div>
+                    </div>    
             </div>
+        </div>
+
+
         </div>
     </div>
 </div>

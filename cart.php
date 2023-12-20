@@ -1,11 +1,11 @@
 <?php 
 error_reporting(0);
+
 include 'function.php';
 session_start();
 $email=$_SESSION['email'];
 $sql = "SELECT * FROM order_customer WHERE email='$email' AND status='Cart'";
 $result = $conn->query($sql);
-
 ?>
 
 
@@ -69,7 +69,7 @@ $result = $conn->query($sql);
             font-family: 'Prata', serif; /* Set font to Prata */
             color: #453321;
             font-size: 60px;
-        }
+        /* }
         .scrollable-section {
             height: 500px; 
             width: 700px;
@@ -78,7 +78,7 @@ $result = $conn->query($sql);
             margin-right: 5em;
             margin-bottom: -5em;
             padding:0px;
-         
+          */
         }
         .items{
             height: 10%;
@@ -86,7 +86,6 @@ $result = $conn->query($sql);
             float: left;
             margin-top: 2em;
             margin-left: 5em;
-            background-color: #B8A588;
             border-color: grey;
             box-shadow: -2px -2px 5px 2px grey;
 
@@ -100,20 +99,26 @@ $result = $conn->query($sql);
             padding: 10px;
         }
         .total{
+            background-color:#F6F2EF;
             float:right;
             width: 400px;
             height: 300px; 
-            margin-top: -30em;
-            margin-right: -20em;
+            margin-top: -49em;
+            margin-left: 53em;
             padding: 1em;
             border: 1px solid gray;
             text-align: left;
+            position: fixed;
         }
         
         .scrollable-section {
-            height: 700px; /* Adjust the height as needed */
+            background-color: #E8E1DA;
+            height: 900px; /* Adjust the height as needed */
+            width: 700px;
             overflow-y: auto;
             border: 1px solid #ddd; /* Optional: Add a border for better visibility */
+            margin-top: -9em;
+            margin-left: 3em;
         }
         h1, h2, h3, p {
             font-family: 'Prata', serif;
@@ -139,7 +144,7 @@ $result = $conn->query($sql);
             left:0;
             width:100%;
             height: 100px;
-            margin-top: -2em;
+            margin-top: -7em;
         }
         footer a{
             color:#EFE8E3;
@@ -264,13 +269,10 @@ $result = $conn->query($sql);
                 <div class="col" style="padding:40px">
                 <p class="text-mute">
                 <?php echo $row['id'] . $row['item_name']?> <br>₱<?php echo $row['price']?>
-                <br>Quantity : <?php 
-                    $quantity = $row['quantity'];
-                    echo $quantity?></p>
+                <br>Quantity : <?php echo $row['quantity']?></p>
                 <form method="POST">
                     <!-- Hidden input for item ID -->
                     <input type="hidden" name="item_code" value="<?php echo $row['id']; ?>">
-                    <input type="hidden" name="itemcode" value="<?php echo $row['item_code']; ?>">
 
                     <!-- Select button -->
                     <button type="submit" name="check_out<?php echo $row["id"]; ?>" class="check_out">
@@ -286,8 +288,6 @@ $result = $conn->query($sql);
                 </form>
                 <?php if (isset($_POST['check_out' . $row["id"]])) {
                     $id = $row['id'];
-                    $itemCode=$_POST['itemcode'];
-
                     $query="SELECT * FROM order_customer where id= '$id' ";
                     $output = $conn->query($query);
                     
@@ -366,34 +366,26 @@ if ($output === null) { ?>
             <div class="col">
                 <b>₱<?php
                 $total = $row['shipping_fee'] + $row['total_price'] - $row['voucher_discount'];
-                 echo $total . $itemCode . $quantity?></b>
+                 echo $total ?></b>
             </div>
         </div>
             <input type="hidden" name="id" value="<?php echo $id; ?>">
-            <input type="hidden" name="itemcode" value="<?php echo $row['item_code']; ?>">
-
         <button type="submit" name="ship" class="ship" style="float: right; background-color:#835328; border-radius: 2em; width: 120px; height:30px; ">
             <h6>Check out</h6>
         </button>
         </form>
         <?php
        
-    }
-
-}if(isset($_POST['ship'])){
-    $id = $_POST['id'];
-    $itemCode=$_POST['itemcode'];
-    echo $itemCode;
-    $mysequel = "UPDATE order_customer SET status = 'Ordered' WHERE id='$id'";
-    $updateProductQuery = "UPDATE products SET stocks = stocks - $quantity WHERE item_code ='$itemCode'";
-    $outcome = mysqli_query($conn, $updateProductQuery); 
-    if(mysqli_query($conn, $mysequel)) {
-        echo "<script>alert('Item successfully ordered !!');</script>";
-    } else {
-        echo "<script>alert('Error updating item: " . mysqli_error($conn) . "');</script>";
-    }
-}
-    ?>   
+    }}echo $total;
+    if(isset($_POST['ship'])){
+        $id = $_POST['id'];
+        $mysequel = "UPDATE order_customer SET status = 'Ordered' WHERE id='$id'";
+        if(mysqli_query($conn, $mysequel)) {
+            echo "<script>alert('Item successfully ordered !!');</script>";
+        } else {
+            echo "<script>alert('Error updating item: " . mysqli_error($conn) . "');</script>";
+        }
+    }?>   
                         </div>
                     </div>
                 </div>

@@ -135,45 +135,43 @@ $sql="SELECT * FROM products;";
             border-radius: 20px;
             color: #2F3E46;
             font-family: Poppins,sans-serif;
-        
-
+    
         }
         .deletion:hover{
-            background-color:#A5A5A5;;
+            background-color:#A5A5A5;
             border-radius: 20px;
             color: white;
         }
         .delete_item{
-            width: 90%;
-            font-size: 20px;
+            width: 70%;
+            font-size: 15px;
             margin-top: 15px;
             background-color:#F6F2EF;
             border-radius: 20px;
-            border-color: #113946;
-
         }
         .delete_item:hover{
-            background-color:#A5A5A5;;
+            background-color:#A5A5A5;
             border-radius: 20px;
             color: white;
-            background-color: #BCA37F;
-            font-weight: bold; */
         }
+      
         .custom-container {
-            width: 175px;
-            height: 330px;
+            width: 180px;
+            height: 340px;
             background-color: #FFFFFF;
             border-radius: 20px;
             border: 1px solid black; /* Add the border style 'solid' */
             margin: 5px;
-            padding: 5px;
+            padding-bottom: 10px;
+            padding-left: 8px;
+            padding-right: 8px;
         }
         .container p{
-            font-size: 10px;
-            padding-left: 10px;
+            font-size: 13px;
             text-align: center;
+            font-family: roboto;
             font-weight: bold;
-            height: 50px;
+            height: 15px;
             margin-bottom: 0px;
            
         }
@@ -182,17 +180,7 @@ $sql="SELECT * FROM products;";
             padding: 10px;
             height: 170px; 
             width:170px;
-        /* }
-        .update{
-            width: 80%;
-            font-size: 29px;
-            margin-top: 15px;
-            background-color:#F6F2EF;
-            border-radius: 20px;
-        }
-        .update:hover{
-            background-color: #BCA37F;
-            font-weight: bold; */
+        
         }
         .scrollable-section {
             height: 600px; /* Adjust the height as needed */
@@ -327,7 +315,7 @@ $sql="SELECT * FROM products;";
         <div class="col">
             <div class="custom-container">
             <img src="assets/<?php echo $row["item_image"] ?>">
-                <p class="text-lead"><?php echo $row["item_name"] ?></p>
+                <p class="text-lead"><?php echo $row["item_name"] ?></p><br><br><br>
                 <p class="text-lead">₱<?php echo $row["retail_price"] ?></p>
                 
                 <form method="POST">

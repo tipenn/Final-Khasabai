@@ -33,7 +33,8 @@ $sql="SELECT * FROM products;";
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
         crossorigin="anonymous">
-    <style>
+    
+        <style>
         body {
             font-family: 'Roboto', sans-serif;
             background-size: cover;
@@ -89,8 +90,7 @@ $sql="SELECT * FROM products;";
         }
         footer a:hover{
             color: black;
-        }a
-        
+        }
         .addition{
             width: 60%;
             font-size: 25px;
@@ -118,12 +118,14 @@ $sql="SELECT * FROM products;";
             border-radius: 20px;
             color: #2F3E46;
             font-family: Poppins,sans-serif;
+        
 
         }
         .updation:hover{
             background-color:#A5A5A5;;
             border-radius: 20px;
             color: white;
+
         }
         .deletion{
             width: 60%;
@@ -135,66 +137,52 @@ $sql="SELECT * FROM products;";
             border-radius: 20px;
             color: #2F3E46;
             font-family: Poppins,sans-serif;
-        
-
+    
         }
         .deletion:hover{
-            background-color:#A5A5A5;;
+            background-color:#A5A5A5;
             border-radius: 20px;
             color: white;
         }
         .delete_item{
-            width: 90%;
-            font-size: 20px;
+            width: 70%;
+            font-size: 15px;
             margin-top: 15px;
-            background-color: #EAD7BB;
+            background-color:#F6F2EF;
             border-radius: 20px;
-            border-color: #113946;
         }
         .delete_item:hover{
-            background-color:#A5A5A5;;
+            background-color:#A5A5A5;
             border-radius: 20px;
             color: white;
-       
         }
+      
         .custom-container {
-            width: 175px;
-            height: 330px;
+            width: 180px;
+            height: 340px;
             background-color: #FFFFFF;
             border-radius: 20px;
             border: 1px solid black; /* Add the border style 'solid' */
             margin: 5px;
-            padding: 5px;
-          
+            padding-bottom: 10px;
+            padding-left: 8px;
+            padding-right: 8px;
         }
         .container p{
-            font-size: 10px;
-            padding-left: 10px;
+            font-size: 13px;
             text-align: center;
+            font-family: roboto;
             font-weight: bold;
-            height: 50px;
+            height: 15px;
             margin-bottom: 0px;
+           
         }
         .container img{
             border-radius: 20px;
             padding: 10px;
             height: 170px; 
             width:170px;
-        }
-        .delete{
-            width: 90%;
-            font-size: 20px;
-            margin-top: 15px;
-            background-color:#F6F2EF;
-            border-radius: 20px;
-            border-color: #113946;
-        }
-        .delete:hover{
-            background-color:#A5A5A5;;
-            border-radius: 20px;
-            color: white;
-            background-color: #BCA37F;
-            font-weight: bold; 
+        
         }
         .scrollable-section {
             height: 600px; /* Adjust the height as needed */
@@ -219,7 +207,6 @@ $sql="SELECT * FROM products;";
         }
         
     </style>
-
 
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
@@ -308,25 +295,6 @@ $sql="SELECT * FROM products;";
     </nav>
         </div>
 </div>
-<br><br>
-<center>
-<form method="GET" action="">
-<div class="search">
-    <form method="GET" action="" class="search">
-        <div class="input-group">
-            <input type="search" name="query" class="form-control" placeholder="Search..."
-                style="border-top-left-radius: 10px; border-bottom-left-radius: 10px;">
-            <div class="input-group-append">
-                <button class="btn btn-secondary" type="submit"
-                    style="background-color: transparent; border-color: #453321; border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-top-left-radius: 0; border-bottom-left-radius: 0;">
-                    <span class="btn-label"><i class="fas fa-search" style="color: #5a4939;"></i></span>
-                </button>
-            </div>
-        </div>
-    </form>
-</div>
-</form>
-</center>
     <div class="container">
         <div class="row">
             <div class="col-4">
@@ -348,7 +316,7 @@ $sql="SELECT * FROM products;";
         <div class="col">
             <div class="custom-container">
             <img src="assets/<?php echo $row["item_image"] ?>">
-                <p class="text-lead"><?php echo $row["item_name"] ?></p>
+                <p class="text-lead"><?php echo $row["item_name"] ?></p><br><br><br>
                 <p class="text-lead">₱<?php echo $row["retail_price"] ?></p>
                 
                 <form method="POST">
