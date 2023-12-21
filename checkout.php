@@ -140,7 +140,7 @@ $result=$conn->query($sql);
         }
         .vl {
             border-left: 3px solid #5B4E2C;
-            height: 690px;
+            height: 590px;
             position: absolute;
             left: 40%;
             margin-left: -3px;
@@ -155,7 +155,7 @@ $result=$conn->query($sql);
             top: 25%;
             left: 50%;
             padding: 1em;
-            height: 680px;
+            height: 580px;
         }
         .pack{
             background-color: #A19284;
@@ -173,6 +173,7 @@ $result=$conn->query($sql);
             height:40px;
             font-size: 23px;
             background-color:#AC8351;
+            margin-top: 1em;
             border-radius: 20px;
             margin-bottom: 2em;
             color: white;
@@ -208,7 +209,7 @@ $result=$conn->query($sql);
             left:0;
             width:100%;
             height: 100px;
-            margin-top: 10em;
+           
         }
         footer a{
             color:#EFE8E3;
@@ -357,9 +358,9 @@ $result=$conn->query($sql);
             <center> 
             <div id="message" class="alert alert-success" style="display: none;"></div>
 
-                <h2><b>ORDER SUMMARY</b></h2> </center>
-                <h4><?php echo $_SESSION['firstName'] . ' '. $_SESSION['lastName'];?></h4>
-                <h6>Address: <input type="text" value="<?php echo $_SESSION['address']?>" name="address"></h6>
+                <h2 style=" padding-top: 30px;"><b>ORDER SUMMARY</b></h2> </center>
+               <?php echo $_SESSION['firstName'] . ' '. $_SESSION['lastName'];?><br>
+                Address: <input type="text" value="<?php echo $_SESSION['address']?>" name="address"><br>
                 <h7><?php echo $_SESSION['phoneNumber']?></h7>
                 <br>Item Name: 
                 <?php echo $itemName;?>
@@ -415,31 +416,31 @@ $result=$conn->query($sql);
                Mode of Payment: Cash on Delivery
                 </h7></center>
                 <hr style="color: #5B4E2C; height: 5px;">
-                <div class="row">
+                <div class="row" style="margin-left: 5em;">
                     <div class="col" >
                         SUB TOTAL:
                     </div>
-                    <div class="col">
+                    <div class="col" style="margin-left: 8.7em;">
                     ₱<?php 
                     $sub_total=$itemPrice * $quantity;
                     echo $sub_total?>
                     </div>
                 </div>
-                <div class="row">
+                <div class="row" style="margin-left: 5em;">
                     <div class="col" >
                         SHIPPING FEE:
                     </div>
-                    <div class="col">
+                    <div class="col" style="margin-left: 8.7em;">
                     ₱<?php 
                     $shipping_fee=$sub_total*0.1;
                     echo $shipping_fee?>
                     </div>
                 </div>
-                <div class="row">
+                <div class="row" style="margin-left: 5em;">
                     <div class="col" >
                         Voucher Discount:
                     </div>
-                    <div class="col">
+                    <div class="col" style="margin-left: 8.7em;">
                     ₱ <?php   
                     
                     echo $discount;
@@ -447,18 +448,18 @@ $result=$conn->query($sql);
                     </div>
                 </div>
                 <hr style="color: #5B4E2C; height: 5px;">
-                <div class="row" style="padding: 20px;">
+                <div class="row" style="padding-right: 20px; color: #AC8351; margin-left: 5em;">
                     <div class="col">
                         <b> T O T A L :</b>
                     </div>
-                    <div class="col">
+                    <div class="col" style="margin-left: 10em;">
                     <b>₱<?php 
                     $total_fee=$shipping_fee+$sub_total-$discount;
                     echo $total_fee;
                     ?></b>
                     </div>
-                
-                      <div class="text-end">
+            </div>
+                      <div class="text-center">
         <button type="submit" class="place" name="btn_checkout">Place Order</button></div>
                 </div>
 
