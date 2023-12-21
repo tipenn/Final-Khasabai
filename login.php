@@ -79,7 +79,7 @@ if (isset($_POST['submit_btn'])) {
             padding: 2px;
             margin-top: 2em;
             margin-right: 0px; 
-            margin-left: 20em;
+            margin-left: 18em;
             
         }
         .bar li{	
@@ -90,7 +90,6 @@ if (isset($_POST['submit_btn'])) {
 
         }
         .divup{
-            align: center;
             border: solid grey;
             border-radius: 30px;
             box-shadow: -10px -10px 10px grey;
@@ -128,7 +127,6 @@ if (isset($_POST['submit_btn'])) {
             left:0;
             width:100%;
             height: 100px;
-  
         }
         footer a{
             color:#EFE8E3;
@@ -145,7 +143,7 @@ if (isset($_POST['submit_btn'])) {
         }
         .search{
             width: 240px;
-           margin-left: 9em;
+           margin-left: 6em;
            position: relative;
         }
     </style>
@@ -159,8 +157,7 @@ if (isset($_POST['submit_btn'])) {
     <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
     <script src='main.js'></script>
 </head>
-<body class="bg-image" style="background-image: url('https://drive.google.com/uc?id=1VdMQTbNwy9vY_nWoi4Zmi67F8QM1QeTu'); background-size: cover;">
-
+<body>
     <nav class="navbar navbar-expand-sm">
         <div style="display: flex; align-items: center;">
             <div style="margin-right: 10px; margin-left: 2em; padding-left:10px; padding-top: 6px;">
