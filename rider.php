@@ -27,257 +27,186 @@ $result = $conn->query($sql);
 
     <style>
        
-        .bar{
-            text-align: centers;
-            padding: 0px;
-            margin-top: 0;
-
-        }
-        .bar li{	
-            padding-left: 1.5em;
-            font-size: 15px;
-            font-family: Roboto;
-        
-        }
-
-    /* center container */
-        
-        
-        
-        html, body {
-            height: 100%;
-            margin: 0;
-            padding: 0;
-
-        }
-        body {
-            font-family: 'Roboto', sans-serif;
-            display: flex;
-            flex-direction: column;
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            
-        }
-        .navbar {
-            padding-top: 0em;
-            padding-left: 2em;
-            padding-right: 2em; 
-        
-    /* hover */
-
-        }
-        a {
-			text-decoration: none;
-			color: #453321;
-        }
-        a:hover{
-			color: #5B4E2C;
-			background-color: #83776c;
-	    }
-    
-        footer{
-            background-color: #A19284;
-            color:white;
-            background-color: #A19284;
-            color: white;
-            position: fixed;
-            bottom: 0%;
-            width: 100%;
-            text-align: left;
-            z-index: 1000;
-           
-        }
-        footer a{
-            color:#453321;
-        }
-        footer a:hover{
-            color:black;
-        }
-
-    /* second nav bar */
-       
-        .main {
-            width: 100%;
-            margin: 0;
-            
-        }
-
-    /*input with search icon */
-
-        .search .form-control {
-            padding: 0;
-            text-align: center;
-            background-color: transparent;
-            border-color: #453321;
-            border-right: none;
-            border-radius: 10px;
-            margin-left: 3.8em;
-            margin-top: 0;
-           
-        }
-
-        .search .form-control-feedback {
-            position: fixed;
-            z-index: 2;
-            width: 1px;
-            height: 2.375rem;
-            line-height: 2.375rem;
-            text-align: center;
-            
-        }
-        h1 {
-            text-align: center;
-            font-family: 'Prata', serif; /* Set font to Prata */
-            color: #453321;
-            font-size: 60px;
-            margin-top: -50px; /* Adjusted margin-top */
-            margin-bottom: 0px; /* Adjusted margin-bottom */
-        
-        }
-
-      
-
-        
-        
-        .buttons {
-            display: flex;
-            gap: 10px;
-        }
-
-        .button {
-            padding: 10px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        .accept {
-            background-color: #4CAF50; /* Green */
-            color: white;
-        }
-
-        .reject {
-            background-color: #f44336; /* Red */
-            color: white;
-        }
-        
-
-
-
-        body {
+       body {
             font-family: 'Roboto', sans-serif;
             background-size: cover;
             background-repeat: no-repeat;
             background-attachment: fixed; /* Optional, for a fixed background */
         }
-        .navbar {
-            border-top: 1px solid #ccc; /* Add a separator to the navbar */
-            padding-left: 15px;
-        }
-        .navigation{
-            background-color: #FAFAF3;
+            .navbar a {
+                transition: color 0.5s ease; /* Initial transition property for non-hover state */
+            }
 
+            .navbar a:hover {
+                font-weight: bold;
+                transition: color 0.5s ease 1s; /* Transition with a 1-second delay */
+                background: linear-gradient(to bottom, transparent 0%, transparent 90%, #83776c 90%, #83776c 100%, white);
+            }
+
+            .navbar {
+                border-top: 1px solid #ccc;
+                padding-left: 12px;
+                margin: 0px;         
+                background-color: rgba(250, 250, 243, 0.4); /* Light yellow with 90% opacity */
         }
+        .bar{
+            text-align: center;
+            padding: 2px;
+            margin-top: 2em;
+            margin-left: 20em;
+            margin-right: 0px; 
+            
+        }
+        .bar li{	
+            margin-left: 3px;
+            font-size: 17px;
+            font-family: Roboto;
+            color: #5B4E2C;
+        }
+        .search .form-control {
+        text-align: center;
+        background-color: transparent;
+        border-color: #453321;
+        border-radius: 10px;
+        width: 10px;
+        }
+        .search{
+            width: 240px;
+           margin-left: 11em;
+        
+        }
+        .search .form-control {
+            text-align: center;
+            background-color: transparent;
+            border-color: #453321;
+            border-radius: 10px;
+            width: 10px;
+        }
+        
+        .container{
+            background-color: transparent;
+            width: 850px; 
+        }       
         footer{
             background-color: #A19284;
-            color:white;
+            color: white;
+            bottom: 0;
+            left:0;
+            width:100%;    
         }
         footer a{
             color:#453321;
         }
         footer a:hover{
-            color:black;
-        }
-        .navbar a:hover{
-            color: #FFBC7A;
-        }
-        h1, h2, h3, p {
-            font-family: 'Prata', serif;
+            color: black;
         }
        .col-5{
-        border:2px solid black;
+        border:3px solid #5B4E2C;
+        border-radius: 15px;
         margin:10px;
-        background-color: #C9BBAE;
+        background-color: #F1E6DF;   
        }
        .pack{
-        background-color: #A19284;
-        color:WHITE;
-        width:200px;
+        background-color: #5B4E2C;
+        color:#F1E6DF;
+        width:150px;
         margin:10px;
         display:center;
+        border:1px solid #5B4E2C;
        }
        .pack:hover{
         background-color: #E8E1DA;
-        color:black;
+        color:#5B4E2C;
        }
        .custom-heading {
     font-family: "Prata", sans-serif;
     /* Add any other styling properties as needed */
 }
+.col-5 h2,
+        .col-5 h4,
+        .col-5 h5,
+        .col-5 p {
+            font-family: 'Roboto', sans-serif;
+            color: #5B4E2C;
+            font-weight: bold;
+        }
+        
     </style>
 
 <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>profile</title>
+    <title>Admin page</title>
     <link rel="icon" type="image/x-icon" href="https://scontent.xx.fbcdn.net/v/t1.15752-9/369627246_289801410057308_7488894476029786008_n.png?_nc_cat=103&ccb=1-7&_nc_sid=510075&_nc_eui2=AeHREZSn9SSNmamdnSsRCcVxI9F0L_pc2Fgj0XQv-lzYWNfYyCBB0reg-zh1OLoO1jlcXtuHY_x2uQ3r8lBI6mYY&_nc_ohc=qWkxmDrrYZkAX9n5wr3&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AdTlJoLVkthf50CQvYCphnSimKF4flckWwAbIeWb2MQAig&oe=657E214B">
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
     <script src='main.js'></script>
 </head>
-    <div class="navigation"  style="margin-bottom:-7px;">
-    <nav class="navbar navbar-expand-sm" style="margin-bottom: 0px;">
+<body class="bg-image" style="background-image: url('https://i.pinimg.com/564x/12/be/79/12be7911a1d8941448cc1fc5d8935167.jpg'); background-size: cover;">
+
+<div class="navigation">
+    <nav class="navbar navbar-expand-sm">
         <div style="display: flex; align-items: center;">
             <div style="margin-right: 10px; margin-left: 2em; padding-left:10px; padding-top: 6px;">
                 <img src="https://scontent.xx.fbcdn.net/v/t1.15752-9/369627246_289801410057308_7488894476029786008_n.png?_nc_cat=103&ccb=1-7&_nc_sid=510075&_nc_eui2=AeHREZSn9SSNmamdnSsRCcVxI9F0L_pc2Fgj0XQv-lzYWNfYyCBB0reg-zh1OLoO1jlcXtuHY_x2uQ3r8lBI6mYY&_nc_ohc=qWkxmDrrYZkAX9n5wr3&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AdTlJoLVkthf50CQvYCphnSimKF4flckWwAbIeWb2MQAig&oe=657E214B" alt="Logo" width="70" height="70">
             </div>
             <div>
-                <p style="margin: 0;  font-size: 18px; color:#5B4E2C ; font-family: Raleway; text-align: left;">KHASABAI</p>
-                <p style="margin: 0;  font-size: 18px; color:#5B4E2C ; font-family: Raleway; text-align: left;">BEAUTY PRODUCTS</p>
+                <p style="margin: 0;  font-size: 18px; color:#5B4E2C ; font-family: Raleway;font-weight: bold; text-align: left;">KHASABAI</p>
+                <p style="margin: 0;  font-size: 18px; color:#5B4E2C ; font-family: Raleway;font-weight: bold;  text-align: left;">BEAUTY PRODUCTS</p>
             </div>
                 <br>
-                <hr style= "margin-top: 10px; margin-left: 15px; margin-right: 2em; width: 700px; background:#4F3B33; height: 2px;"> </hr>           
                 <br>
+                
     </div>
+    
     <button type="button" data-toggle="collapse" data-target="#navbarNav" class="navbar-toggler" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon "></span>
     </button>
-
-<div class="bar">
-<div style="display: flex; align-items: right;">
-    <div class="collapse navbar-collapse justify-content-end" id="navbarNav" >
-        <ul class="navbar-nav ml-auto ">
+        
+    <div class="collapse navbar-collapse justify-content" id="navbarNav" >
+    <div class="bar">
+        <ul class="navbar-nav ">
         <a href="profilerider.php" class="nav-link">
-        <li class="nav-item text-center active" >
-            <i class="fas fa-user fa"></i>
+        <li class="nav-item text-center" >
+           
                 Profile
         </li>
         </a>
         <a href="rider.php" class="nav-link">
-         <li class="nav-item text-center" >
-            <i class="fas fa-home"></i>
+         <li class="nav-item text-center active" >
+       
                 Home
          </li>
         </a>
         <a href="orderhistoryrider.php" class="nav-link">
          <li class="nav-item text-center" >
-            <i class="fas fa-chart-line"></i>
+            
                 Order
          </li>
         </a>
         <a href="logout.php" class="nav-link">
          <li class="nav-item text-center" >
-            <i class="fas fa-sign-out-alt"></i>
+            
                 Log out
-         </li>
+        </li>
         </a>
-        </ul>
+   
+<div class="search">
+        <form method="GET" action="" class="search">
+            <div class="input-group">
+                <input type="search" name="query" class="form-control" placeholder="Search..."
+                    style="border-top-left-radius: 10px; border-bottom-left-radius: 10px;">
+                <div class="input-group-append">
+                    <button class="btn btn-secondary" type="submit"
+                        style="background-color: transparent; border-color: #453321; border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-top-left-radius: 0; border-bottom-left-radius: 0;">
+                        <span class="btn-label"><i class="fas fa-search" style="color: #5a4939;"></i></span>
+                    </button>
+                </div>
+            </div>
+        </form>
     </div>
-</nav>
-       <br>
-       <br>
- <h1> RIDER HOMEPAGE </h1>
-    
+</div>
+    </nav>
+        </div>
     
  <div class="container">
 <div class="row justify-content-center">
@@ -288,15 +217,32 @@ $result = $conn->query($sql);
             <br>
             <h4 class="custom-heading"><?php echo $row['id'] . ' ' . $row['lastName'];?></h4>
 
-            <h2 class="text-center custom-heading"><?php echo $row['firstName'] . ' ' . $row['lastName'];?></h2>
-            <h5 class="text-center custom-heading"><?php echo $row['email'] ?></h5>
-            <h5 class="text-center custom-heading"><?php echo $row['address'] ?></h5>
-            <h5 class="text-center custom-heading"><?php echo $row['phoneNumber'] ?></h5>
-            <p class="text-lead text-center">
-                Sub Total: ₱<?php echo $row['total_price'] ?><br>
-                Shipping Fee: <?php echo $row['shipping_fee'] ?><br>
-            </p>
-            <h5 class="custom-heading">TOTAL: ₱<?php echo $row['total_price'] ?></h5>
+            <div class="text-right d-flex align-items-right">
+    <i class='fas fa-user-alt' style='font-size:30px; color: #5B4E2C; margin-right: 15px; margin-left: 30px;'></i>
+    <h2 class="custom-heading"><?php echo $row['firstName'] . ' ' . $row['lastName'];?></h2>
+</div>
+
+<div class="text-right d-flex align-items-right">
+    <i class='fa fa-envelope icon' style='font-size:30px; color: #5B4E2C; margin-right: 15px; margin-left: 30px;'></i>
+    <h5 class="text-center custom-heading"><?php echo $row['email'] ?></h5>
+</div>
+    
+<div class="text-right d-flex align-items-center">
+    <i class='fa fa-home icon' style='font-size:30px; color: #5B4E2C; margin-right: 17px; margin-left: 30px;'></i>
+    <h5 class="text-center custom-heading"><?php echo $row['address'] ?></h5>
+</div>
+            <div class="text-right d-flex align-items-center">
+    <i class='fa fa-phone icon' style='font-size:30px; color: #5B4E2C; margin-right: 17px; margin-left: 30px; '></i>
+    <h5 class="text-center custom-heading"><?php echo $row['phoneNumber'] ?></h5>
+</div>
+<h5 class="text-lead text-center">
+    <span style="float: left;">Sub Total:</span>
+    <span style="float: right;">₱ &nbsp;&nbsp; <?php echo $row['total_price'] ?></span><br>
+    <span style="float: left;">Shipping Fee:</span>
+    <span style="float: right;">₱ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $row['shipping_fee'] ?></span><br>
+    </h5>
+    <h5 class="custom-heading" style="text-align: left;">TOTAL:</h5> 
+    <h5 class="custom-heading" style="text-align: right; margin-top: -35px;">₱  &nbsp;&nbsp;&nbsp;<?php echo $row['total_price'] ?></h5>
             <form method="POST" action="orderrider.php" id="packForm">
                 <input type="hidden" name="order_id" value="<?php echo $row['id']; ?>">
                 <center>
