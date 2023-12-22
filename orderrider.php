@@ -312,12 +312,19 @@ if(isset($_POST['done_pickup'])){
             
 <h3 class="text-lead text-center">
     <span style="float: left; padding-left: 20px;">Sub Total:</span>
-    <span style="float: right; padding-right: 20px;">₱ &nbsp;&nbsp; <?php echo $row['total_price'] ?></span><br>
+    <span style="float: right; padding-right: 20px;">₱ <?php echo $row['total_price'] ?></span><br>
     <span style="float: left; padding-left: 20px;">Shipping Fee:</span>
-    <span style="float: right; padding-right: 20px;">₱ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $row['shipping_fee'] ?></span><br>
-</h3>
+    <span style="float: right; padding-right: 20px;">₱ <?php echo $row['shipping_fee'] ?></span><br>
+<span style="float: left; padding-left: 20px;">Voucher Discount:</span>
+    <span style="float: right; padding-right: 20px;">₱ <?php 
+     if($row['voucher']== NULL){
+        $row['voucher_discount']=0;
+        echo  $row['voucher_discount'];
+    } else{
+    echo $row['voucher_discount'];
+    } ?></span><br></h3>
 <h3 class="custom-heading" style="text-align: left; padding-left: 20px;">TOTAL:</h3> 
-<h3 class="custom-heading" style="text-align: right; margin-top: -45px; padding-right: 20px;">₱  &nbsp;&nbsp;&nbsp;<?php echo $row['total_price'] ?></h3>
+<h3 class="custom-heading" style="text-align: right; margin-top: -45px; padding-right: 20px;">₱  &nbsp;&nbsp;&nbsp;<?php echo $row['total_fee'] ?></h3>
 
 
                             </div>
@@ -346,6 +353,7 @@ if(isset($_POST['done_pickup'])){
         <input type="hidden" name="order_id" value="<?php echo $order_id ?>">
         <button type="submit" name="delivered" id="delivered_btn" onclick="return disableDelivered()">Delivered</button>
     </form>
+    
 </div>
         <?php 
         
@@ -367,18 +375,6 @@ if(isset($_POST['done_pickup'])){
                 ('$email_customer', '$phoneNumber_customer', '$item_code', '$item_name', '$ordered_date', '$delivered_date', '$kha_value', '$quantity_value', '$total_price_value', '$shipping_fee_value', '$total_fee_value')";
     
         if ($conn->query($seq) === TRUE) {
-            echo '<script>
-                    function disableDelivered() {
-                        // Disable the "Delivered" button
-                        document.getElementById("delivered_btn").disabled = true;
-                        
-                        // Allow the form submission to proceed
-                        return true;
-                    }
-    
-                    disableDelivered();
-                    alert("Data inserted into sales table successfully!");
-                  </script>';
         } else {
             echo "Error: " . $conn->error;
         }
@@ -406,14 +402,7 @@ if(isset($_POST['done_pickup'])){
 
         // Echo the styled message after both updates
         echo '<p class="prata-font" style="text-align: center;">Deliver the package to the said location <span>&#10003;</span></p>';
-        ?> <script>
-        function disableDonePickup() {
-            // Disable the "Done Pick up" button
-            document.getElementById('done_pickup_btn').disabled = true;
-    
-            return true; // Allow the form submission to proceed
-        }
-        </script>
+        ?> 
         <?php
         
     } else {
@@ -448,6 +437,8 @@ $conn->close();
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
     
+</script>
  </body>
 </html>

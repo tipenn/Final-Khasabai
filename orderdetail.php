@@ -311,10 +311,10 @@ if (isset($_POST['order_id'])) {
                     </div>
                     <div class="col">
                     ₱<?php if($row['voucher']== NULL){
-                        $row['voucher']=0;
-                        echo  $row['voucher'];
+                        $row['voucher_discount']=0;
+                        echo  $row['voucher_discount'];
                     } else{
-                    echo $row['voucher'];
+                    echo $row['voucher_discount'];
                     } ?>
                     </div>
                 </div>

@@ -100,7 +100,7 @@ $result = $conn->query($sql);
         footer a:hover{
             color: black;
         }
-       .col-5{
+       .col{
         border:3px solid #5B4E2C;
         border-radius: 15px;
         margin:10px;
@@ -213,9 +213,9 @@ $result = $conn->query($sql);
 <?php if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) { 
 ?>
-        <div class="col-5"> 
+        <div class="col"> 
             <br>
-            <h4 class="custom-heading"><?php echo $row['id'] . ' ' . $row['lastName'];?></h4>
+            
 
             <div class="text-right d-flex align-items-right">
     <i class='fas fa-user-alt' style='font-size:30px; color: #5B4E2C; margin-right: 15px; margin-left: 30px;'></i>
@@ -237,12 +237,20 @@ $result = $conn->query($sql);
 </div>
 <h5 class="text-lead text-center">
     <span style="float: left;">Sub Total:</span>
-    <span style="float: right;">₱ &nbsp;&nbsp; <?php echo $row['total_price'] ?></span><br>
+    <span style="float: right;">₱ <?php echo $row['total_price'] ?></span><br>
     <span style="float: left;">Shipping Fee:</span>
-    <span style="float: right;">₱ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $row['shipping_fee'] ?></span><br>
+    <span style="float: right;">₱ <?php echo $row['shipping_fee'] ?></span><br>
+    <span style="float: left;">Voucher Discount:</span>
+    <span style="float: right;">₱ <?php 
+     if($row['voucher']== NULL){
+        $row['voucher_discount']=0;
+        echo  $row['voucher_discount'];
+    } else{
+    echo $row['voucher_discount'];
+    } ?></span><br>
     </h5>
     <h5 class="custom-heading" style="text-align: left;">TOTAL:</h5> 
-    <h5 class="custom-heading" style="text-align: right; margin-top: -35px;">₱  &nbsp;&nbsp;&nbsp;<?php echo $row['total_price'] ?></h5>
+    <h5 class="custom-heading" style="text-align: right; margin-top: -35px;">₱  &nbsp;&nbsp;&nbsp;<?php echo $row['total_fee'] ?></h5>
             <form method="POST" action="orderrider.php" id="packForm">
                 <input type="hidden" name="order_id" value="<?php echo $row['id']; ?>">
                 <center>

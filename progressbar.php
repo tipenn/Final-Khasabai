@@ -523,10 +523,15 @@ $result = $conn->query($sql);
                 </div>
                 <div class="row">
                     <div class="col"  style=" padding-left:3em;">
-                        VOUCHER USED:
+                        VOUCHER DISCOUNT:
                     </div>
                     <div class="col">
-                    ₱<?php echo $row['voucher']?>
+                    ₱<?php if($row['voucher']== NULL){
+                        $row['voucher_discount']=0;
+                        echo  $row['voucher_discount'];
+                    } else{
+                    echo $row['voucher_discount'];
+                    } ?>
                     </div>
                 </div>
                 <hr style="color: black; height: 10px;">
