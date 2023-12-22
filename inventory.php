@@ -113,7 +113,7 @@ $result = $conn->query($sql);
         }
         .scroll{
             overflow-y: scroll;
-            max-height: 50em;
+            max-height: 32em;
         }
         
     </style>

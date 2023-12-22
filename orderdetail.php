@@ -125,8 +125,8 @@ if (isset($_POST['order_id'])) {
             background-color: rgba(232, 225, 218, 0.7);
             border-style: solid;
             border-color:#C9BBAE;
-            height: 400px;
-            width: 500px;
+            height: 80%;
+            width: 80%;
             padding: 2em;
             text-align: left;
             margin-left: 4em;
@@ -264,24 +264,23 @@ if (isset($_POST['order_id'])) {
                         <button type="button" class="back" style="margin-left: 1em; margin-right: 10px;">
                             <i class="fa-solid fa-arrow-left" style="color: white;"></i></button></a> </h4>
 <div class="text-center" style="margin-top: 5em; ">
-
-
 <div class="container">
     <div class="row">
         <div class="col" style="margin-left: 3em;">
-        <div class="content">
-        <p style="font-family: Roboto; font-size: 20px;"><i class="fas fa-home" style="color: #453321; margin-right: 10px;"></i><b>DELIVERY ADDRESS</b></p>
+        <div class="content" style="font-size: 20px;">
+        <p style="font-family: Roboto; font-size:    20px;"><i class="fas fa-home" style="color: #453321; margin-right: 10px;"></i><b>DELIVERY ADDRESS</b></p>
         <p class="text-lead"><?php echo $row['firstName']?> <?php echo $row['lastName']; ?>
         <br> <?php echo $row["phoneNumber"];?>
         <br><?php echo $row['address']?></p>
         <br>
         <p style="font-family: Roboto; font-size: 20px;"><i class="fas fa-truck" style="color: #453321; margin-right: 10px;"></i><b>ORDER INFORMATION</b></p>
         <p class="text-lead"><?php echo $row['date']?><br>
-        <?php echo $row['item_name']?> <?php echo $row['item_description'] ?>
+        <?php echo $row['item_name']?> 
                 <br>₱<?php echo $row['price']?>
                 <br>Quantity : <?php echo $row['quantity']?></p>
         </div>
     </div>
+    
         <div class="col">
             <br><BR><BR>
             <div class="mod">
@@ -311,7 +310,12 @@ if (isset($_POST['order_id'])) {
                         VOUCHER USED:
                     </div>
                     <div class="col">
-                    ₱<?php echo $row['voucher']?>
+                    ₱<?php if($row['voucher']== NULL){
+                        $row['voucher']=0;
+                        echo  $row['voucher'];
+                    } else{
+                    echo $row['voucher'];
+                    } ?>
                     </div>
                 </div>
                 <hr style="color: black; height: 10px;">

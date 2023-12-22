@@ -492,7 +492,7 @@ $result = $conn->query($sql);
         <br>
         <p style="font-family: Roboto; font-size: 20px;"><i class="fas fa-truck" style="color: #453321; margin-right: 10px;"></i><b>ORDER INFORMATION</b></p>
         <p class="text-lead"  style=" padding-left:2em;"><?php echo $row['date']?><br>
-        <?php echo $row['item_name']?> <?php echo $row['item_description'] ?>
+        <?php echo $row['item_name']?> 
                 <br>₱<?php echo $row['price']?>
                 <br>Quantity : <?php echo $row['quantity']?></p>
         </div>

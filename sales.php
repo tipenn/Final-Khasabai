@@ -126,7 +126,7 @@ $output=$conn->query($sequence);
         }
         .scroll{
             overflow-y: scroll;
-            max-height: 50em;
+            max-height: 32em;
         }
         
     </style>

@@ -103,17 +103,14 @@ $result = $conn->query($sql);
             float:right;
             width: 400px;
             height: 300px; 
-            margin-top: -49em;
-            margin-left: 53em;
             padding: 1em;
             border: 1px solid gray;
-            text-align: left;
-            position: fixed;
+            text-align: end;
         }
         
         .scrollable-section {
             background-color: #E8E1DA;
-            height: 900px; /* Adjust the height as needed */
+            height: 40em; /* Adjust the height as needed */
             width: 700px;
             overflow-y: auto;
             border: 1px solid #ddd; /* Optional: Add a border for better visibility */
@@ -262,13 +259,13 @@ $result = $conn->query($sql);
     <div class="items">
                 <div class="col">
             <div class="content">
-        <div class="row ">
+        <div class="row">
             <div class="col">
                     <img src="assets/<?php echo $row['item_image']?>">
                 </div>
                 <div class="col" style="padding:40px">
                 <p class="text-mute">
-                <?php echo $row['id'] . $row['item_name']?> <br>₱<?php echo $row['price']?>
+                <?php echo  $row['item_name']?> <br>₱<?php echo $row['price']?>
                 <br>Quantity : <?php echo $row['quantity']?></p>
                 <form method="POST">
                     <!-- Hidden input for item ID -->
