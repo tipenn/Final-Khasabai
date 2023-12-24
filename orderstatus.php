@@ -81,7 +81,7 @@ $result = $conn->query($sql);
         .order{
            background-color:#F1E6DF;;
             border: 1px solid gray;
-            height: 10em;
+            height: 130px;
             margin-bottom: 10px;
         }
        .order a:hover{
@@ -124,6 +124,7 @@ $result = $conn->query($sql);
         .content{
             overflow-y: scroll;
             height: 35em;
+
         }
     </style>
 
@@ -142,8 +143,7 @@ $result = $conn->query($sql);
 <nav class="navbar navbar-expand-sm">
         <div style="display: flex; align-items: center;">
             <div style="margin-right: 10px; margin-left: 2em; padding-left:10px; padding-top: 6px;">
-            <img src="https://scontent.xx.fbcdn.net/v/t1.15752-9/369627246_289801410057308_7488894476029786008_n.png?_nc_cat=103&ccb=1-7&_nc_sid=510075&_nc_eui2=AeHREZSn9SSNmamdnSsRCcVxI9F0L_pc2Fgj0XQv-lzYWNfYyCBB0reg-zh1OLoO1jlcXtuHY_x2uQ3r8lBI6mYY&_nc_ohc=qWkxmDrrYZkAX9n5wr3&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AdTlJoLVkthf50CQvYCphnSimKF4flckWwAbIeWb2MQAig&oe=657E214B" alt="Logo" width="70" height="70">
-            </div>
+            <img src="assets/logo.png" alt="Logo" width="70" height="70"> </div>
             <div>
                 <p style="margin: 0;  font-size: 18px; color:#5B4E2C ; font-family: Raleway;font-weight: bold; text-align: left;">KHASABAI</p>
                 <p style="margin: 0;  font-size: 18px; color:#5B4E2C ; font-family: Raleway;font-weight: bold;  text-align: left;">BEAUTY PRODUCTS</p></a>
@@ -216,10 +216,10 @@ $result = $conn->query($sql);
             <div class="row" >
                 <!-- First Column -->
                 <!-- <?php echo $row['id']?> -->
-                <div class="col-2"><img src="assets/<?php echo $row['item_image'];?>" style="border-radius:100px; height:25%; margin:10px;"></div>
-                <div class="col-3"><b>Delivered by:</b> <?php echo $row['kha'] ?> <br><b>Ordered Date:</b> <?php echo $row['date'] ?><br><b>Date of Arrival: </b><?php echo $row['date_arrival'] ?><br> <b><a href="progressbar.php?id=<?php echo $row['id']; ?>">Status: <?php echo $row['status']?></b></a></div>
-                <div class="col-3"><b>Quantity: </b> <?php echo $row['quantity'] ?><br><b> Name of product: </b><?php echo $row['item_name'] ?></div>
-                <div class="col-3"><b> Sub Total:</b> ₱<?php echo $row['total_price'] ?><br><b>Shipping Fee:</b> ₱<?php echo $row['shipping_fee'] ?><br> <b>Total:</b> ₱<?php echo $row['total_fee'] ?></div>             
+                <div class="col-3"><img src="assets/<?php echo $row['item_image'];?>" style="border-radius:100px; height:25%; margin-left: 5em;"></div>
+                <div class="col-3" style="padding-top: 10px;"><b>Delivered by:</b> <?php echo $row['kha'] ?> <br><b>Ordered Date:</b> <?php echo $row['date'] ?><br><b>Date of Arrival: </b><?php echo $row['date_arrival'] ?><br> <b><a href="progressbar.php?id=<?php echo $row['id']; ?>">Status: <?php echo $row['status']?></b></a></div>
+                <div class="col-3"  style="padding-top: 10px;"><b>Quantity: </b> <?php echo $row['quantity'] ?><br><b> Name of product: </b><?php echo $row['item_name'] ?></div>
+                <div class="col-3" style="padding-top: 10px;"><b> Sub Total:</b> ₱<?php echo $row['total_price'] ?><br><b>Shipping Fee:</b> ₱<?php echo $row['shipping_fee'] ?><br> <b>Total:</b> ₱<?php echo $row['total_fee'] ?></div>             
             </div>
         </div>
         <?php 

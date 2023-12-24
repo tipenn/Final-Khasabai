@@ -229,7 +229,7 @@ $result = $conn->query($sql);
             background-color: rgba(232, 225, 218, 0.7);
             border-style: solid;
             border-color:#C9BBAE;
-            height: 500px;
+            height: 320px;
             width: 600px;
             padding-top: 2em;
         
@@ -315,8 +315,7 @@ $result = $conn->query($sql);
 <nav class="navbar navbar-expand-sm">
         <div style="display: flex; align-items: center;">
             <div style="margin-right: 10px; margin-left: 2em; padding-left:10px; padding-top: 6px;">
-            <img src="https://scontent.xx.fbcdn.net/v/t1.15752-9/369627246_289801410057308_7488894476029786008_n.png?_nc_cat=103&ccb=1-7&_nc_sid=510075&_nc_eui2=AeHREZSn9SSNmamdnSsRCcVxI9F0L_pc2Fgj0XQv-lzYWNfYyCBB0reg-zh1OLoO1jlcXtuHY_x2uQ3r8lBI6mYY&_nc_ohc=qWkxmDrrYZkAX9n5wr3&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AdTlJoLVkthf50CQvYCphnSimKF4flckWwAbIeWb2MQAig&oe=657E214B" alt="Logo" width="70" height="70">
-            </div>
+            <img src="assets/logo.png" alt="Logo" width="70" height="70"> </div>
             <div>
                 <p style="margin: 0;  font-size: 18px; color:#5B4E2C ; font-family: Raleway;font-weight: bold; text-align: left;">KHASABAI</p>
                 <p style="margin: 0;  font-size: 18px; color:#5B4E2C ; font-family: Raleway;font-weight: bold;  text-align: left;">BEAUTY PRODUCTS</p></a>
@@ -501,31 +500,32 @@ $result = $conn->query($sql);
             <br><BR><BR>
             <div class="mod">
                 <br>
-                <center><h4>
-               Mode of Payment: Cash on Delivery
-                </h4></center>
-                <hr style="color: white; height: 2px;">
-                <div class="row">
-                    <div class="col"  style=" padding-left:3em;">
-                        SUB TOTAL:
-                    </div>
-                    <div class="col">
+                <center>
+
+                    <h4>Mode of Payment: Cash on Delivery
+                     </h4></center>
+                     <hr style="color: #5B4E2C; height: 5px;">
+                     <div class="row" style="margin-left: 5em;">
+                         <div class="col" >
+                             SUB TOTAL:
+                         </div>
+                         <div class="col" style="margin-left: 8.7em;">
                     ₱<?php echo $row['total_price']?>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col"  style=" padding-left:3em;">
-                        SHIPPING FEE:
-                    </div>
-                    <div class="col">
+                <div class="row" style="margin-left: 5em;">
+                         <div class="col" >
+                             SHIPPING FEE:
+                         </div>
+                         <div class="col" style="margin-left: 8.7em;">
                     ₱<?php echo $row['shipping_fee']?>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col"  style=" padding-left:3em;">
-                        VOUCHER DISCOUNT:
-                    </div>
-                    <div class="col">
+                <div class="row" style="margin-left: 5em;">
+                         <div class="col" >
+                             Voucher Discount:
+                         </div>
+                         <div class="col" style="margin-left: 8.7em;">
                     ₱<?php if($row['voucher']== NULL){
                         $row['voucher_discount']=0;
                         echo  $row['voucher_discount'];
@@ -534,17 +534,16 @@ $result = $conn->query($sql);
                     } ?>
                     </div>
                 </div>
-                <hr style="color: black; height: 10px;">
-                <div class="row" style="padding: 20px;">
-                    <div class="col">
-                        <b> T O T A L :</b>
-                    </div>
-                    <div class="col">
+                <hr style="color: #5B4E2C; height: 5px;">
+                     <div class="row" style="padding-right: 20px; color: #AC8351; margin-left: 5em;">
+                         <div class="col">
+                             <b> T O T A L :</b>
+                         </div>
+                         <div class="col" style="margin-left: 10em;">
                     <b>₱<?php echo $row['total_fee']?></b>
                     </div>    
             </div>
         </div>
-
 
         </div>
     </div>

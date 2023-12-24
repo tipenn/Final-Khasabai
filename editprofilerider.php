@@ -39,30 +39,25 @@ echo "Error updating user: " . mysqli_error($conn);
 }
 ?>
 
-
-
-<!doctype html>
-<html lang="en">
-  <head>
-    <title>KHASABAI</title>
-    <link rel="icon" type="image/x-icon" href="https://scontent.xx.fbcdn.net/v/t1.15752-9/369627246_289801410057308_7488894476029786008_n.png?_nc_cat=103&ccb=1-7&_nc_sid=510075&_nc_eui2=AeHREZSn9SSNmamdnSsRCcVxI9F0L_pc2Fgj0XQv-lzYWNfYyCBB0reg-zh1OLoO1jlcXtuHY_x2uQ3r8lBI6mYY&_nc_ohc=qWkxmDrrYZkAX9n5wr3&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AdTlJoLVkthf50CQvYCphnSimKF4flckWwAbIeWb2MQAig&oe=657E214B">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<!DOCTYPE html>
+<html>
+<head>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Prata&display=swap" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-   
-</head>
-
-
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="icon" type="image/x-icon" href="https://scontent.xx.fbcdn.net/v/t1.15752-9/369627246_289801410057308_7488894476029786008_n.png?_nc_cat=103&ccb=1-7&_nc_sid=510075&_nc_eui2=AeHREZSn9SSNmamdnSsRCcVxI9F0L_pc2Fgj0XQv-lzYWNfYyCBB0reg-zh1OLoO1jlcXtuHY_x2uQ3r8lBI6mYY&_nc_ohc=qWkxmDrrYZkAX9n5wr3&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AdTlJoLVkthf50CQvYCphnSimKF4flckWwAbIeWb2MQAig&oe=657E214B">
+    
+    
     <style>
-         body {
+        body {
             font-family: 'Roboto', sans-serif;
-            background-color:#F6F2EF;
+            background-size: cover;
             background-repeat: no-repeat;
             background-attachment: fixed; /* Optional, for a fixed background */
         }
@@ -81,26 +76,45 @@ echo "Error updating user: " . mysqli_error($conn);
                 padding-left: 15px;
                 margin: 0px;         
                 background-color: rgba(250, 250, 243, 0.4); /* Light yellow with 90% opacity */
-        }
+            }
         .bar{
             text-align: center;
             padding: 2px;
             margin-top: 2em;
+            margin-left: 20em;
             margin-right: 0px; 
-            margin-left: 18em;
             
         }
         .bar li{	
-            padding-left: 10px;
-            font-size: 20px;
-            font-family: Neuzeit S LT W01 Book;
+            margin-left: 3px;
+            font-size: 17px;
+            font-family: Roboto;
             color: #5B4E2C;
+        }
+        .search .form-control {
+        text-align: center;
+        background-color: transparent;
+        border-color: #453321;
+        border-radius: 10px;
+        width: 10px;
+        }
+        .search{
+            width: 240px;
+           margin-left: 11em;
+        
+        }
+        .search .form-control {
+            text-align: center;
+            background-color: transparent;
+            border-color: #453321;
+            border-radius: 10px;
+            width: 10px;
         
         }
         .container{
             background-color: #E8E1DA;
             width: 700px;
-            margin-bottom: 5em; 
+            margin-bottom: 8em; 
         }
         .back{
             width: 40px;
@@ -123,6 +137,13 @@ echo "Error updating user: " . mysqli_error($conn);
         h5, h7 {
             margin-left: 8px;
         }
+        a {
+			text-decoration: none;
+			color: #453321;
+        }
+        a:hover{
+			color: #5B4E2C;
+        }
         .update{
             width: 30%;
             height:40px;
@@ -130,69 +151,48 @@ echo "Error updating user: " . mysqli_error($conn);
             margin-top: 15px;
             background-color:#F6F2EF;
             border-radius: 20px;
-            margin-bottom: 2em;
         }
         .update:hover{
             background-color: #BCA37F ;
             border-radius: 20px;
             font-weight: bold;
         }
-            a {
-			text-decoration: none;
-			color: #453321;
-        }
-        a:hover{
-			color: #5B4E2C;
-        }
         footer{
-            background-color:#514F4D ;
+            background-color: #A19284;
             color: white;
             bottom: 0;
             left:0;
-            width:100%;
-            height: 100px;
-            margin-top: -2em;
+            width:100%; 
+            position: fixed;   
         }
         footer a{
-            color:#EFE8E3;
+            color:#453321;
         }
         footer a:hover{
             color: black;
         }
-        .search .form-control {
-        text-align: center;
-        background-color: transparent;
-        border-color: #453321;
-        border-radius: 10px;
-       width: 10%;
-        }
-        .search{
-            width: 240px;
-           margin-left: 6em;
-           position: relative;
-    
-        }
     </style>
 
-
- <meta charset='utf-8'>
+<head>
+    
+<meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>KHASABAI</title>
+    <title>Admin page</title>
     <link rel="icon" type="image/x-icon" href="https://scontent.xx.fbcdn.net/v/t1.15752-9/369627246_289801410057308_7488894476029786008_n.png?_nc_cat=103&ccb=1-7&_nc_sid=510075&_nc_eui2=AeHREZSn9SSNmamdnSsRCcVxI9F0L_pc2Fgj0XQv-lzYWNfYyCBB0reg-zh1OLoO1jlcXtuHY_x2uQ3r8lBI6mYY&_nc_ohc=qWkxmDrrYZkAX9n5wr3&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AdTlJoLVkthf50CQvYCphnSimKF4flckWwAbIeWb2MQAig&oe=657E214B">
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
     <script src='main.js'></script>
 </head>
-<body class="bg-image" style="background-image: url('https://drive.google.com/uc?id=1VdMQTbNwy9vY_nWoi4Zmi67F8QM1QeTu'); background-size: cover;">
+<body class="bg-image" style="background-image: url('https://i.pinimg.com/564x/12/be/79/12be7911a1d8941448cc1fc5d8935167.jpg'); background-size: cover;">
 
 <div class="navigation">
-<nav class="navbar navbar-expand-sm">
+    <nav class="navbar navbar-expand-sm">
         <div style="display: flex; align-items: center;">
             <div style="margin-right: 10px; margin-left: 2em; padding-left:10px; padding-top: 6px;">
-            <img src="assets/logo.png" alt="Logo" width="70" height="70"> </div>
+            <img src="assets/logo.png" alt="Logo" width="70" height="70">   </div>
             <div>
                 <p style="margin: 0;  font-size: 18px; color:#5B4E2C ; font-family: Raleway;font-weight: bold; text-align: left;">KHASABAI</p>
-                <p style="margin: 0;  font-size: 18px; color:#5B4E2C ; font-family: Raleway;font-weight: bold;  text-align: left;">BEAUTY PRODUCTS</p></a>
+                <p style="margin: 0;  font-size: 18px; color:#5B4E2C ; font-family: Raleway;font-weight: bold;  text-align: left;">BEAUTY PRODUCTS</p>
             </div>
                 <br>
                 <br>
@@ -206,45 +206,38 @@ echo "Error updating user: " . mysqli_error($conn);
     <div class="collapse navbar-collapse justify-content" id="navbarNav" >
     <div class="bar">
         <ul class="navbar-nav ">
-        <a href="customerprofile.php" class="nav-link">
+        <a href="profilerider.php" class="nav-link">
         <li class="nav-item text-center" >
            
                 Profile
         </li>
         </a>
-        <a href="customerhome.php" class="nav-link">
-        <li class="nav-item text-center" >
-           
+        <a href="rider.php" class="nav-link">
+         <li class="nav-item text-center active" >
+       
                 Home
-        </li>
+         </li>
         </a>
-        <a href="orderstatus.php" class="nav-link">
-        <li class="nav-item text-center" >
-           
-                Orders
-        </li>
-        </a>
-        <a href="cart.php" class="nav-link">
-         <li class="nav-item text-center">
-        
-                Cart
+        <a href="orderhistoryrider.php" class="nav-link">
+         <li class="nav-item text-center" >
+            
+                Order
          </li>
         </a>
         <a href="logout.php" class="nav-link">
-         <li class="nav-item text-center">
-        
-                Logout
-         </li>
+         <li class="nav-item text-center" >
+            
+                Log out
+        </li>
         </a>
-        
-        <div class="search">
+<div class="search">
         <form method="GET" action="" class="search">
             <div class="input-group">
                 <input type="search" name="query" class="form-control" placeholder="Search..."
                     style="border-top-left-radius: 10px; border-bottom-left-radius: 10px;">
-                
+                <div class="input-group-append">
                     <button class="btn btn-secondary" type="submit"
-                        style="background-color: transparent;width:15%; border-color: #453321; border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-top-left-radius: 0; border-bottom-left-radius: 0;">
+                        style="background-color: transparent; border-color: #453321; border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-top-left-radius: 0; border-bottom-left-radius: 0;">
                         <span class="btn-label"><i class="fas fa-search" style="color: #5a4939;"></i></span>
                     </button>
                 </div>
@@ -253,14 +246,13 @@ echo "Error updating user: " . mysqli_error($conn);
     </div>
 </div>
     </nav>
-        </div> 
+        </div>
 <!-- content -->
 <h4 style="color:#453321;  padding-right: 3em; float: left;">
-                    <a href="customerprofile.php">
+                    <a href="profilerider.php">
                         <button type="button" class="back" style="margin-left: 1em; margin-right: 10px;">
                             <i class="fa-solid fa-arrow-left" style="color: white;"></i></button></a> </h4>
 <div class="text-center" style="margin-top: 5em; ">
-
 <?php
 $sql = "SELECT * FROM users WHERE id = '$_SESSION[id]'";
 $result = $conn->query($sql);
@@ -274,7 +266,7 @@ if ($result) {
         // Check if the 'profile' column is not null and not empty
         if ($row['profile'] !== null && $row['profile'] !== '') {
             // Profile has data
-            ?><img src="assets/<?php echo $row['profile']; ?>"  alt="Profile Picture" style="height: 150px; width:150px; border-radius:100%;">
+            ?><img src="assets/<?php echo $row['profile']; ?>"  alt="Profile Picture" style="height: 170px; width:170px; border-radius:100%;">
 
             <?php
         } else {
@@ -295,12 +287,11 @@ if ($result) {
 ?>
 </div>
 
-
     <div class="text-center" style="cursor: pointer;">
     <form method="post" >
         <label for="profilePicture" style="display: block; cursor: pointer;">Upload Profile Picture</label>
         <input type="file" id="profilePicture" name="profilePicture" style="display: none;">
-        <input type="submit" value="Submit" name="upload">
+        <input type="submit" value="submit" name="upload">
     </form>
 </div>
 </div>
@@ -309,14 +300,14 @@ if(isset($_POST['upload'])){
     $profile=$_POST['profilePicture'];
     $upload="UPDATE users SET profile ='$profile' WHERE id= '$_SESSION[id]'";
     mysqli_query($conn, $upload);
-    echo "<script>window.location.href='customerEditprofile.php';</script>";
+    echo "<script>window.location.href='adminEditprofile.php';</script>";
 }
 ?>
     </div>
 <div class="container">
      <br><br><br> 
 <!-- !!!!!!!!!! -->
-<form action="" method="POST" onsubmit>
+<form action="" method="POST">
 <div id="message" class="alert alert-success" style="display: none;"></div>
 
     <input type="hidden" class="form-control" name="id" value="<?php echo $_SESSION['id'] ?>">
@@ -333,11 +324,12 @@ if(isset($_POST['upload'])){
     <h7>Password</h7>
     <input type="password" class="form-control" name="password" value="<?php echo $_SESSION['password']?>"><br>
     <div class="text-center">
-    <button type="submit" class="update" name="update">Update Profile</button>
+        <button type="submit" class="update" name="update">Update Profile</button>
+        <br><br><br>
     </div>
 </form>
-                </center>
-                
+</center>
+               
                 </div>
             </div>
         </div>
@@ -346,32 +338,30 @@ if(isset($_POST['upload'])){
    
     <!-- footer -->
     <footer class="container-fluid">
+    
     <div class="row">
         <div class="col-6 text-left">
-            <p class="text-lead" style="font-size: 18px; padding-top:2em; color: #EFE8E3;padding-left: 2em;">2023©Khasabai | Privacy Policy</p>
+            <p class="text-lead" style="font-size: 15px; padding-top:20px;">2023©Khasabai | Privacy Policy</p>
         </div>
-        <div class="col-md-6 text-end sm-3" style="padding-top:2em  ; ">
+        <div class="col-md-6 text-end sm-3" style="padding-top:20px;">
             <a href="mailto:your-email@example.com" class="d-inline">
-                <i class="far fa-envelope" style="margin-right: 10px; font-size: 28px;  "></i>
+                <i class="far fa-envelope" style="margin-right: 10px;"></i>
             </a>
             <a href="https://www.facebook.com/kylesumabat13" target="_blank" class="d-inline">
-                <i class="fab fa-facebook" style="margin-right: 10px; font-size: 28px; "></i>
+                <i class="fab fa-facebook" style="margin-right: 10px;"></i>
             </a>
             <a href="https://instagram.com/kharyllesumabat?igshid=NzZlODBkYWE4Ng==" target="_blank" class="d-inline">
-                <i class="fab fa-instagram" style="margin-right: 2em; font-size: 28px; "></i>
+                <i class="fab fa-instagram" style="margin-right: 10px;"></i>
             </a>
         </div>
     </div>
-</footer>
 <script>
     var message = "<?php echo isset($message) ? $message : ''; ?>";
-    
 if (message.trim() !== "") {
     var messageDiv = document.getElementById('message');
     messageDiv.innerText = message;
     messageDiv.style.display = 'block';
 }
-
 </script>
  </body>
 </html>

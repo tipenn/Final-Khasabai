@@ -132,6 +132,7 @@ $result = $conn->query($sql);
             bottom: 0;
             left:0;
             width:100%;    
+            position: fixed;
         }
         footer a{
             color:#453321;
@@ -142,7 +143,7 @@ $result = $conn->query($sql);
         h1, h2, h3, p {
             font-family: 'Prata', serif;
         }
-        .row{
+        .box{
         background-color: #F1E6DF;     
         margin: 5px;  
         border: 3px solid #5B4E2C; /* Add border style */
@@ -169,8 +170,7 @@ $result = $conn->query($sql);
     <nav class="navbar navbar-expand-sm">
         <div style="display: flex; align-items: center;">
             <div style="margin-right: 10px; margin-left: 2em; padding-left:10px; padding-top: 6px;">
-                <img src="https://scontent.xx.fbcdn.net/v/t1.15752-9/369627246_289801410057308_7488894476029786008_n.png?_nc_cat=103&ccb=1-7&_nc_sid=510075&_nc_eui2=AeHREZSn9SSNmamdnSsRCcVxI9F0L_pc2Fgj0XQv-lzYWNfYyCBB0reg-zh1OLoO1jlcXtuHY_x2uQ3r8lBI6mYY&_nc_ohc=qWkxmDrrYZkAX9n5wr3&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AdTlJoLVkthf50CQvYCphnSimKF4flckWwAbIeWb2MQAig&oe=657E214B" alt="Logo" width="70" height="70">
-            </div>
+            <img src="assets/logo.png" alt="Logo" width="70" height="70">    </div>
             <div>
                 <p style="margin: 0;  font-size: 18px; color:#5B4E2C ; font-family: Raleway;font-weight: bold; text-align: left;">KHASABAI</p>
                 <p style="margin: 0;  font-size: 18px; color:#5B4E2C ; font-family: Raleway;font-weight: bold;  text-align: left;">BEAUTY PRODUCTS</p>
@@ -231,7 +231,7 @@ $result = $conn->query($sql);
         </div>
 
  <div class="container-fluid">
-
+<div class="box">
     <?php if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) { ?>
             <div class="row">
@@ -249,22 +249,25 @@ $result = $conn->query($sql);
     ?>
 
 </div>
-       
+</div>
+</div>
+
 <!-- footer -->
 <footer class="container-fluid">
-    <div class="footer-row">
+    <div class="row">
         <div class="col-6 text-left">
             <p class="text-lead" style="font-size: 15px; padding-top:20px;"> ©  2023 Khasabai | Privacy Policy</p>
+
         </div>
-        <div class="col-md-6 text-end sm-3" style="padding-top: 0px;">
+        <div class="col-md-6 text-end sm-3" style="padding-top:20px;">
             <a href="mailto:your-email@example.com" class="d-inline">
-                <i class="far fa-envelope" style="right: 10px;"></i>
+                <i class="far fa-envelope" style="margin-right: 10px;"></i>
             </a>
             <a href="https://www.facebook.com/kylesumabat13" target="_blank" class="d-inline">
-                <i class="fab fa-facebook" style="right: 10px;"></i>
+                <i class="fab fa-facebook" style="margin-right: 10px;"></i>
             </a>
             <a href="https://instagram.com/kharyllesumabat?igshid=NzZlODBkYWE4Ng==" target="_blank" class="d-inline">
-                <i class="fab fa-instagram" style="right: 10px;"></i>
+                <i class="fab fa-instagram" style="margin-right: 10px;"></i>
             </a>
         </div>
     </div>

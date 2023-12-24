@@ -107,7 +107,8 @@ if(isset($_POST['done_pickup'])){
             color: white;
             bottom: 0;
             left:0;
-            width:100%;    
+            width:100%;   
+            position: fixed; 
         }
         footer a{
             color:#453321;
@@ -115,11 +116,9 @@ if(isset($_POST['done_pickup'])){
         footer a:hover{
             color: black;
         }
-       
-       
-
-       
+    
         .left{
+            margin-top: 5em;
             background-color: #E8E1DA;
             width: 500px;
             border:3px solid #5B4E2C;
@@ -131,6 +130,7 @@ if(isset($_POST['done_pickup'])){
         }
      
         .right{
+            margin-top: 9em;
             background-color: #E8E1DA;
             width: 500px;
             border:3px solid #5B4E2C;
@@ -146,14 +146,12 @@ if(isset($_POST['done_pickup'])){
     border-radius: 3px;
     cursor: pointer;
     transition: background-color 0.1s, color 0.1s;
-    margin-bottom: 10px; /* Add margin to create space between buttons */
     background-color: #5B4E2C;
     color: white;
     font-weight: bold;
-    margin-right: 400px;
-    margin-top: 110px;
     width: 200px;
-    margin-bottom: -50em;
+    float: left;
+    margin-left: 3em;
 }
 
 #done_pickup_btn:hover {
@@ -171,10 +169,9 @@ if(isset($_POST['done_pickup'])){
     background-color: #5B4E2C;
     color: white;
     font-weight: bold;
-    margin-bottom: 20px;
-    margin-top: -60px; /* Adjust the margin-top value */
-    margin-right: -100px; /* Adjust the margin-right value to align horizontally */
     width: 200px;
+    float: right;
+    margin-right: 11em;
 }
 
 #delivered_btn:hover {
@@ -183,7 +180,6 @@ if(isset($_POST['done_pickup'])){
 }
 .prata-text {
             font-family: 'Roboto', serif;
-        
             font-size: 24px; /* Adjust font size as needed */
             color: #453321; /* Set the color to match your design */
             
@@ -215,8 +211,7 @@ if(isset($_POST['done_pickup'])){
     <nav class="navbar navbar-expand-sm">
         <div style="display: flex; align-items: center;">
             <div style="margin-right: 10px; margin-left: 2em; padding-left:10px; padding-top: 6px;">
-                <img src="https://scontent.xx.fbcdn.net/v/t1.15752-9/369627246_289801410057308_7488894476029786008_n.png?_nc_cat=103&ccb=1-7&_nc_sid=510075&_nc_eui2=AeHREZSn9SSNmamdnSsRCcVxI9F0L_pc2Fgj0XQv-lzYWNfYyCBB0reg-zh1OLoO1jlcXtuHY_x2uQ3r8lBI6mYY&_nc_ohc=qWkxmDrrYZkAX9n5wr3&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AdTlJoLVkthf50CQvYCphnSimKF4flckWwAbIeWb2MQAig&oe=657E214B" alt="Logo" width="70" height="70">
-            </div>
+            <img src="assets/logo.png" alt="Logo" width="70" height="70">   </div>
             <div>
                 <p style="margin: 0;  font-size: 18px; color:#5B4E2C ; font-family: Raleway;font-weight: bold; text-align: left;">KHASABAI</p>
                 <p style="margin: 0;  font-size: 18px; color:#5B4E2C ; font-family: Raleway;font-weight: bold;  text-align: left;">BEAUTY PRODUCTS</p>
@@ -348,7 +343,6 @@ if(isset($_POST['done_pickup'])){
         <input type="hidden" name="order_id" value="<?php echo $order_id ?>">
         <button type="submit" name="done_pickup" id="done_pickup_btn" onclick="return disableDonePickup()">Done Pick up</button>
     </form>
-
     <form method="POST" style="text-align: center;">
         <input type="hidden" name="order_id" value="<?php echo $order_id ?>">
         <button type="submit" name="delivered" id="delivered_btn" onclick="return disableDelivered()">Delivered</button>

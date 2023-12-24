@@ -99,13 +99,17 @@ $result = $conn->query($sql);
             padding: 10px;
         }
         .total{
-            background-color:#F6F2EF;
             float:right;
             width: 400px;
             height: 300px; 
+            margin-top: -35em;
+            margin-left: 53em;
             padding: 1em;
             border: 1px solid gray;
-            text-align: end;
+            text-align: left;
+            position: fixed;
+            /* text-align: end;
+            float: right; */
         }
         
         .scrollable-section {
@@ -161,7 +165,21 @@ $result = $conn->query($sql);
            margin-left: 6em;
            position: relative;
         }
-   
+        .ship{
+            width: 35%;
+            height:30px;
+            font-size: 23px;
+            background-color:#AC8351;
+            border-radius: 20px;
+            margin-bottom: 2em;
+            color: white;
+            font-family: Neuzeit S LT W01 Book;
+           
+        }
+        .ship:hover{
+            background-color: #BCA37F;
+            font-weight: bold;
+        }
     </style>
    
   
@@ -178,8 +196,7 @@ $result = $conn->query($sql);
     <nav class="navbar navbar-expand-sm">
         <div style="display: flex; align-items: center;">
             <div style="margin-right: 10px; margin-left: 2em; padding-left:10px; padding-top: 6px;">
-            <img src="https://scontent.xx.fbcdn.net/v/t1.15752-9/369627246_289801410057308_7488894476029786008_n.png?_nc_cat=103&ccb=1-7&_nc_sid=510075&_nc_eui2=AeHREZSn9SSNmamdnSsRCcVxI9F0L_pc2Fgj0XQv-lzYWNfYyCBB0reg-zh1OLoO1jlcXtuHY_x2uQ3r8lBI6mYY&_nc_ohc=qWkxmDrrYZkAX9n5wr3&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AdTlJoLVkthf50CQvYCphnSimKF4flckWwAbIeWb2MQAig&oe=657E214B" alt="Logo" width="70" height="70">
-            </div>
+            <img src="assets/logo.png" alt="Logo" width="70" height="70"></div>
             <div>
                 <p style="margin: 0;  font-size: 18px; color:#5B4E2C ; font-family: Raleway;font-weight: bold; text-align: left;">KHASABAI</p>
                 <p style="margin: 0;  font-size: 18px; color:#5B4E2C ; font-family: Raleway;font-weight: bold;  text-align: left;">BEAUTY PRODUCTS</p></a>
@@ -367,12 +384,12 @@ if ($output === null) { ?>
             </div>
         </div>
             <input type="hidden" name="id" value="<?php echo $id; ?>">
-        <button type="submit" name="ship" class="ship" style="float: right; background-color:#835328; border-radius: 2em; width: 120px; height:30px; ">
+        <button type="submit" name="ship" class="ship">
             <h6>Check out</h6>
         </button>
         </form>
+        
         <?php
-       
     }}echo $total;
     if(isset($_POST['ship'])){
         $id = $_POST['id'];
