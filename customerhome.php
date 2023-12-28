@@ -348,7 +348,7 @@ if (!empty($searchQuery)) {
             width: 900px;
             padding: 1em;
             position: absolute;
-            top: 110%;
+            top: 100%;
             left: 21%;
             font-style: 25px;
         }
@@ -441,8 +441,8 @@ if (!empty($searchQuery)) {
   <span style="font-size: 32px;"><br>Elevate Your Beauty Rituals with Exquisite Beauty Products Crafted for Timeless Elegance.</span> 
   </p> -->
 
-<div class="content">
-<section aria-label="Newest Photos">
+<!-- <div class="content"> -->
+<!-- <section aria-label="Newest Photos">
     <div class="carousel" data-carousel>
         <button class="carousel-button prev" data-carousel-button="prev"><i class="fa-solid fa-angle-left" style="margin-right: 10px;"></i></button>
         <button class="carousel-button next" data-carousel-button="next"><i class="fa-solid fa-angle-right" style="margin-right: 10px;"></i></button>
@@ -485,10 +485,10 @@ if (!empty($searchQuery)) {
 
     // Set interval to show the next slide every 1000 milliseconds (1 second)
     setInterval(showNextSlide, 5000); // Change the interval time according to your preference
-</script>
-<img src="assets/abt5.png" style="width:100%;height: 600px; "> 
+</script> -->
+<img src="assets/abt5.png" style="width:100%;height: 600px; margin-top: -7.5em;"> 
 <div class="divider-top">
-<h1 style="font-size: 70px; margin-top: 1em;">Unveil Your Radiance with Khasabai</h1></div>
+<h1 style="font-size: 70px; margin-top: -8em;">Unveil Your Radiance with Khasabai</h1></div>
   <p style="font-size: 32px; color: #453321; margin-top: -26%; font-size: 28px; font-weight: bold; font-style: italic; text-align: center; "><br>Elevate Your Beauty Rituals with Exquisite Beauty Products Crafted for Timeless Elegance.</p> 
 
 <div class="wrap" >

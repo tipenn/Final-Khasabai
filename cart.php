@@ -390,7 +390,7 @@ if ($output === null) { ?>
         </form>
         
         <?php
-    }}echo $total;
+    }}
     if(isset($_POST['ship'])){
         $id = $_POST['id'];
         $mysequel = "UPDATE order_customer SET status = 'Ordered' WHERE id='$id'";
