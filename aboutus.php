@@ -348,14 +348,14 @@ if (!empty($searchQuery)) {
 </script>
         <div class="right">
        <p>Welcome to Khasabai. Khasabai serves as the best way of delivering a great user experience by deeply understanding what people want and love. We provided authentic products, descriptions, and inclusions of the products that are most helpful, relevant, and timely. That's why it makes users happy and loyal.
-</div>
+</div><br><BR><br>
 <div class="float">
         <img src="assets/aboutus.png" style="width: 100%; height:800px; max-width: 100%;">
         <h1 style="font-size: 48px; position: absolute; top: 18em; left: 13%; ">Know our story.</h1><br><br></div>
 <div class="text-top">
     <p> Our mission is to transform the online shopping experience by providing a seamless journey that blends dependability, convenience, and tailored recommendations. We aim for customer satisfaction, so this website upholds complete transparency and ensures that every transaction is a secure and trustworthy experience. Our platform is designed to be your go-to destination for all your skincare shopping needs.</p>
 </div>
-
+<br>
         
 
  <!-- footer -->

@@ -22,7 +22,17 @@ $last=$conn->query($cosmetics);
 $skincare="SELECT * FROM products where category ='Facial Skin Care'";
 $follow=$conn->query($skincare);
 
+$searchQuery = isset($_GET['query']) ? $_GET['query'] : '';
 
+if (!empty($searchQuery)) {
+    // If there's a search query, modify the SQL query
+    $sql = "SELECT * FROM products WHERE item_name LIKE '%$searchQuery%' OR item_description LIKE '%$searchQuery%';";
+} else {
+    // If no search query, retrieve all products
+    $sql = "SELECT * FROM products;";
+}
+
+$result = $conn->query($sql);
 
 if (isset($_POST['order'])) {
     header('Location: ordercustomer.php'); // Provide the complete URL

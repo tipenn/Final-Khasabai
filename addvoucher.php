@@ -7,9 +7,8 @@ if (isset($_POST['insert'])) {
     $voucher_code=$_POST['voucher_code'];
     $percent=$_POST['percent'];
     $expiration_date=$_POST['expiration_date'];
-    $type=$_POST['type'];
 
-        $query = "INSERT INTO voucher (`voucher_code`, `percent`, `type`, `expiration_date`) VALUES('$voucher_code','$percent', '$type', '$expiration_date')";
+        $query = "INSERT INTO voucher (`voucher_code`, `percent`,  `expiration_date`) VALUES('$voucher_code','$percent','$expiration_date')";
         mysqli_query($conn, $query);
 
        $message="Voucher successfully added!!!";
@@ -333,12 +332,7 @@ if (isset($_POST['insert'])) {
                 <hr>
                 <br>
                 <div id="message" class="alert alert-success" style="display: none;"></div>
-                <label for="type"><h3 style="font-style: italic;" required>Type: </h3></label>
-                <select id="type" class="option " name="type" placeholder="Type" required>
-                    <option name="type" value="Reduce to the item product" required>Reduce to the item product</option>
-                    <option name="type" value="Reduce to the shipping fee"required>Reduce to the shipping fee</option>
-                    <option name="type" value="Reduce to the total fee"required>Reduce to the total fee</option>
-                </select> 
+               
                 <br><br><br>
                 <input type="text" name="voucher_code" class="form-control" placeholder="Voucher Code" required><br>
                 <input type="number" name="percent" class="form-control" placeholder="00.00" required><br>

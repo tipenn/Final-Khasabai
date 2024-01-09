@@ -537,11 +537,9 @@ if (!empty($searchQuery)) {
                         while ($beauty_sets_row = $output->fetch_assoc()) {?>
                             <div class="col">
                                 <div class="custom-container">
-                                    <a href="product.php?product_id=<?php echo $beauty_sets_row['item_code']; ?>" style="text-decoration: none; color: inherit;">
                                     <img src="assets/<?php echo $beauty_sets_row["item_image"] ?>">
                                     <p class="text-lead"><?php echo $beauty_sets_row["item_name"] ?></p><br>
                                     <p class="text-lead">₱<?php echo $beauty_sets_row["retail_price"] ?></p>
-                                    </a>
                                 </div>
                             </div>
                         <?php
@@ -558,11 +556,9 @@ if (!empty($searchQuery)) {
                         while ($body_soap_row = $outcome->fetch_assoc()) {?>
                             <div class="col">
                                 <div class="custom-container">
-                                    <a href="product.php?product_id=<?php echo $body_soap_row['item_code']; ?>" style="text-decoration: none; color: inherit;">
                                     <img src="assets/<?php echo $body_soap_row["item_image"] ?>">
                                     <p class="text-lead"><?php echo $body_soap_row["item_name"] ?></p><br>
                                     <p class="text-lead">₱<?php echo $body_soap_row["retail_price"] ?></p>
-                                    </a>
                                 </div>
                             </div>
                         <?php
@@ -578,11 +574,9 @@ if (!empty($searchQuery)) {
                         while ($lotion_row = $end->fetch_assoc()) {?>
                             <div class="col">
                                 <div class="custom-container">
-                                    <a href="product.php?product_id=<?php echo $lotion_row['item_code']; ?>" style="text-decoration: none; color: inherit;">
                                     <img src="assets/<?php echo $lotion_row["item_image"] ?>">
                                     <p class="text-lead"><?php echo $lotion_row["item_name"] ?></p><br>
                                     <p class="text-lead">₱<?php echo $lotion_row["retail_price"] ?></p>
-                                    </a>
                                 </div>
                             </div>
                         <?php
@@ -598,7 +592,6 @@ if (!empty($searchQuery)) {
                         while ($cosmetics_row = $last->fetch_assoc()) {?>
                             <div class="col">
                                 <div class="custom-container">
-                                    <a href="product.php?product_id=<?php echo $cosmetics_row['item_code']; ?>" style="text-decoration: none; color: inherit;">
                                     <img src="assets/<?php echo $cosmetics_row["item_image"] ?>">
                                     <p class="text-lead"><?php echo $cosmetics_row["item_name"] ?></p><br>
                                     <p class="text-lead">₱<?php echo $cosmetics_row["retail_price"] ?></p>
@@ -618,11 +611,9 @@ if (!empty($searchQuery)) {
                         while ($skincare_row = $follow->fetch_assoc()) {?>
                             <div class="col">
                                 <div class="custom-container">
-                                    <a href="product.php?product_id=<?php echo $skincare_row['item_code']; ?>" style="text-decoration: none; color: inherit;">
                                     <img src="assets/<?php echo $skincare_row["item_image"] ?>">
                                     <p class="text-lead"><?php echo $skincare_row["item_name"] ?></p><br>
                                     <p class="text-lead">₱<?php echo $skincare_row["retail_price"] ?></p>
-                                    </a>
                                 </div>
                             </div>
                         <?php

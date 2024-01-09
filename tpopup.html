@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        margin: 0px;
+        padding: 0px;
+        box-sizing: border-box;
+    }
+    body{
+        background: grey;
+        font-family: "raleway", sans-serif;
+    }
+    .center{
+        position:absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    .center button{
+        padding: 10px 20px;
+        font-size: 15px;
+        font-weight: 500;
+        color:#2222;
+        background-color: white;
+        border:none;
+        outline: none;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+    
+</style>
+<body>
+    <div class="center">
+        <button id="show-login" >Login</button>
+    </div>
+<div class="popup">
+    <div class="close-btn">&times;</div>
+    <div class="form">
+        <h2>Log in</h2>
+        <div class="form-element">
+            <label for="email"> Email: </label>
+            <input type="email" id="email" placeholder="Enter Email">
+        </div>
+        <div class="form-element">
+            <label for="username">Username:</label>
+            <input type="text" id="username" placeholder="Enter Username">
+        </div>
+        <div class="form-element">
+            <label for="password">Password:</label>
+            <input type="password" id="password" placeholder="Enter Password">
+        </div>
+        <div class="form-element">
+            <input type="checkbox" id="remember-me" >
+            <label for="remember-me">Remember Me:</label>
+        </div>
+        <div class="form-element">
+            <button type="submit">Sign in</button>
+        </div>
+        <div class="form-element">
+            <a href="#" >Forgot Password?</a>
+        </div>
+    </div>
+</div>
+<script>
+        // Function to show the login popup
+        document.getElementById("show-login").addEventListener("click", function() {
+            document.getElementById("login-popup").style.display = "block";
+        });
+
+        
+        // Function to close the popup when the close button is clicked
+        document.getElementById("close-popup").addEventListener("click", function() {
+            document.getElementById("login-popup").style.display = "none";
+        });
+
+        // Function to handle form submission (you can customize this)
+        function signIn() {
+            // Add your logic for form submission/validation here
+            // For now, let's just close the popup
+            document.getElementById("login-popup").style.display = "none";
+        }
+    </script>
+</body>
+</html>
