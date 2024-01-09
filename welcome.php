@@ -495,7 +495,7 @@ if (!empty($searchQuery)) {
     <div class="col-2">
     <div class="beauty-sets head" style="display: inline-block;  cursor: pointer; margin-left: 1em;"   onclick="toggleContent('beauty_set_')">Beauty Sets</div></div>
     <div class="col-3">
-    <div class="soap-scrub head" style="display: inline-block;  cursor: pointer;margin-left: 1em;"   onclick="toggleContent('body_soap_')">Body Soup and Scrub</div></div>
+    <div class="soap-scrub head" style="display: inline-block;  cursor: pointer;margin-left: 1em;"   onclick="toggleContent('body_soap_')">Body Soap and Scrub</div></div>
     <div class="col-3">
     <div class="face-body head" style="display: inline-block;  cursor: pointer; margin-left: 1em;" onclick="toggleContent('lotion_')">Face and Body Lotion</div></div>
     <div class="col-1">

@@ -148,6 +148,7 @@ $result = $conn->query($sql);
         margin: 5px;  
         border: 3px solid #5B4E2C; /* Add border style */
         padding: 10px;
+        margin-bottom: 5em;
         }
         .prata-text {
         font-family: 'Prata', serif;
@@ -236,12 +237,13 @@ $result = $conn->query($sql);
         while ($row = $result->fetch_assoc()) { ?>
             <div class="row">
                 <!-- First Column -->
-                <?php echo $row['id']?>
-                <div class="col prata-text"><b>Customer: </b><?php echo $row['email'] ?> <br> <b>Phone Number: </b><?php echo $row['phoneNumber'] ?><br> <b>Address: </b><?php echo $row['address'] ?><br> <b>Delivered Date:</b> <?php echo $row['date_arrival'] ?><br> <b>Status: </b><?php echo $row['status']?></div>
+                <!-- <?php echo $row['id']?> -->
+                <div class="col prata-text" style="margin-left: 5em;"><b>Customer: </b><?php echo $row['email'] ?> <br> <b>Phone Number: </b><?php echo $row['phoneNumber'] ?><br> <b>Address: </b><?php echo $row['address'] ?><br> <b>Delivered Date:</b> <?php echo $row['date_arrival'] ?><br> <b>Status: </b><?php echo $row['status']?></div>
                 <div class="col prata-text"><b>Quantity: </b><?php echo $row['quantity'] ?><br><br><b> Item Name: </b><?php echo $row['item_name'] ?></div>
                 <div class="col prata-text"><b>Sub Total:</b> ₱<?php echo $row['total_price'] ?><br><br><b>Shipping Fee: </b>₱<?php echo $row['shipping_fee'] ?><br> <br><b>Total:</b> ₱<?php echo $row['total_fee'] ?></div>
                 <!-- Second Column -->
             </div>
+            <hr>
         <?php 
         }
     }

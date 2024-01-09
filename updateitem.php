@@ -321,7 +321,7 @@ if (message.trim() !== "") {
 <form method="post" enctype="multipart/form-data">
 <h6> Item Image</h6>
     <input type="file" class="form-control" name="item_image" value="<?php echo $itemImage; ?>"><br><br>
-    <button type="submit" name="upload">hah</button>
+    <button type="submit" name="upload">submit</button>
 </form>
 </center>
 
