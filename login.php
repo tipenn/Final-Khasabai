@@ -1,6 +1,7 @@
 <?php
 include 'function.php';
 session_start();
+$random=(rand(100000,999999));
 
 if (isset($_POST['submit_btn'])) {
     $email = $_POST['email'];

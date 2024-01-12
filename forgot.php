@@ -1,5 +1,4 @@
 <?php
-error_reporting(0);
 include 'function.php';
 if (isset($_POST['submit'])) {
 $email = $_POST['email'] ;
@@ -11,7 +10,7 @@ if ($result->num_rows > 0) {
 }else{
     $errorMessage = "Email not found";
 }
-require_once "C:\\xampp\\htdocs\\aet\\Mailer\\PHPMailerAutoload.php";
+require 'C:\xampp\htdocs\GitHub\Final-Khasabai\Mailer\PHPMailerAutoload.php';
 $mail = new PHPMailer;
 
 $mail->isSMTP();

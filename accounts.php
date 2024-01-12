@@ -20,6 +20,10 @@ if (!empty($searchQuery)) {
 }
 
 $result = $conn->query($sql);
+
+
+$query="SELECT * FROM users";
+$outcome = mysqli_query($conn, $query);
 ?>
 
 <!DOCTYPE html>
@@ -292,42 +296,25 @@ $result = $conn->query($sql);
 <!--body-->
 
 <br>
-    <div class="container">
-        <div class="row">
-            <div class="col-4">
-                <br><br><br><br><br>
-                <a href="add.php">
-                <button type="submit" class="addition">ADD</button></a>
-                <a href="update.php">
-                <button type="submit" class="updation">UPDATE</button></a>
-                <a href="delete.php">
-                <button type="submit" class="deletion">DELETE</button></a>
-            </div>
-            <div class="col">
-                <div class="scrollable-section">
-                    <div class="content">
-                    <div class="row">
-    <?php if ($result->num_rows > 0) {
-        while ($row = $result->fetch_assoc()) { ?>
-            <div class="col">
-                <div class="custom-container">
-                    <img src="assets/<?php echo $row["item_image"] ?>">
-                    <p class="text-lead"><?php echo $row["item_name"]?></p>
-                    <br><br><p class="text-lead">₱<?php echo $row["retail_price"] ?></p>
-                </div>
-            </div>
-    <?php }} ?>
-</div>
-                            
+   <div class="container">
+    <table>
+        <tr>
+        <th>Email</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Phone Number</th>
+        <th>Address</th>
+        <th>Status</th>
+    </tr>
+    <?php 
+    
+    ?>
 
-                        </div>
 
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 
+    </table>
+
+   </div>
     
 
     <footer class="container-fluid">

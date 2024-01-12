@@ -224,7 +224,7 @@ if (isset($_POST['signup'])) {
     <h1> KHASABAI
         <br> BEAUTY PRODUCTS </h1>
        <center>
-        <form method="post" action="">
+        <form method="post" action="login.php">
         <button type="submit" name="login" class="btn buttoncst" style="margin-top: 3em; margin-bottom: -25px;" >LOG IN</button>
         </form>
         <form method="post" action="">

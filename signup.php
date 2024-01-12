@@ -1,5 +1,6 @@
 <?php
 require 'function.php';
+$random=(rand(100000,999999));
 
 if (isset($_POST['signup'])) {
     $firstName = $_POST['firstName'];
@@ -11,10 +12,31 @@ if (isset($_POST['signup'])) {
     $typeUser = $_POST['typeUser'];
 
     if ($_POST['password'] === $_POST['confirmPassword']) {
-        $query = "INSERT INTO users VALUES('', '$firstName', '$lastName','$email','', '$phoneNumber', '$address', '$password', '$typeUser')";
+        $query = "INSERT INTO users VALUES('', '$firstName', '$lastName','$email','', '$phoneNumber', '$address', '$password', '$typeUser','$random')";
         mysqli_query($conn, $query);
-        header("Location:login.php");
         echo "<script>alert('Account successfully created!!');</script>";
+        require 'C:\xampp\htdocs\GitHub\Final-Khasabai\Mailer\PHPMailerAutoload.php';
+$mail = new PHPMailer;
+
+$mail->isSMTP();
+
+$mail->Host='smtp.gmail.com';
+$mail->Port=587;
+$mail->SMTPAuth=true;
+$mail->SMTPSecure='tls';
+
+$mail->Username='khasabai337@gmail.com';
+$mail->Password='yjuv ymrx cgnt ojvy';
+
+$mail->setFrom('khasabai337@gmail.com', 'Here is your password');
+$mail->addAddress($_POST["email"]);
+
+$mail->isHTML(true);
+$mail->Subject="Password Reset";
+$mail->Body="<p>Dear user, </p> Your OTP is <h2>" . $random . "</h2><br><h3> please Input it in the </h3>
+<br><br>
+";
+$mail->send();
 
     } else {
         echo "<script>alert('Password do not match');</script>";
@@ -265,6 +287,9 @@ if (isset($_POST['signup'])) {
                         <a href="login.php" style="text-decoration: none; color: black">Log in</a>
                         <br><br>
                     </form>
+                    <input type="number" name="otp" placeholder="xxxxxx">
+                    <button name="ok">Submit</button>   
+                    <br>
                 </div>
             </div>
         </div>

@@ -339,11 +339,12 @@ if(isset($_POST['done_pickup'])){
                                 </div>
                             </div>
                             <br>
-                            <form method="POST" action="orderriderdeliver.php" style="text-align: center;">
+                            <form method="POST"style="text-align: center;">
+        
+    <form method="POST" style="text-align: center;">
         <input type="hidden" name="order_id" value="<?php echo $order_id ?>">
-        <button type="submit" name="done_pickup" id="done_pickup_btn" onclick="return disableDonePickup()">Done Pick up</button>
+        <button type="submit" name="delivered" id="delivered_btn" onclick="return disableDelivered()">Delivered</button>
     </form>
-  
     
 </div>
         <?php 

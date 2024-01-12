@@ -1,6 +1,5 @@
 <?php 
 error_reporting(0);
-
 include 'function.php';
 session_start();
 $email=$_SESSION['email'];
@@ -287,6 +286,7 @@ $result = $conn->query($sql);
                 <form method="POST">
                     <!-- Hidden input for item ID -->
                     <input type="hidden" name="item_code" value="<?php echo $row['id']; ?>">
+                    <input type="hidden" name="code" value="<?php echo $row['item_code']; ?>">
 
                     <!-- Select button -->
                     <button type="submit" name="check_out<?php echo $row["id"]; ?>" class="check_out">
@@ -357,7 +357,7 @@ if ($output === null) { ?>
         </div>
         <div class="row">
             <div class="col">
-                SHIPPING FEE:
+                SHIPPING FEE: 
             </div>
             <div class="col">
                 ₱<?php echo $row['shipping_fee']; ?>
@@ -369,13 +369,17 @@ if ($output === null) { ?>
             </div>
             <div class="col">
                 ₱<?php echo $row['voucher_discount'];
+                
                 ?>
             </div>
         </div>
         <hr style="color: #5B4E2C; height: 5px;">
         <div class="row" style="padding: 20px;">
             <div class="col">
-                <b> T O T A L :</b>
+                <b> T O T A L : </b>
+                <input type="hidden" name="item_code" value="<?php echo $row['item_code'] ?>">
+                <input type="hidden" name="quantity" value="<?php echo $row['quantity'] ?>">
+
             </div>
             <div class="col">
                 <b>₱<?php
@@ -393,9 +397,15 @@ if ($output === null) { ?>
     }}
     if(isset($_POST['ship'])){
         $id = $_POST['id'];
+        $quantity=$_POST['quantity'];
+        $item_code=$_POST['item_code'];
         $mysequel = "UPDATE order_customer SET status = 'Ordered' WHERE id='$id'";
+        
         if(mysqli_query($conn, $mysequel)) {
             echo "<script>alert('Item successfully ordered !!');</script>";
+            $stocks="UPDATE products set stocks=stocks-'$quantity' where item_code='$item_code'";
+        $out=$conn  ->query($stocks); 
+            
         } else {
             echo "<script>alert('Error updating item: " . mysqli_error($conn) . "');</script>";
         }
